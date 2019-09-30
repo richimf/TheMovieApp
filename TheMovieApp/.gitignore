@@ -1,0 +1,10 @@
+# Ignore
+.DS_Store
+
+## Build generated
+build/
+DerivedData/
+Pods/
+xcuserdata/
+TheMovieApp.xcworkspace/xcshareddata/
+.build/
