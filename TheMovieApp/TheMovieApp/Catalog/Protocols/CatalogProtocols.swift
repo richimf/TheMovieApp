@@ -6,8 +6,9 @@
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
+// MARK: - VIPER Protocols
 protocol CatalogViewProtocol: class {
   var presenter: CatalogPresenterProtocol? { get set}
   // PRESENTER -> VIEW
@@ -21,6 +22,8 @@ protocol CatalogPresenterProtocol: class {
   var router: CatalogRouterProtocol? { get set }
   // VIEW -> PRESENTER
   // TODO METHODS
+  func getItem(at: Int) -> Movie
+  func getNumberOfItems() -> Int
 }
 
 protocol CatalogInteractorInputProtocol: class {
@@ -37,4 +40,24 @@ protocol CatalogInteractorOutputProtocol: class {
 protocol CatalogRouterProtocol: class {
   // PRESENTER -> ROUTER
   func presentMovieDetailView(from view: CatalogViewProtocol, with items: [Movie])
+}
+
+// MARK: - UITABLEVIEWCELL Protocols
+protocol MovieTableViewCellDelegate: class {
+  func showMovieTrailer()
+}
+
+
+// MARK: - PROTOCOL Definition
+protocol UITableViewCellReusableView {
+  static func nib() -> UINib
+  static func reuseIdentifier() -> String
+}
+extension UITableViewCellReusableView where Self: UITableViewCell {
+  static func nib() -> UINib {
+    return UINib(nibName: String(describing: self), bundle: nil)
+  }
+  static func reuseIdentifier() -> String {
+    return String(describing: self)
+  }
 }

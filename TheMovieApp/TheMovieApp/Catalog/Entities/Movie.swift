@@ -11,5 +11,5 @@ import UIKit
 public struct Movie {
   var title: String
   var description: String
-  var cover: UIImage
+  var cover: UIImage?
 }

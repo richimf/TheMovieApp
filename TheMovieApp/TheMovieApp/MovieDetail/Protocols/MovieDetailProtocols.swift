@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - VIPER Protocols
 protocol MovieDetailViewProtocol: class {
   var presenter: MovieDetailPresenterProtocol? { get set}
   // PRESENTER -> VIEW

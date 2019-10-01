@@ -8,14 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		1C4CC1BA33C1326D29ABBDA2 /* Pods_TheMovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1DC33441CDDA94349BDB5C /* Pods_TheMovieApp.framework */; };
+		89796DAA2343AD310031835C /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89796DA92343AD310031835C /* RoundButton.swift */; };
+		89796DAE2343E36D0031835C /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89796DAC2343E36D0031835C /* MovieTableViewCell.swift */; };
+		89796DAF2343E36D0031835C /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89796DAD2343E36D0031835C /* MovieTableViewCell.xib */; };
+		89796DB52343E62A0031835C /* avant-garde-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89796DB32343E62A0031835C /* avant-garde-regular.otf */; };
+		89796DB62343E62A0031835C /* avant-garde-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89796DB42343E62A0031835C /* avant-garde-light.otf */; };
 		8998F19523426A9E00FD8364 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8998F19423426A9E00FD8364 /* AppDelegate.swift */; };
 		8998F19723426A9E00FD8364 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8998F19623426A9E00FD8364 /* SceneDelegate.swift */; };
-		8998F19923426A9E00FD8364 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8998F19823426A9E00FD8364 /* ViewController.swift */; };
 		8998F19C23426A9E00FD8364 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8998F19A23426A9E00FD8364 /* Main.storyboard */; };
 		8998F19F23426A9E00FD8364 /* TheMovieApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8998F19D23426A9E00FD8364 /* TheMovieApp.xcdatamodeld */; };
 		8998F1A123426AA000FD8364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8998F1A023426AA000FD8364 /* Assets.xcassets */; };
 		8998F1A423426AA000FD8364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8998F1A223426AA000FD8364 /* LaunchScreen.storyboard */; };
 		8998F1AF23426AA000FD8364 /* TheMovieAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8998F1AE23426AA000FD8364 /* TheMovieAppTests.swift */; };
+		89A17AFF23440972007B9281 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A17AFE23440972007B9281 /* Helpers.swift */; };
 		89E77286234398A4007FAB25 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77285234398A4007FAB25 /* CatalogViewController.swift */; };
 		89E772882343991D007FAB25 /* CatalogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E772872343991D007FAB25 /* CatalogProtocols.swift */; };
 		89E7728A234399F1007FAB25 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77289234399F1007FAB25 /* Movie.swift */; };
@@ -45,10 +50,14 @@
 		521932DCD80F09796D23BF64 /* Pods_TheMovieAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		642B794A194C8833D66F7F27 /* Pods-TheMovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieApp/Pods-TheMovieApp.release.xcconfig"; sourceTree = "<group>"; };
 		72002CE99965FA4EE46B0A03 /* Pods-TheMovieAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieAppTests/Pods-TheMovieAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		89796DA92343AD310031835C /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		89796DAC2343E36D0031835C /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		89796DAD2343E36D0031835C /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
+		89796DB32343E62A0031835C /* avant-garde-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "avant-garde-regular.otf"; sourceTree = "<group>"; };
+		89796DB42343E62A0031835C /* avant-garde-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "avant-garde-light.otf"; sourceTree = "<group>"; };
 		8998F19123426A9E00FD8364 /* TheMovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8998F19423426A9E00FD8364 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8998F19623426A9E00FD8364 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8998F19823426A9E00FD8364 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8998F19B23426A9E00FD8364 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8998F19E23426A9E00FD8364 /* TheMovieApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheMovieApp.xcdatamodel; sourceTree = "<group>"; };
 		8998F1A023426AA000FD8364 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +66,7 @@
 		8998F1AA23426AA000FD8364 /* TheMovieAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMovieAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8998F1AE23426AA000FD8364 /* TheMovieAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieAppTests.swift; sourceTree = "<group>"; };
 		8998F1B023426AA000FD8364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89A17AFE23440972007B9281 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		89E77285234398A4007FAB25 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		89E772872343991D007FAB25 /* CatalogProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogProtocols.swift; sourceTree = "<group>"; };
 		89E77289234399F1007FAB25 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
@@ -112,6 +122,47 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		89796DAB2343E1AA0031835C /* UIControls */ = {
+			isa = PBXGroup;
+			children = (
+				89796DB12343E58C0031835C /* Buttons */,
+			);
+			path = UIControls;
+			sourceTree = "<group>";
+		};
+		89796DB02343E3710031835C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				89796DAC2343E36D0031835C /* MovieTableViewCell.swift */,
+				89796DAD2343E36D0031835C /* MovieTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		89796DB12343E58C0031835C /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				89796DA92343AD310031835C /* RoundButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		89796DB22343E5C30031835C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				89796DB42343E62A0031835C /* avant-garde-light.otf */,
+				89796DB32343E62A0031835C /* avant-garde-regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		89796DB72343ED680031835C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		8998F18823426A9E00FD8364 = {
 			isa = PBXGroup;
 			children = (
@@ -137,7 +188,9 @@
 			children = (
 				8998F19423426A9E00FD8364 /* AppDelegate.swift */,
 				8998F19623426A9E00FD8364 /* SceneDelegate.swift */,
-				8998F19823426A9E00FD8364 /* ViewController.swift */,
+				89796DB72343ED680031835C /* Helpers */,
+				89796DB22343E5C30031835C /* Fonts */,
+				89796DAB2343E1AA0031835C /* UIControls */,
 				89E772792343961E007FAB25 /* Catalog */,
 				89E7727A23439627007FAB25 /* MovieDetail */,
 				8998F19A23426A9E00FD8364 /* Main.storyboard */,
@@ -158,10 +211,18 @@
 			path = TheMovieAppTests;
 			sourceTree = "<group>";
 		};
+		89A17AFD23440963007B9281 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				89A17AFE23440972007B9281 /* Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		89E772792343961E007FAB25 /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
-				89E7727D2343966F007FAB25 /* Helpers */,
+				89A17AFD23440963007B9281 /* Helpers */,
 				89E7727F23439686007FAB25 /* Protocols */,
 				89E7727B2343964C007FAB25 /* DataManager */,
 				89E7728123439692007FAB25 /* View */,
@@ -176,7 +237,6 @@
 		89E7727A23439627007FAB25 /* MovieDetail */ = {
 			isa = PBXGroup;
 			children = (
-				89E772982343A157007FAB25 /* Helpers */,
 				89E772972343A152007FAB25 /* Protocols */,
 				89E772962343A14C007FAB25 /* DataManager */,
 				89E772952343A148007FAB25 /* View */,
@@ -203,13 +263,6 @@
 				89E77289234399F1007FAB25 /* Movie.swift */,
 			);
 			path = Entities;
-			sourceTree = "<group>";
-		};
-		89E7727D2343966F007FAB25 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		89E7727E2343967F007FAB25 /* Presenter */ = {
@@ -240,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				89E77285234398A4007FAB25 /* CatalogViewController.swift */,
+				89796DB02343E3710031835C /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -318,13 +372,6 @@
 				89E772992343A221007FAB25 /* MovieDetailProtocols.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		89E772982343A157007FAB25 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +461,9 @@
 			files = (
 				8998F1A423426AA000FD8364 /* LaunchScreen.storyboard in Resources */,
 				8998F1A123426AA000FD8364 /* Assets.xcassets in Resources */,
+				89796DB52343E62A0031835C /* avant-garde-regular.otf in Resources */,
+				89796DB62343E62A0031835C /* avant-garde-light.otf in Resources */,
+				89796DAF2343E36D0031835C /* MovieTableViewCell.xib in Resources */,
 				8998F19C23426A9E00FD8364 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,16 +616,18 @@
 				89E7728C23439F85007FAB25 /* CatalogInteractor.swift in Sources */,
 				89E7728A234399F1007FAB25 /* Movie.swift in Sources */,
 				89E772A02343A385007FAB25 /* MovieDetailPresenter.swift in Sources */,
-				8998F19923426A9E00FD8364 /* ViewController.swift in Sources */,
 				8998F19523426A9E00FD8364 /* AppDelegate.swift in Sources */,
 				89E7729C2343A2D6007FAB25 /* MovieDetailViewController.swift in Sources */,
 				89E772A22343A391007FAB25 /* MovieDetailRouter.swift in Sources */,
+				89796DAE2343E36D0031835C /* MovieTableViewCell.swift in Sources */,
+				89796DAA2343AD310031835C /* RoundButton.swift in Sources */,
 				89E77286234398A4007FAB25 /* CatalogViewController.swift in Sources */,
 				89E7729A2343A221007FAB25 /* MovieDetailProtocols.swift in Sources */,
 				89E772882343991D007FAB25 /* CatalogProtocols.swift in Sources */,
 				89E7729E2343A37C007FAB25 /* MovieDetailInteractor.swift in Sources */,
 				89E7729023439FA3007FAB25 /* CatalogRouter.swift in Sources */,
 				8998F19F23426A9E00FD8364 /* TheMovieApp.xcdatamodeld in Sources */,
+				89A17AFF23440972007B9281 /* Helpers.swift in Sources */,
 				8998F19723426A9E00FD8364 /* SceneDelegate.swift in Sources */,
 				89E7728E23439F93007FAB25 /* CatalogPresenter.swift in Sources */,
 			);

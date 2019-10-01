@@ -6,7 +6,7 @@
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class CatalogPresenter: CatalogPresenterProtocol {
   
@@ -14,7 +14,17 @@ class CatalogPresenter: CatalogPresenterProtocol {
   weak var view: CatalogViewProtocol?
   var interactor: CatalogInteractorInputProtocol?
   var router: CatalogRouterProtocol?
-
+  
+  func getItem(at: Int) -> Movie {
+    let image = UIImage(named: "genericFlyer")
+    return Movie(title: "Avengers",
+                 description: "Thanos dies",
+                 cover: image)
+  }
+  
+  func getNumberOfItems() -> Int {
+    return 10
+  }
 }
 extension CatalogPresenter: CatalogInteractorOutputProtocol {
   
