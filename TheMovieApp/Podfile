@@ -5,7 +5,7 @@ inhibit_all_warnings!
 
 def dependency_pods
     # SWIFTLINT
-    pod 'SwiftLint'
+    # pod 'SwiftLint'
 
     # ALAMOFIRE
     pod 'Alamofire', '~> 4.5'
@@ -18,12 +18,12 @@ def dependency_pods
     pod 'ObjectMapper+Realm'
 
     # RxSwift
-    pod 'RxSwift',    '~> 4.0'
-    pod 'RxCocoa',    '~> 4.0'
+    pod 'RxSwift', '~> 4.0'
+    pod 'RxCocoa', '~> 4.0'
     pod 'RxGesture'
 
     # Animations'
-    pod 'Hero'
+    # pod 'Hero'
     pod 'lottie-ios'
     end
 
