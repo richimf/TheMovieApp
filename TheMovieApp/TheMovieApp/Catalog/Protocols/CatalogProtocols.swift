@@ -21,9 +21,9 @@ protocol CatalogPresenterProtocol: class {
   var interactor: CatalogInteractorInputProtocol? { get set}
   var router: CatalogRouterProtocol? { get set }
   // VIEW -> PRESENTER
-  // TODO METHODS
   func getItem(at: Int) -> Movie
   func getNumberOfItems() -> Int
+  func showDetailView(for movie: Movie)
 }
 
 protocol CatalogInteractorInputProtocol: class {

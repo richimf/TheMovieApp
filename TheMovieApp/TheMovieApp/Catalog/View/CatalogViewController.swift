@@ -13,7 +13,7 @@ class CatalogViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
   @IBOutlet private weak var searchBar: UISearchBar!
   @IBOutlet private weak var segmentedControl: UISegmentedControl!
-
+  
   private lazy var identifier: String = MovieTableViewCell.reuseIdentifier()
   private let cellHeight: CGFloat = 175.0
   
@@ -26,9 +26,6 @@ class CatalogViewController: UIViewController {
     setup()
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-  }
-
   private func setup() {
     CatalogRouter.createModule(view: self)
     self.tableView.delegate = self
@@ -49,28 +46,29 @@ extension CatalogViewController: CatalogViewProtocol {
   }
 }
 
-// MARK: - TABLEVIEW Delegate
-extension CatalogViewController: UITableViewDelegate {
+// MARK: - TABLEVIEW Delegate & DataSource
+extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
+  
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
-
-}
-
-// MARK: - TABLEVIEW DataSource
-extension CatalogViewController: UITableViewDataSource {
-
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return presenter?.getNumberOfItems() ?? 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let movie = presenter?.getItem(at: indexPath.row) else { return UITableViewCell() }
-    return setupCell(tableView, identifier: identifier, row: indexPath.row, data: movie, delegate: self)
+    guard let movie = getItemAt(indexPath) else { return UITableViewCell() }
+    return setupCell(for: tableView, with: identifier, row: indexPath.row, data: movie, delegate: self)
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      print("You tapped cell number \(indexPath.row).")
+    guard let movie = getItemAt(indexPath) else { return }
+    presenter?.showDetailView(for: movie)
+  }
+  
+  private func getItemAt(_ indexPath: IndexPath) -> Movie? {
+    presenter?.getItem(at: indexPath.row)
   }
 }
 
