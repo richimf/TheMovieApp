@@ -5,7 +5,6 @@ PODS:
   - AlamofireObjectMapper (5.2.1):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
-  - Hero (1.4.0)
   - lottie-ios (3.1.3)
   - ObjectMapper (3.5.1)
   - "ObjectMapper+Realm (0.6)":
@@ -22,13 +21,11 @@ PODS:
     - RxCocoa (~> 4.5)
     - RxSwift (~> 4.5)
   - RxSwift (4.5.0)
-  - SwiftLint (0.35.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - AlamofireImage
   - AlamofireObjectMapper (~> 5.2)
-  - Hero
   - lottie-ios
   - ObjectMapper
   - "ObjectMapper+Realm"
@@ -36,14 +33,12 @@ DEPENDENCIES:
   - RxCocoa (~> 4.0)
   - RxGesture
   - RxSwift (~> 4.0)
-  - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireImage
     - AlamofireObjectMapper
-    - Hero
     - lottie-ios
     - ObjectMapper
     - "ObjectMapper+Realm"
@@ -52,13 +47,11 @@ SPEC REPOS:
     - RxCocoa
     - RxGesture
     - RxSwift
-    - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
   AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
   AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
-  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   lottie-ios: 496ac5cea1bbf1a7bd1f1f472f3232eb1b8d744b
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   "ObjectMapper+Realm": 4cf44ed3202a73f08594e21e13eb3f8aa9b5a664
@@ -67,8 +60,7 @@ SPEC CHECKSUMS:
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxGesture: c1b7bf17166b0ef9d642a9510f8bac5785f18990
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
-  SwiftLint: 5553187048b900c91aa03552807681bb6b027846
 
-PODFILE CHECKSUM: 1301a1dd99f71351694579ba06f76e7f0ffd9dc6
+PODFILE CHECKSUM: 94904557fe9e54eaa64a8bb1ad8de6421bfd0468
 
 COCOAPODS: 1.5.3
