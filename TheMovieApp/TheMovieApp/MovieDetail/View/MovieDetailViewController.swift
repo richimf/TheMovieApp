@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieDetailViewController: UITableViewController {
+class MovieDetailViewController: UIViewController {
   
   // MARK: - VIPER
   var presenter: MovieDetailPresenterProtocol?

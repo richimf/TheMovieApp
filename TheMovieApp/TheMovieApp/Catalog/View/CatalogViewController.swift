@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CatalogViewController: UITableViewController {
+class CatalogViewController: UIViewController {
   
   // MARK: - VIPER
   var presenter: CatalogPresenterProtocol?
