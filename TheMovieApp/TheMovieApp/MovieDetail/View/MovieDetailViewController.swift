@@ -23,10 +23,10 @@ class MovieDetailViewController: UIViewController {
   // MARK: - OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
+     presenter?.viewDidLoad()
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    presenter?.viewDidLoad()
   }
 }
 
