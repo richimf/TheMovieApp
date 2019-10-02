@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1C4CC1BA33C1326D29ABBDA2 /* Pods_TheMovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1DC33441CDDA94349BDB5C /* Pods_TheMovieApp.framework */; };
-		894772BD2344664F0038EAC3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894772BC2344664F0038EAC3 /* Constants.swift */; };
+		894772C42344EB6B0038EAC3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894772C32344EB6B0038EAC3 /* Constants.swift */; };
+		894772C62344EB820038EAC3 /* WebServiceContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894772C52344EB810038EAC3 /* WebServiceContext.swift */; };
 		89796DAA2343AD310031835C /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89796DA92343AD310031835C /* RoundButton.swift */; };
 		89796DAE2343E36D0031835C /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89796DAC2343E36D0031835C /* MovieTableViewCell.swift */; };
 		89796DAF2343E36D0031835C /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89796DAD2343E36D0031835C /* MovieTableViewCell.xib */; };
@@ -51,7 +52,8 @@
 		521932DCD80F09796D23BF64 /* Pods_TheMovieAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		642B794A194C8833D66F7F27 /* Pods-TheMovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieApp/Pods-TheMovieApp.release.xcconfig"; sourceTree = "<group>"; };
 		72002CE99965FA4EE46B0A03 /* Pods-TheMovieAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieAppTests/Pods-TheMovieAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		894772BC2344664F0038EAC3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		894772C32344EB6B0038EAC3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		894772C52344EB810038EAC3 /* WebServiceContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceContext.swift; sourceTree = "<group>"; };
 		89796DA92343AD310031835C /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		89796DAC2343E36D0031835C /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		89796DAD2343E36D0031835C /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
@@ -127,11 +129,19 @@
 		894772BB2344663F0038EAC3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				89796DB72343ED680031835C /* Constants */,
 				89796DB22343E5C30031835C /* Fonts */,
 				89796DAB2343E1AA0031835C /* UIControls */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		894772C72344EB8C0038EAC3 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				894772C52344EB810038EAC3 /* WebServiceContext.swift */,
+				894772C32344EB6B0038EAC3 /* Constants.swift */,
+			);
+			path = APIManager;
 			sourceTree = "<group>";
 		};
 		89796DAB2343E1AA0031835C /* UIControls */ = {
@@ -168,14 +178,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		89796DB72343ED680031835C /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				894772BC2344664F0038EAC3 /* Constants.swift */,
-			);
-			path = Constants;
-			sourceTree = "<group>";
-		};
 		8998F18823426A9E00FD8364 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +203,7 @@
 			children = (
 				8998F19423426A9E00FD8364 /* AppDelegate.swift */,
 				8998F19623426A9E00FD8364 /* SceneDelegate.swift */,
+				894772C72344EB8C0038EAC3 /* APIManager */,
 				894772BB2344663F0038EAC3 /* Resources */,
 				89E772792343961E007FAB25 /* Catalog */,
 				89E7727A23439627007FAB25 /* MovieDetail */,
@@ -641,7 +644,8 @@
 				89A17AFF23440972007B9281 /* Helpers.swift in Sources */,
 				8998F19723426A9E00FD8364 /* SceneDelegate.swift in Sources */,
 				89E7728E23439F93007FAB25 /* CatalogPresenter.swift in Sources */,
-				894772BD2344664F0038EAC3 /* Constants.swift in Sources */,
+				894772C62344EB820038EAC3 /* WebServiceContext.swift in Sources */,
+				894772C42344EB6B0038EAC3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
