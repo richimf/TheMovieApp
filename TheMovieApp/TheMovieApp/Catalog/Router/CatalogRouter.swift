@@ -6,12 +6,12 @@
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class CatalogRouter: CatalogRouterProtocol {
   
   typealias CatalogPresenterProtocols = CatalogPresenterProtocol & CatalogInteractorOutputProtocol
-
+  
   class func createModule(view: CatalogViewController) {
     let presenter: CatalogPresenterProtocols = CatalogPresenter()
     view.presenter = presenter
@@ -20,8 +20,10 @@ class CatalogRouter: CatalogRouterProtocol {
     view.presenter?.interactor = CatalogInteractor()
     view.presenter?.interactor?.presenter = presenter
   }
-
-  func presentMovieDetailView(from view: CatalogViewProtocol, with items: [Movie]) {
-    //TODO
+  
+  func presentMovieDetailView(for movie: Movie, from view: UIViewController) {
+    guard let detailView = view.storyboard?.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController else { return }
+    MovieDetailRouter.createMovieTrailerModule(for: detailView, and: movie)
+    view.navigationController?.pushViewController(detailView, animated: true)
   }
 }

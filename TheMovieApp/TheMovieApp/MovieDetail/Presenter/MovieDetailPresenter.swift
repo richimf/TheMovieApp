@@ -15,6 +15,12 @@ class MovieDetailPresenter: MovieDetailPresenterProtocol {
   var interactor: MovieDetailInteractorInputProtocol?
   var router: MovieDetailRouterProtocol?
   
+  var movie: Movie?
+  
+  func viewDidLoad() {
+    guard let movie = self.movie else { return }
+    view?.loadDetails(movie)
+  }
 }
 extension MovieDetailPresenter:  MovieDetailInteractorOutputProtocol {
 }

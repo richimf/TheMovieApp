@@ -64,7 +64,7 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let movie = getItemAt(indexPath) else { return }
-    presenter?.showDetailView(for: movie)
+    presenter?.showDetailView(for: movie, from: self)
   }
   
   private func getItemAt(_ indexPath: IndexPath) -> Movie? {

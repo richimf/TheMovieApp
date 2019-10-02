@@ -9,14 +9,14 @@
 import UIKit
 
 class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
-  
+
   weak var delegate: MovieTableViewCellDelegate?
 
   @IBOutlet private weak var imageCover: UIImageView!
   @IBOutlet private weak var labelTitle: UILabel!
   @IBOutlet private weak var labelDescription: UILabel!
   @IBOutlet private weak var buttonWatch: UIButton!
-  
+
   override func awakeFromNib() {
     super.awakeFromNib()
   }
@@ -24,13 +24,13 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
   }
-  
+
   func setup(with movie: Movie){
     self.imageCover.image = movie.cover
     self.labelTitle.text = movie.title
     self.labelDescription.text = movie.description
   }
-  
+
   @IBAction func watchTrailer(_ sender: Any) {
     delegate?.showMovieTrailer()
   }

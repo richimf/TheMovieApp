@@ -23,7 +23,7 @@ protocol CatalogPresenterProtocol: class {
   // VIEW -> PRESENTER
   func getItem(at: Int) -> Movie
   func getNumberOfItems() -> Int
-  func showDetailView(for movie: Movie)
+  func showDetailView(for movie: Movie, from view: UIViewController)
 }
 
 protocol CatalogInteractorInputProtocol: class {
@@ -39,7 +39,7 @@ protocol CatalogInteractorOutputProtocol: class {
 
 protocol CatalogRouterProtocol: class {
   // PRESENTER -> ROUTER
-  func presentMovieDetailView(from view: CatalogViewProtocol, with items: [Movie])
+  func presentMovieDetailView(for item: Movie, from view: UIViewController)
 }
 
 // MARK: - UITABLEVIEWCELL Protocols

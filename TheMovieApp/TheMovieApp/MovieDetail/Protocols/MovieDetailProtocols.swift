@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - VIPER Protocols
 protocol MovieDetailViewProtocol: class {
-  var presenter: MovieDetailPresenterProtocol? { get set}
+  var presenter: MovieDetailPresenterProtocol? { get set }
   // PRESENTER -> VIEW
   func loadDetails(_ movie: Movie)
   func showErrorMessage(_ message: String)
@@ -18,14 +18,15 @@ protocol MovieDetailViewProtocol: class {
 
 protocol MovieDetailPresenterProtocol: class {
   var view: MovieDetailViewProtocol? { get set }
-  var interactor: MovieDetailInteractorInputProtocol? { get set}
+  var interactor: MovieDetailInteractorInputProtocol? { get set }
   var router: MovieDetailRouterProtocol? { get set }
   // VIEW -> PRESENTER
-  // TODO METHODS
+  var movie: Movie? { get set }
+  func viewDidLoad()
 }
 
 protocol MovieDetailInteractorInputProtocol: class {
-  var presenter: MovieDetailInteractorOutputProtocol? { get set}
+  var presenter: MovieDetailInteractorOutputProtocol? { get set }
   // PRESENTER -> INTERACTOR
   // func retreiveMovies()
 }

@@ -16,20 +16,20 @@ class CatalogPresenter: CatalogPresenterProtocol {
   var router: CatalogRouterProtocol?
   
   private var data:[Movie] =
-    [Movie(title: "Avengers", description: "Thanos dies", cover: UIImage(named: "genericFlyer")),
+    [Movie(title: "Some movie Title", description: "Some long description", cover: UIImage(named: "genericFlyer")),
      Movie(title: "Avengers", description: "Thanos dies", cover: UIImage(named: "genericFlyer")),
      Movie(title: "Avengers", description: "Thanos dies", cover: UIImage(named: "genericFlyer"))]
   
   func getItem(at index: Int) -> Movie {
     return data[index]
   }
-  
+
   func getNumberOfItems() -> Int {
     return data.count
   }
   
-  func showDetailView(for movie: Movie) {
-    print(#function)
+  func showDetailView(for movie: Movie, from view: UIViewController) {
+    router?.presentMovieDetailView(for: movie, from: view)
   }
 }
 extension CatalogPresenter: CatalogInteractorOutputProtocol {
