@@ -8,7 +8,10 @@
 
 import UIKit
 
-func setupCell(for tableView: UITableView, with identifier: String, row: Int, data: Movie, delegate: MovieTableViewCellDelegate) -> UITableViewCell {
+func setupCell(for tableView: UITableView,
+               with identifier: String,
+               row: Int, data: Movie,
+               delegate: MovieTableViewCellDelegate) -> UITableViewCell {
   guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MovieTableViewCell else {
       return UITableViewCell()
   }

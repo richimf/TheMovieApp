@@ -50,7 +50,11 @@ extension CatalogViewController: CatalogViewProtocol {
 extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
+    return presenter?.getNumberOfSections() ?? 0
+  }
+  
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return presenter?.nameForSection(section)
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

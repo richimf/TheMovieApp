@@ -23,9 +23,17 @@ class CatalogPresenter: CatalogPresenterProtocol {
   func getItem(at index: Int) -> Movie {
     return data[index]
   }
-
+  
+  func getNumberOfSections() -> Int {
+    return 3
+  }
+  
   func getNumberOfItems() -> Int {
     return data.count
+  }
+  
+  func nameForSection(_ section: Int) -> String {
+    return "Name section"
   }
   
   func showDetailView(for movie: Movie, from view: UIViewController) {
