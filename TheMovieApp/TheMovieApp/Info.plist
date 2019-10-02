@@ -12,6 +12,11 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>avant-garde-light.otf</string>
+		<string>avant-garde-regular.otf</string>
+	</array>
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>

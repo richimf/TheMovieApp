@@ -6,12 +6,13 @@
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
+// MARK: - VIPER Protocols
 protocol CatalogViewProtocol: class {
   var presenter: CatalogPresenterProtocol? { get set}
   // PRESENTER -> VIEW
-  func loadMovies(_ movies: [Movie])
+  func loadMovies()
   func showErrorMessage(_ message: String)
 }
 
@@ -20,7 +21,12 @@ protocol CatalogPresenterProtocol: class {
   var interactor: CatalogInteractorInputProtocol? { get set}
   var router: CatalogRouterProtocol? { get set }
   // VIEW -> PRESENTER
-  // TODO METHODS
+  func getItem(at: Int) -> Movie
+  func getNumberOfSections() -> Int
+  func getNumberOfItems() -> Int
+  func nameForSection(_ section: Int) -> String
+  func loadMoviesData()
+  func showDetailView(for movie: Movie, from view: UIViewController)
 }
 
 protocol CatalogInteractorInputProtocol: class {
@@ -36,5 +42,25 @@ protocol CatalogInteractorOutputProtocol: class {
 
 protocol CatalogRouterProtocol: class {
   // PRESENTER -> ROUTER
-  func presentMovieDetailView(from view: CatalogViewProtocol, with items: [Movie])
+  func presentMovieDetailView(for item: Movie, from view: UIViewController)
+}
+
+// MARK: - UITABLEVIEWCELL Protocols
+protocol MovieTableViewCellDelegate: class {
+  func showMovieTrailer()
+}
+
+
+// MARK: - PROTOCOL Definition
+protocol UITableViewCellReusableView {
+  static func nib() -> UINib
+  static func reuseIdentifier() -> String
+}
+extension UITableViewCellReusableView where Self: UITableViewCell {
+  static func nib() -> UINib {
+    return UINib(nibName: String(describing: self), bundle: nil)
+  }
+  static func reuseIdentifier() -> String {
+    return String(describing: self)
+  }
 }
