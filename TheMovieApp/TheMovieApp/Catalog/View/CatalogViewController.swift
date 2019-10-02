@@ -25,7 +25,7 @@ class CatalogViewController: UIViewController {
     super.viewDidLoad()
     setup()
   }
-  
+
   private func setup() {
     CatalogRouter.createModule(view: self)
     self.tableView.delegate = self
@@ -33,12 +33,24 @@ class CatalogViewController: UIViewController {
     self.tableView.estimatedRowHeight = cellHeight
     self.tableView.rowHeight = UITableView.automaticDimension
     self.tableView.register(MovieTableViewCell.nib(), forCellReuseIdentifier: identifier)
+    presenter?.loadMoviesData()
+  }
+  
+  @IBAction func segmentedActions(_ sender: Any) {
+    let section: Int = segmentedControl.selectedSegmentIndex
+    scroollTo(section: section)
+  }
+
+  private func scroollTo(section: Int) {
+    let indexPath = IndexPath(row: 0, section: section)
+    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
   }
 }
 
 extension CatalogViewController: CatalogViewProtocol {
-  func loadMovies(_ movies: [Movie]) {
-    // TODO
+
+  func loadMovies() {
+    self.tableView.reloadData()
   }
   
   func showErrorMessage(_ message: String) {

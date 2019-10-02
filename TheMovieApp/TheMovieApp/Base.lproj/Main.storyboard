@@ -51,6 +51,9 @@
                                 <segment title="Popular"/>
                                 <segment title="Upcoming"/>
                             </segments>
+                            <connections>
+                                <action selector="segmentedActions:" destination="BYZ-38-t0r" eventType="valueChanged" id="J9Z-kH-I6R"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>

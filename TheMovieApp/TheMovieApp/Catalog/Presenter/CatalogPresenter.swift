@@ -20,6 +20,12 @@ class CatalogPresenter: CatalogPresenterProtocol {
      Movie(title: "Avengers", description: "Thanos dies", cover: UIImage(named: "genericFlyer")),
      Movie(title: "Avengers", description: "Thanos dies", cover: UIImage(named: "genericFlyer"))]
   
+  func loadMoviesData() {
+    // TODO assing data to global variable "data" here
+    // data = fetchedMoviesFromServer
+    view?.loadMovies()
+  }
+  
   func getItem(at index: Int) -> Movie {
     return data[index]
   }

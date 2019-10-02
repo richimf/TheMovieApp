@@ -12,7 +12,7 @@ import UIKit
 protocol CatalogViewProtocol: class {
   var presenter: CatalogPresenterProtocol? { get set}
   // PRESENTER -> VIEW
-  func loadMovies(_ movies: [Movie])
+  func loadMovies()
   func showErrorMessage(_ message: String)
 }
 
@@ -25,6 +25,7 @@ protocol CatalogPresenterProtocol: class {
   func getNumberOfSections() -> Int
   func getNumberOfItems() -> Int
   func nameForSection(_ section: Int) -> String
+  func loadMoviesData()
   func showDetailView(for movie: Movie, from view: UIViewController)
 }
 
