@@ -26,7 +26,7 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
   }
 
   func setup(with movie: Movie){
-    self.imageCover.image = movie.cover
+    //self.imageCover.image = movie.cover
     self.labelTitle.text = movie.title
     self.labelDescription.text = movie.description
   }

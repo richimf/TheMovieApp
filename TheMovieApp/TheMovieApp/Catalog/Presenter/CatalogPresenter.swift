@@ -15,10 +15,7 @@ class CatalogPresenter: CatalogPresenterProtocol {
   var interactor: CatalogInteractorInputProtocol?
   var router: CatalogRouterProtocol?
   
-  private var data:[Movie] =
-    [Movie(title: "Some movie Title", description: "Some long description", cover: UIImage(named: "genericFlyer")),
-     Movie(title: "Avengers", description: "Thanos dies", cover: UIImage(named: "genericFlyer")),
-     Movie(title: "Avengers", description: "Thanos dies", cover: UIImage(named: "genericFlyer"))]
+  private var data:[Movie] = []
   
   func loadMoviesData() {
     // TODO assing data to global variable "data" here
@@ -38,8 +35,23 @@ class CatalogPresenter: CatalogPresenterProtocol {
     return data.count
   }
   
+  func getSections() -> [String] {
+    let release: MovieRelease = MovieRelease()
+    return [release.popular.title, release.topRated.title, release.upcoming.title]
+  }
+
   func nameForSection(_ section: Int) -> String {
-    return "Name section"
+    let sections = getSections()
+    return sections[section]
+  }
+  
+  func setupSegmentedControl(control: inout UISegmentedControl) {
+    var index = 0
+    let sections = getSections()
+    for section in sections {
+      control.setTitle(section, forSegmentAt: index)
+      index += 1
+    }
   }
   
   func showDetailView(for movie: Movie, from view: UIViewController) {

@@ -27,21 +27,30 @@ class CatalogViewController: UIViewController {
   }
 
   private func setup() {
+    // Setup Viper Router
     CatalogRouter.createModule(view: self)
+    // Setup TableView
     self.tableView.delegate = self
     self.tableView.dataSource = self
     self.tableView.estimatedRowHeight = cellHeight
     self.tableView.rowHeight = UITableView.automaticDimension
     self.tableView.register(MovieTableViewCell.nib(), forCellReuseIdentifier: identifier)
-    presenter?.loadMoviesData()
+    // Setup Segmented Control
+    setupSegmentedControl()
+    // Load Movies Info
+    self.presenter?.loadMoviesData()
   }
   
   @IBAction func segmentedActions(_ sender: Any) {
     let section: Int = segmentedControl.selectedSegmentIndex
-    scroollTo(section: section)
+    scrollTo(section: section)
   }
 
-  private func scroollTo(section: Int) {
+  private func setupSegmentedControl() {
+    presenter?.setupSegmentedControl(control: &segmentedControl)
+  }
+
+  private func scrollTo(section: Int) {
     let indexPath = IndexPath(row: 0, section: section)
     self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
   }
@@ -54,35 +63,34 @@ extension CatalogViewController: CatalogViewProtocol {
   }
   
   func showErrorMessage(_ message: String) {
-    // TODO
   }
 }
 
 // MARK: - TABLEVIEW Delegate & DataSource
 extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
-  
+
   func numberOfSections(in tableView: UITableView) -> Int {
     return presenter?.getNumberOfSections() ?? 0
   }
-  
+
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     return presenter?.nameForSection(section)
   }
-  
+
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return presenter?.getNumberOfItems() ?? 0
   }
-  
+
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let movie = getItemAt(indexPath) else { return UITableViewCell() }
     return setupCell(for: tableView, with: identifier, row: indexPath.row, data: movie, delegate: self)
   }
-  
+
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let movie = getItemAt(indexPath) else { return }
     presenter?.showDetailView(for: movie, from: self)
   }
-  
+
   private func getItemAt(_ indexPath: IndexPath) -> Movie? {
     presenter?.getItem(at: indexPath.row)
   }

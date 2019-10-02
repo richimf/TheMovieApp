@@ -22,10 +22,12 @@ protocol CatalogPresenterProtocol: class {
   var router: CatalogRouterProtocol? { get set }
   // VIEW -> PRESENTER
   func getItem(at: Int) -> Movie
+  func getSections() -> [String]
   func getNumberOfSections() -> Int
   func getNumberOfItems() -> Int
   func nameForSection(_ section: Int) -> String
   func loadMoviesData()
+  func setupSegmentedControl(control: inout UISegmentedControl)
   func showDetailView(for movie: Movie, from view: UIViewController)
 }
 

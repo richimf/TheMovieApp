@@ -33,7 +33,7 @@ class MovieDetailViewController: UIViewController {
 extension MovieDetailViewController: MovieDetailViewProtocol {
   
   func loadDetails(_ movie: Movie) {
-    self.imageCover.image = movie.cover
+    //self.imageCover.image = movie.cover
     self.labelMovieName.text = movie.title
     self.labelMovieDetails.text = movie.description
     self.labelMovieDescription.text = movie.description
