@@ -36,6 +36,11 @@ class CatalogViewController: UIViewController {
   
   // MARK: - SETUP AND PRIVATE METHODS
   private func setup() {
+    // Remove NavigationBar separator line
+    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+    self.navigationController?.navigationBar.shadowImage = UIImage()
+    self.navigationController?.navigationBar.tintColor = Colors().Main
+    self.navigationController?.navigationBar.topItem?.title = "Movies"
     // Segmented control basic setup
     segmentedControl.isEnabled = false
     segmentedControl.isHidden = true

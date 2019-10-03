@@ -22,8 +22,10 @@ class MovieDetailViewController: UIViewController {
   // MARK: - OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
-    presenter?.viewDidLoad()
+    presenter?.loadDetails()
     imageCover.setRoundedCorners(radius: 10)
+    let title = "Descripcion" //presenter?.title ?? "Description"
+    self.navigationItem.title = title
   }
   
   override func viewWillAppear(_ animated: Bool) {

@@ -42,13 +42,15 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mw9-4Q-Azw" customClass="RoundButton" customModule="TheMovieApp" customModuleProvider="target">
-                        <rect key="frame" x="136" y="110" width="110" height="25"/>
+                        <rect key="frame" x="136" y="110" width="110" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="25" id="2gG-jJ-01M"/>
+                            <constraint firstAttribute="height" constant="30" id="2gG-jJ-01M"/>
                             <constraint firstAttribute="width" constant="110" id="ieI-Tq-NVS"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                        <state key="normal" title="Watch Trailer"/>
+                        <state key="normal" title="Watch Trailer">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="6"/>

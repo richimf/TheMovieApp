@@ -10,14 +10,14 @@ import UIKit
 
 @IBDesignable class RoundButton: UIButton {
 
-  private let customBGColor: UIColor = UIColor(red:0.98, green:0.06, blue:0.32, alpha:1.00)
+  private let customBGColor: UIColor = Colors().Main
   @IBInspectable var cornerRadius: CGFloat = 15 {
     didSet {
       refreshCorners(value: cornerRadius)
     }
   }
 
-  @IBInspectable var backgroundImageColor: UIColor = UIColor.init(red: 0, green: 122/255.0, blue: 255/255.0, alpha: 1) {
+  @IBInspectable var backgroundImageColor: UIColor = Colors().Main {
     didSet {
       refreshColor(color: customBGColor)
     }

@@ -21,7 +21,8 @@ protocol MovieDetailPresenterProtocol: class {
   var interactor: MovieDetailInteractorInputProtocol? { get set }
   var router: MovieDetailRouterProtocol? { get set }
   // VIEW -> PRESENTER
-  func viewDidLoad()
+  var title: String? { get set }
+  func loadDetails()
 }
 
 protocol MovieDetailInteractorInputProtocol: class {
