@@ -18,12 +18,12 @@ class MovieDetailViewController: UIViewController {
   @IBOutlet private weak var labelMovieDetails: UILabel!
   @IBOutlet private weak var labelMovieDescription: UILabel!
   @IBOutlet private weak var buttonWatchTrailer: RoundButton!
-  @IBOutlet private weak var buttonShare: UIButton!
-
+  
   // MARK: - OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
-     presenter?.viewDidLoad()
+    presenter?.viewDidLoad()
+    imageCover.setRoundedCorners(radius: 10)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +35,7 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
   func loadDetails(_ movie: Movie) {
     //self.imageCover.image = movie.cover
     self.labelMovieName.text = movie.title
-    self.labelMovieDetails.text = movie.description
+    self.labelMovieDetails.text = movieDetailConstructor(of: movie)
     self.labelMovieDescription.text = movie.description
   }
   

@@ -40,24 +40,25 @@ class CatalogPresenter: CatalogPresenterProtocol {
     return sections[section]
   }
 
+  func showDetailView(for movie: Movie, from view: UIViewController) {
+    router?.presentMovieDetailView(for: movie, from: view)
+  }
+
   func setupSegmentedControl(control: inout UISegmentedControl) {
-    customize(control: &control)
+    customizeTextColorTo(control: &control)
     var index = 0
     let sections = getSections()
     control.removeAllSegments()
     sections.forEach {
       control.insertSegment(withTitle: $0, at: index, animated: false)
-       index += 1
+      index += 1
     }
     control.selectedSegmentIndex = 0
     control.isHidden = false
-  }
-
-  func showDetailView(for movie: Movie, from view: UIViewController) {
-    router?.presentMovieDetailView(for: movie, from: view)
+    control.isEnabled = true
   }
   
-  private func customize(control: inout UISegmentedControl) {
+  private func customizeTextColorTo(control: inout UISegmentedControl) {
     let mainTextAtt = [NSAttributedString.Key.foregroundColor: Colors().Main]
     let unselectedTextAtt = [NSAttributedString.Key.foregroundColor: Colors().BlackSoft]
     control.setTitleTextAttributes(mainTextAtt, for: .selected)
@@ -68,7 +69,6 @@ class CatalogPresenter: CatalogPresenterProtocol {
 // Data received from Interactor
 extension CatalogPresenter: CatalogInteractorOutputProtocol {
   func updateData() {
-    // Refresh TableView
     view?.loadMovies()
   }
 }

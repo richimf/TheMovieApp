@@ -11,8 +11,19 @@ import UIKit
 class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
 
   weak var delegate: MovieTableViewCellDelegate?
-
+  
   @IBOutlet private weak var imageCover: UIImageView!
+    
+//  private var cover: UIImage?
+//  private let coverImageView: UIImageView = {
+//    let imageView = UIImageView()
+//    guard let image = self.cover else { return imageView }
+//    imageView.image = image
+//    imageView.layer.cornerRadius = 5
+//    imageView.clipsToBounds = true
+//    return imageView
+//  }()
+
   @IBOutlet private weak var labelTitle: UILabel!
   @IBOutlet private weak var labelDescription: UILabel!
   @IBOutlet private weak var buttonWatch: UIButton!
@@ -26,12 +37,15 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
   }
 
   func setup(with movie: Movie) {
-    //self.imageCover.image = movie.cover
+    //self.cover = Downloadimage(from: movie.posterPath)
     self.labelTitle.text = movie.title
-    let rating: Float = movie.rating ?? 0.0
-    let votes: Int = movie.voteCount ?? 0
-    let date: String = movie.releaseDate ?? ""
-    self.labelDescription.text = "\(rating)★  \(votes)✓  \(date)"
+    self.labelDescription.text = movieDetailConstructor(of: movie)
+  }
+  
+  func loadImage(key: NSString, imageCache: NSCache<NSString, UIImage>) {
+    if let cachedImage = imageCache.object(forKey: key) {
+        self.imageCover.image = cachedImage
+    }
   }
 
   @IBAction func watchTrailer(_ sender: Any) {

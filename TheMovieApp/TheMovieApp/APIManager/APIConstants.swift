@@ -29,6 +29,7 @@ public enum MovieLanguage: String {
 public enum APIUrls: String {
   case movie = "https://api.themoviedb.org/3/movie/"
   case tv = "https://api.themoviedb.org/3/tv/"
+  case img = "http://image.tmdb.org/t/p/w500/"
 }
 
 public enum APIParams: String {

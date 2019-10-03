@@ -14,6 +14,8 @@ class CatalogViewController: UIViewController {
   @IBOutlet private weak var searchBar: UISearchBar!
   @IBOutlet private weak var segmentedControl: UISegmentedControl!
   
+  let imageCache = NSCache<NSString, UIImage>()
+  
   private lazy var identifier: String = MovieTableViewCell.reuseIdentifier()
   private let cellHeight: CGFloat = 175.0
   
@@ -25,8 +27,17 @@ class CatalogViewController: UIViewController {
     super.viewDidLoad()
     setup()
   }
-
+  
+  // MARK: - IBACTIONS
+  @IBAction func segmentedActions(_ sender: Any) {
+    let section: Int = segmentedControl.selectedSegmentIndex
+    scrollTo(section: section)
+  }
+  
+  // MARK: - SETUP AND PRIVATE METHODS
   private func setup() {
+    // Segmented control basic setup
+    segmentedControl.isEnabled = false
     segmentedControl.isHidden = true
     // Setup Viper Router
     CatalogRouter.createModule(view: self)
@@ -39,11 +50,6 @@ class CatalogViewController: UIViewController {
     // Load Movies Info
     self.presenter?.loadMoviesData()
   }
-  
-  @IBAction func segmentedActions(_ sender: Any) {
-    let section: Int = segmentedControl.selectedSegmentIndex
-    scrollTo(section: section)
-  }
 
   private func setupSegmentedControl() {
     presenter?.setupSegmentedControl(control: &segmentedControl)
@@ -53,6 +59,10 @@ class CatalogViewController: UIViewController {
     let indexPath = IndexPath(row: 0, section: section)
     self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
   }
+  
+  private func getItemAt(_ indexPath: IndexPath) -> Movie? {
+     return presenter?.getItemAt(indexPath: indexPath)
+   }
 }
 
 extension CatalogViewController: CatalogViewProtocol {
@@ -89,10 +99,6 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let movie = getItemAt(indexPath) else { return }
     presenter?.showDetailView(for: movie, from: self)
-  }
-
-  private func getItemAt(_ indexPath: IndexPath) -> Movie? {
-    return presenter?.getItemAt(indexPath: indexPath)
   }
 }
 
