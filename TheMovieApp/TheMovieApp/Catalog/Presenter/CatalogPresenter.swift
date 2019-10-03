@@ -15,46 +15,31 @@ class CatalogPresenter: CatalogPresenterProtocol {
   var interactor: CatalogInteractorInputProtocol?
   var router: CatalogRouterProtocol?
   
-  private var data: [MovieResults] = []
-  private var sections: [Release] = []
-
   func loadMoviesData() {
     interactor?.fetchMoviesData()
   }
   
-  func getItem(from section: Int, at index: Int) -> Movie? {
-    return data[section].results?[index]
+  func getItemAt(indexPath: IndexPath) -> Movie? {
+    return interactor?.getItemAt(indexPath)
   }
   
   func getNumberOfSections() -> Int {
-    return sections.count
+    return interactor?.getSections().count ?? 0
   }
-  
-  func getNumberOfItems() -> Int {
-    return data.count
+
+  func getNumberOfItemsAt(_ index: Int) -> Int {
+    return interactor?.getNumberOfItems(index) ?? 0
   }
-  
+
   func getSections() -> [String] {
-    var sectionsName: [String] = []
-    for section in sections {
-      let release: MovieRelease = MovieRelease()
-      switch section {
-      case .popular:
-        sectionsName.append(release.popular.title)
-      case .upcoming:
-        sectionsName.append(release.upcoming.title)
-      case .topRated:
-        sectionsName.append(release.topRated.title)
-      }
-    }
-    return sectionsName
+    return interactor?.getSections() ?? []
   }
 
   func nameForSection(_ section: Int) -> String {
     let sections = getSections()
     return sections[section]
   }
-  
+
   func setupSegmentedControl(control: inout UISegmentedControl) {
     var index = 0
     let sections = getSections()
@@ -63,19 +48,15 @@ class CatalogPresenter: CatalogPresenterProtocol {
       index += 1
     }
   }
-  
+
   func showDetailView(for movie: Movie, from view: UIViewController) {
     router?.presentMovieDetailView(for: movie, from: view)
   }
 }
 
+// Data received from Interactor
 extension CatalogPresenter: CatalogInteractorOutputProtocol {
-  func setMoviesData(movieResults: MovieResults) {
-    self.data.append(movieResults)
-    // Append related movies section
-    if let category = movieResults.release, !sections.contains(category) {
-      sections.append(category)
-    }
+  func updateData() {
     // Refresh TableView
     view?.loadMovies()
   }

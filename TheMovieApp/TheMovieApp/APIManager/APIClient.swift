@@ -45,15 +45,16 @@ class APIClient {
   
   init() {}
 
-  func fetchMovieListOf(release: APIMovieParams, lang: MovieLanguage) {
-    let URL = RequestValues().url + release.rawValue
+  func fetchMovieListOf(url: APIUrls, release: APIMovieParams, lang: MovieLanguage) {
+    let URL = url.rawValue + release.rawValue
     let params = [APIParams.key.rawValue: RequestValues().key,
                   APIParams.lang.rawValue: lang.rawValue]
+    print(URL)
     Alamofire.request(URL, parameters: params).responseObject { (response: DataResponse<MovieResults>) in
       switch response.result {
-      case .success(var movies):
-        movies.release = release
-        self.delegate?.getResult(data: movies)
+      case .success(var results):
+        results.release = release
+        self.delegate?.fetchedResult(data: results)
       case .failure(let error):
         self.delegate?.onFailure(error)
       }

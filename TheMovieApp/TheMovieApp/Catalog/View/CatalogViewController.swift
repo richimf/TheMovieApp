@@ -27,6 +27,7 @@ class CatalogViewController: UIViewController {
   }
 
   private func setup() {
+    segmentedControl.isHidden = true
     // Setup Viper Router
     CatalogRouter.createModule(view: self)
     // Setup TableView
@@ -46,6 +47,7 @@ class CatalogViewController: UIViewController {
 
   private func setupSegmentedControl() {
     presenter?.setupSegmentedControl(control: &segmentedControl)
+    segmentedControl.isHidden = false
   }
 
   private func scrollTo(section: Int) {
@@ -58,7 +60,6 @@ extension CatalogViewController: CatalogViewProtocol {
 
   func loadMovies() {
     self.tableView.reloadData()
-    // Setup Segmented Control
     setupSegmentedControl()
   }
   
@@ -78,7 +79,7 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return presenter?.getNumberOfItems() ?? 0
+    return presenter?.getNumberOfItemsAt(section) ?? 0
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -92,7 +93,7 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   }
 
   private func getItemAt(_ indexPath: IndexPath) -> Movie? {
-    return presenter?.getItem(from: indexPath.section, at: indexPath.row)
+    return presenter?.getItemAt(indexPath: indexPath)
   }
 }
 

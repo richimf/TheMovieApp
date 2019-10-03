@@ -12,7 +12,12 @@ import Foundation
 public struct RequestValues {
   let auth: String = "Authorization"
   let key: String = "157b108f1f2d275c12e9092b4b2bcdd9"
-  let url: String = "https://api.themoviedb.org/3/movie/"
+}
+
+public enum MovieCategories: String {
+  case popular = "Popular"
+  case topRated = "Top Rated"
+  case upcoming = "Upcoming"
 }
 
 public enum MovieLanguage: String {
@@ -20,13 +25,12 @@ public enum MovieLanguage: String {
   case MX = "es-MX"
 }
 
-public struct MovieRelease {
-  let popular: (id: APIMovieParams, title: String) = (APIMovieParams.popular, "Popular")
-  let topRated: (id: APIMovieParams, title: String) = (APIMovieParams.topRated, "Top Rated")
-  let upcoming: (id: APIMovieParams, title: String) = (APIMovieParams.upcoming, "Upcoming")
+// MARK: API
+public enum APIUrls: String {
+  case movie = "https://api.themoviedb.org/3/movie/"
+  case tv = "https://api.themoviedb.org/3/tv/"
 }
 
-// MARK: API
 public enum APIParams: String {
   case key = "api_key"
   case lang = "language"

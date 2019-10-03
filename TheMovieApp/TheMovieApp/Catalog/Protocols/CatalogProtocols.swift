@@ -21,10 +21,10 @@ protocol CatalogPresenterProtocol: class {
   var interactor: CatalogInteractorInputProtocol? { get set}
   var router: CatalogRouterProtocol? { get set }
   // VIEW -> PRESENTER
-  func getItem(from section: Int, at index: Int) -> Movie?
+  func getItemAt(indexPath: IndexPath) -> Movie?
   func getSections() -> [String]
   func getNumberOfSections() -> Int
-  func getNumberOfItems() -> Int
+  func getNumberOfItemsAt(_ index: Int) -> Int
   func nameForSection(_ section: Int) -> String
   func loadMoviesData()
   func setupSegmentedControl(control: inout UISegmentedControl)
@@ -35,11 +35,14 @@ protocol CatalogInteractorInputProtocol: class {
   var presenter: CatalogInteractorOutputProtocol? { get set}
   // PRESENTER -> INTERACTOR
   func fetchMoviesData()
+  func getNumberOfItems(_ index: Int) -> Int
+  func getSections() -> [String]
+  func getItemAt(_ indexPath: IndexPath) -> Movie?
 }
 
 protocol CatalogInteractorOutputProtocol: class {
   // INTERACTOR -> PRESENTER
-  func setMoviesData(movieResults: MovieResults)
+  func updateData()
 }
 
 protocol CatalogRouterProtocol: class {

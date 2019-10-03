@@ -9,6 +9,6 @@
 import Foundation
 
 protocol APIResponseProtocol {
-  func getResult(data: MovieResults)
+  func fetchedResult(data: MovieResults)
   func onFailure(_ error: Error)
 }
