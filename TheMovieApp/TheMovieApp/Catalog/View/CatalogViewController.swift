@@ -104,6 +104,7 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let movie = getItemAt(indexPath) else { return }
     presenter?.showDetailView(for: movie, from: self)
+    self.tableView.deselectRow(at: indexPath, animated: true)
   }
 
   func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
