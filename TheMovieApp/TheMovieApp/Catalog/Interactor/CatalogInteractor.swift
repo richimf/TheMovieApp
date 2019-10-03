@@ -19,7 +19,7 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
   private var popular: [Movie] = []
   private var topRated: [Movie] = []
   private var upcoming: [Movie] = []
-  private var sections: [Release] = []
+  private(set) var sections: [Release] = []
   
   func fetchMoviesData() {
     apiClient.delegate = self
@@ -62,8 +62,8 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
 
   func getSections() -> [String] {
     var output: [String] = []
-    for section in sections {
-      switch section {
+    sections.forEach {
+      switch $0 {
       case .popular:
         output.append(MovieCategories.popular.rawValue)
       case .upcoming:
@@ -74,6 +74,7 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
     }
     return output
   }
+
 }
 // MARK: - API RESPONSE
 extension CatalogInteractor: APIResponseProtocol {

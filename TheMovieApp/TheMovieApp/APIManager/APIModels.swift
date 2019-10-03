@@ -24,6 +24,28 @@ extension MovieResults: Mappable {
   }
 }
 
+/**
+ 
+ - Params:
+ 
+       - originalTitle: String?
+ 
+       - title: String?
+ 
+       - description: String?
+ 
+       - posterPath: String?
+ 
+       - popularity: Float?
+ 
+       - voteCount: Int?
+ 
+       - rating: Float?
+ 
+       - backdropPath: String?
+ 
+       - releaseDate: String?
+ */
 public struct Movie {
   let originalTitle: String?
   let title: String?

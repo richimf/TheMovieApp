@@ -9,7 +9,7 @@
 import UIKit
 
 class CatalogPresenter: CatalogPresenterProtocol {
-  
+
   // MARK: - VIPER
   weak var view: CatalogViewProtocol?
   var interactor: CatalogInteractorInputProtocol?
@@ -41,16 +41,27 @@ class CatalogPresenter: CatalogPresenterProtocol {
   }
 
   func setupSegmentedControl(control: inout UISegmentedControl) {
+    customize(control: &control)
     var index = 0
     let sections = getSections()
-    for section in sections {
-      control.setTitle(section, forSegmentAt: index)
-      index += 1
+    control.removeAllSegments()
+    sections.forEach {
+      control.insertSegment(withTitle: $0, at: index, animated: false)
+       index += 1
     }
+    control.selectedSegmentIndex = 0
+    control.isHidden = false
   }
 
   func showDetailView(for movie: Movie, from view: UIViewController) {
     router?.presentMovieDetailView(for: movie, from: view)
+  }
+  
+  private func customize(control: inout UISegmentedControl) {
+    let mainTextAtt = [NSAttributedString.Key.foregroundColor: Colors().Main]
+    let unselectedTextAtt = [NSAttributedString.Key.foregroundColor: Colors().BlackSoft]
+    control.setTitleTextAttributes(mainTextAtt, for: .selected)
+    control.setTitleTextAttributes(unselectedTextAtt, for: .normal)
   }
 }
 

@@ -47,7 +47,6 @@ class CatalogViewController: UIViewController {
 
   private func setupSegmentedControl() {
     presenter?.setupSegmentedControl(control: &segmentedControl)
-    segmentedControl.isHidden = false
   }
 
   private func scrollTo(section: Int) {

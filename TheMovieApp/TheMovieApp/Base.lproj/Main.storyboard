@@ -47,9 +47,9 @@
                             <rect key="frame" x="83" y="5.5" width="248" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
-                                <segment title="0"/>
-                                <segment title="1"/>
-                                <segment title="2"/>
+                                <segment title=""/>
+                                <segment title=""/>
+                                <segment title=""/>
                             </segments>
                             <connections>
                                 <action selector="segmentedActions:" destination="BYZ-38-t0r" eventType="valueChanged" id="J9Z-kH-I6R"/>
@@ -114,7 +114,7 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3C-oS-Nv8">
                                 <rect key="frame" x="20" y="444" width="374" height="1"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="xTi-eg-Bm4"/>
                                 </constraints>

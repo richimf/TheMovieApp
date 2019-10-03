@@ -28,7 +28,10 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
   func setup(with movie: Movie) {
     //self.imageCover.image = movie.cover
     self.labelTitle.text = movie.title
-    self.labelDescription.text = movie.description
+    let rating: Float = movie.rating ?? 0.0
+    let votes: Int = movie.voteCount ?? 0
+    let date: String = movie.releaseDate ?? ""
+    self.labelDescription.text = "\(rating)★  \(votes)✓  \(date)"
   }
 
   @IBAction func watchTrailer(_ sender: Any) {
