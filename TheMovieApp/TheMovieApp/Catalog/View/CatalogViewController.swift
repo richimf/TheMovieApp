@@ -105,6 +105,14 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
     guard let movie = getItemAt(indexPath) else { return }
     presenter?.showDetailView(for: movie, from: self)
   }
+
+  func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    guard let header = view as? UITableViewHeaderFooterView else { return }
+    header.textLabel?.font = UIFont(name: "Futura", size: 20)
+    header.textLabel?.textColor = Colors().Main
+    header.contentView.backgroundColor = UIColor.white
+  }
+
 }
 
 // MARK: - CELL Delegate Protocol

@@ -16,28 +16,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j8j-Sg-AqH">
-                                <rect key="frame" x="0.0" y="144" width="414" height="695"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="751"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Busca tu película favorita" showsCancelButton="YES" id="vuU-k1-U1D">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
+                                </searchBar>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="i0f-NL-14g"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="HBS-a3-See"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Busca tu película favorita" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vuU-k1-U1D">
-                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="j8j-Sg-AqH" secondAttribute="bottom" constant="23" id="1cK-vU-WIV"/>
                             <constraint firstItem="j8j-Sg-AqH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GBk-y6-LDa"/>
                             <constraint firstItem="j8j-Sg-AqH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NoP-mm-p1n"/>
-                            <constraint firstItem="vuU-k1-U1D" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Pcx-0A-vjt"/>
-                            <constraint firstItem="vuU-k1-U1D" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bzl-yi-03f"/>
-                            <constraint firstItem="j8j-Sg-AqH" firstAttribute="top" secondItem="vuU-k1-U1D" secondAttribute="bottom" id="i4e-7W-XfO"/>
-                            <constraint firstItem="vuU-k1-U1D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="otj-r3-sTr"/>
-                            <constraint firstItem="vuU-k1-U1D" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rVO-o2-VpF"/>
+                            <constraint firstItem="j8j-Sg-AqH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zyP-3c-wNB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
