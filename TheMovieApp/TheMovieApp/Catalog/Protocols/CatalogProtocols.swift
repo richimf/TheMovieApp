@@ -21,7 +21,7 @@ protocol CatalogPresenterProtocol: class {
   var interactor: CatalogInteractorInputProtocol? { get set}
   var router: CatalogRouterProtocol? { get set }
   // VIEW -> PRESENTER
-  func getItem(at: Int) -> Movie
+  func getItem(from section: Int, at index: Int) -> Movie?
   func getSections() -> [String]
   func getNumberOfSections() -> Int
   func getNumberOfItems() -> Int
@@ -34,12 +34,12 @@ protocol CatalogPresenterProtocol: class {
 protocol CatalogInteractorInputProtocol: class {
   var presenter: CatalogInteractorOutputProtocol? { get set}
   // PRESENTER -> INTERACTOR
-  // func retreiveMovies()
+  func fetchMoviesData()
 }
 
 protocol CatalogInteractorOutputProtocol: class {
   // INTERACTOR -> PRESENTER
-  // TODO
+  func setMoviesData(movieResults: MovieResults)
 }
 
 protocol CatalogRouterProtocol: class {

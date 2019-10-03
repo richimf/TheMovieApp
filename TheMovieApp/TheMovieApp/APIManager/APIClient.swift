@@ -22,6 +22,19 @@
 // https://api.themoviedb.org/3/movie/upcoming?api_key=d21684866ab7c4cdf0891ef667519e53&language=es-MX&page=
 
 
+//  func fetchMovieListOf(release: String, lang: String) {
+//    let URL = RequestValues().url + release + "?api_key=" + RequestValues().key + "&" + "language=" + lang
+//    print(URL)
+//    Alamofire.request(URL).responseObject { (response: DataResponse<MovieResults>) in
+//      switch response.result {
+//      case .success(let movies):
+//        self.delegate?.getResult(data: movies)
+//      case .failure(let error):
+//        self.delegate?.onFailure(error)
+//      }
+//    }
+//  }
+
 import Foundation
 import Alamofire
 import AlamofireObjectMapper
@@ -32,12 +45,14 @@ class APIClient {
   
   init() {}
 
-  func getTicker(_ movieRelease: String, lang: String) {
-    let URL = RequestValues().url + movieRelease + "?api_key=" + RequestValues().key + "&" + "language=" + lang
-    print(URL)
-    Alamofire.request(URL).responseObject { (response: DataResponse<MovieResults>) in
+  func fetchMovieListOf(release: APIMovieParams, lang: MovieLanguage) {
+    let URL = RequestValues().url + release.rawValue
+    let params = [APIParams.key.rawValue: RequestValues().key,
+                  APIParams.lang.rawValue: lang.rawValue]
+    Alamofire.request(URL, parameters: params).responseObject { (response: DataResponse<MovieResults>) in
       switch response.result {
-      case .success(let movies):
+      case .success(var movies):
+        movies.release = release
         self.delegate?.getResult(data: movies)
       case .failure(let error):
         self.delegate?.onFailure(error)

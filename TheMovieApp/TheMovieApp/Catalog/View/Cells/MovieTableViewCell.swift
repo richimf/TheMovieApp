@@ -25,7 +25,7 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
     super.setSelected(selected, animated: animated)
   }
 
-  func setup(with movie: Movie){
+  func setup(with movie: Movie) {
     //self.imageCover.image = movie.cover
     self.labelTitle.text = movie.title
     self.labelDescription.text = movie.description

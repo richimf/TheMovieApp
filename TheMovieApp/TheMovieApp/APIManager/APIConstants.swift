@@ -21,12 +21,23 @@ public enum MovieLanguage: String {
 }
 
 public struct MovieRelease {
-  let popular: (id: String, title: String) = ("popular", "Popular")
-  let topRated: (id: String, title: String) = ("top_rated", "Top Rated")
-  let upcoming: (id: String, title: String) = ("upcoming", "Upcoming")
+  let popular: (id: APIMovieParams, title: String) = (APIMovieParams.popular, "Popular")
+  let topRated: (id: APIMovieParams, title: String) = (APIMovieParams.topRated, "Top Rated")
+  let upcoming: (id: APIMovieParams, title: String) = (APIMovieParams.upcoming, "Upcoming")
 }
 
 // MARK: API
+public enum APIParams: String {
+  case key = "api_key"
+  case lang = "language"
+}
+
+public enum APIMovieParams: String {
+  case popular = "popular"
+  case topRated = "top_rated"
+  case upcoming = "upcoming"
+}
+
 public enum APIRequestMethod {
   case get
   case post

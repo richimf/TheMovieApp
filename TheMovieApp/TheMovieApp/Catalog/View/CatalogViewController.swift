@@ -35,8 +35,6 @@ class CatalogViewController: UIViewController {
     self.tableView.estimatedRowHeight = cellHeight
     self.tableView.rowHeight = UITableView.automaticDimension
     self.tableView.register(MovieTableViewCell.nib(), forCellReuseIdentifier: identifier)
-    // Setup Segmented Control
-    setupSegmentedControl()
     // Load Movies Info
     self.presenter?.loadMoviesData()
   }
@@ -60,6 +58,8 @@ extension CatalogViewController: CatalogViewProtocol {
 
   func loadMovies() {
     self.tableView.reloadData()
+    // Setup Segmented Control
+    setupSegmentedControl()
   }
   
   func showErrorMessage(_ message: String) {
@@ -92,7 +92,7 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   }
 
   private func getItemAt(_ indexPath: IndexPath) -> Movie? {
-    presenter?.getItem(at: indexPath.row)
+    return presenter?.getItem(from: indexPath.section, at: indexPath.row)
   }
 }
 

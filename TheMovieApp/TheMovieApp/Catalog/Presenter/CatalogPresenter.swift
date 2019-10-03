@@ -15,22 +15,19 @@ class CatalogPresenter: CatalogPresenterProtocol {
   var interactor: CatalogInteractorInputProtocol?
   var router: CatalogRouterProtocol?
   
-  private var data:[Movie] = []
-  private let apiClient = APIClient()
+  private var data: [MovieResults] = []
+  private var sections: [Release] = []
 
   func loadMoviesData() {
-    apiClient.delegate = self
-    let movieRelease = MovieRelease().popular.id
-    let lang = MovieLanguage.MX.rawValue
-    apiClient.getTicker(movieRelease, lang: lang)
+    interactor?.fetchMoviesData()
   }
   
-  func getItem(at index: Int) -> Movie {
-    return data[index]
+  func getItem(from section: Int, at index: Int) -> Movie? {
+    return data[section].results?[index]
   }
   
   func getNumberOfSections() -> Int {
-    return 3
+    return sections.count
   }
   
   func getNumberOfItems() -> Int {
@@ -38,8 +35,19 @@ class CatalogPresenter: CatalogPresenterProtocol {
   }
   
   func getSections() -> [String] {
-    let release: MovieRelease = MovieRelease()
-    return [release.popular.title, release.topRated.title, release.upcoming.title]
+    var sectionsName: [String] = []
+    for section in sections {
+      let release: MovieRelease = MovieRelease()
+      switch section {
+      case .popular:
+        sectionsName.append(release.popular.title)
+      case .upcoming:
+        sectionsName.append(release.upcoming.title)
+      case .topRated:
+        sectionsName.append(release.topRated.title)
+      }
+    }
+    return sectionsName
   }
 
   func nameForSection(_ section: Int) -> String {
@@ -61,19 +69,14 @@ class CatalogPresenter: CatalogPresenterProtocol {
   }
 }
 
-// MARK: - API RESPONSE
-extension CatalogPresenter: APIResponseProtocol {
- func getResult(data: MovieResults) {
-  guard let movies = data.results else { return }
-  self.data = movies
-  view?.loadMovies()
- }
- 
- func onFailure(_ error: Error) {
-   print("error \(error)")
- }
-}
-
 extension CatalogPresenter: CatalogInteractorOutputProtocol {
-  //TODO
+  func setMoviesData(movieResults: MovieResults) {
+    self.data.append(movieResults)
+    // Append related movies section
+    if let category = movieResults.release, !sections.contains(category) {
+      sections.append(category)
+    }
+    // Refresh TableView
+    view?.loadMovies()
+  }
 }
