@@ -83,12 +83,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJM-qE-HZF">
-                                <rect key="frame" x="28" y="385" width="366" height="16"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actions Adventure" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6R4-Zg-pkX">
                                 <rect key="frame" x="31" y="338" width="260" height="20"/>
                                 <constraints>
@@ -124,10 +118,18 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2a-bq-McQ">
+                                <rect key="frame" x="24" y="387" width="366" height="468"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="systemGrayColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="UJM-qE-HZF" firstAttribute="top" secondItem="6R4-Zg-pkX" secondAttribute="bottom" constant="27" id="GMr-yU-49r"/>
+                            <constraint firstItem="rtb-fd-LGe" firstAttribute="bottom" secondItem="e2a-bq-McQ" secondAttribute="bottom" constant="7" id="8be-Fx-Zd3"/>
                             <constraint firstItem="6R4-Zg-pkX" firstAttribute="leading" secondItem="jgM-DC-d0Z" secondAttribute="leading" constant="3" id="HlT-fd-ErL"/>
                             <constraint firstItem="cEf-Q9-wtI" firstAttribute="leading" secondItem="rtb-fd-LGe" secondAttribute="leading" constant="14" id="JaU-HN-EFt"/>
                             <constraint firstItem="rtb-fd-LGe" firstAttribute="trailing" secondItem="jgM-DC-d0Z" secondAttribute="trailing" constant="20" id="JbF-pf-z56"/>
@@ -135,17 +137,18 @@
                             <constraint firstItem="6R4-Zg-pkX" firstAttribute="top" secondItem="jgM-DC-d0Z" secondAttribute="bottom" constant="4" id="RIA-8H-iLY"/>
                             <constraint firstItem="Nsr-cx-2x5" firstAttribute="top" secondItem="6R4-Zg-pkX" secondAttribute="top" id="Vs6-gx-0ye"/>
                             <constraint firstItem="Nsr-cx-2x5" firstAttribute="leading" secondItem="6R4-Zg-pkX" secondAttribute="trailing" constant="3" id="aMf-jV-SCt"/>
-                            <constraint firstItem="rtb-fd-LGe" firstAttribute="trailing" secondItem="UJM-qE-HZF" secondAttribute="trailing" constant="20" id="axZ-mW-vKN"/>
+                            <constraint firstItem="e2a-bq-McQ" firstAttribute="leading" secondItem="rtb-fd-LGe" secondAttribute="leading" constant="24" id="cBN-nv-4yA"/>
                             <constraint firstItem="rtb-fd-LGe" firstAttribute="trailing" secondItem="cEf-Q9-wtI" secondAttribute="trailing" constant="13" id="eD6-RM-UlR"/>
-                            <constraint firstItem="UJM-qE-HZF" firstAttribute="top" secondItem="n3C-oS-Nv8" secondAttribute="bottom" constant="4" id="eSy-dd-MEy"/>
+                            <constraint firstItem="e2a-bq-McQ" firstAttribute="centerX" secondItem="rtb-fd-LGe" secondAttribute="centerX" id="erL-cK-Ys3"/>
                             <constraint firstItem="cEf-Q9-wtI" firstAttribute="top" secondItem="rtb-fd-LGe" secondAttribute="top" constant="20" id="ggr-C5-d6e"/>
                             <constraint firstItem="jgM-DC-d0Z" firstAttribute="top" secondItem="cEf-Q9-wtI" secondAttribute="bottom" constant="15" id="hnB-5q-TJP"/>
                             <constraint firstItem="n3C-oS-Nv8" firstAttribute="leading" secondItem="6R4-Zg-pkX" secondAttribute="leading" constant="-11" id="lRf-JM-BmB"/>
                             <constraint firstItem="n3C-oS-Nv8" firstAttribute="top" secondItem="6R4-Zg-pkX" secondAttribute="bottom" constant="22" id="npv-On-FtL"/>
-                            <constraint firstItem="UJM-qE-HZF" firstAttribute="leading" secondItem="rtb-fd-LGe" secondAttribute="leading" constant="28" id="o0D-Am-GIa"/>
                             <constraint firstItem="jgM-DC-d0Z" firstAttribute="leading" secondItem="cEf-Q9-wtI" secondAttribute="leading" constant="14" id="tH8-Ib-gBO"/>
+                            <constraint firstItem="rtb-fd-LGe" firstAttribute="trailing" secondItem="e2a-bq-McQ" secondAttribute="trailing" constant="24" id="uuv-dU-jhT"/>
                             <constraint firstItem="jgM-DC-d0Z" firstAttribute="leading" secondItem="rtb-fd-LGe" secondAttribute="leading" constant="28" id="vPv-ih-XPr"/>
                             <constraint firstItem="Nsr-cx-2x5" firstAttribute="trailing" secondItem="jgM-DC-d0Z" secondAttribute="trailing" id="yG4-UF-koa"/>
+                            <constraint firstItem="e2a-bq-McQ" firstAttribute="top" secondItem="n3C-oS-Nv8" secondAttribute="bottom" constant="6" id="yxI-SC-XrI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rtb-fd-LGe"/>
                     </view>
@@ -153,9 +156,9 @@
                     <connections>
                         <outlet property="buttonWatchTrailer" destination="Nsr-cx-2x5" id="3cd-0q-9lh"/>
                         <outlet property="imageCover" destination="cEf-Q9-wtI" id="0Mu-0l-8yH"/>
-                        <outlet property="labelMovieDescription" destination="UJM-qE-HZF" id="I7u-To-ROo"/>
                         <outlet property="labelMovieDetails" destination="6R4-Zg-pkX" id="Vb6-Xl-wRo"/>
                         <outlet property="labelMovieName" destination="jgM-DC-d0Z" id="M6q-BT-Pq3"/>
+                        <outlet property="textViewMovieDescription" destination="e2a-bq-McQ" id="KWa-JS-Cqk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXK-9n-44h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

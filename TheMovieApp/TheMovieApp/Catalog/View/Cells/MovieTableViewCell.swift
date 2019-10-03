@@ -38,6 +38,7 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
 
   func setup(with movie: Movie) {
     //self.cover = Downloadimage(from: movie.posterPath)
+    self.imageCover.setRoundedCorners(radius: 10)
     self.labelTitle.text = movie.title
     self.labelDescription.text = movieDetailConstructor(of: movie)
   }

@@ -16,8 +16,8 @@ class MovieDetailViewController: UIViewController {
   @IBOutlet private weak var imageCover: UIImageView!
   @IBOutlet private weak var labelMovieName: UILabel!
   @IBOutlet private weak var labelMovieDetails: UILabel!
-  @IBOutlet private weak var labelMovieDescription: UILabel!
   @IBOutlet private weak var buttonWatchTrailer: RoundButton!
+  @IBOutlet private weak var textViewMovieDescription: UITextView!
   
   // MARK: - OVERRIDES
   override func viewDidLoad() {
@@ -36,7 +36,7 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
     //self.imageCover.image = movie.cover
     self.labelMovieName.text = movie.title
     self.labelMovieDetails.text = movieDetailConstructor(of: movie)
-    self.labelMovieDescription.text = movie.description
+    self.textViewMovieDescription.text = movie.description
   }
   
   func showErrorMessage(_ message: String) {
