@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		1C4CC1BA33C1326D29ABBDA2 /* Pods_TheMovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1DC33441CDDA94349BDB5C /* Pods_TheMovieApp.framework */; };
 		894772C42344EB6B0038EAC3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894772C32344EB6B0038EAC3 /* Constants.swift */; };
-		894772C62344EB820038EAC3 /* WebServiceContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894772C52344EB810038EAC3 /* WebServiceContext.swift */; };
+		8951489F23462D6400597E3E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8951489E23462D6400597E3E /* APIClient.swift */; };
+		895148A123462FDD00597E3E /* APIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895148A023462FDD00597E3E /* APIProtocols.swift */; };
 		89796DAA2343AD310031835C /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89796DA92343AD310031835C /* RoundButton.swift */; };
 		89796DAE2343E36D0031835C /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89796DAC2343E36D0031835C /* MovieTableViewCell.swift */; };
 		89796DAF2343E36D0031835C /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89796DAD2343E36D0031835C /* MovieTableViewCell.xib */; };
@@ -53,7 +54,8 @@
 		642B794A194C8833D66F7F27 /* Pods-TheMovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieApp/Pods-TheMovieApp.release.xcconfig"; sourceTree = "<group>"; };
 		72002CE99965FA4EE46B0A03 /* Pods-TheMovieAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieAppTests/Pods-TheMovieAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		894772C32344EB6B0038EAC3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		894772C52344EB810038EAC3 /* WebServiceContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceContext.swift; sourceTree = "<group>"; };
+		8951489E23462D6400597E3E /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		895148A023462FDD00597E3E /* APIProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocols.swift; sourceTree = "<group>"; };
 		89796DA92343AD310031835C /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		89796DAC2343E36D0031835C /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		89796DAD2343E36D0031835C /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
@@ -138,8 +140,9 @@
 		894772C72344EB8C0038EAC3 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
-				894772C52344EB810038EAC3 /* WebServiceContext.swift */,
 				894772C32344EB6B0038EAC3 /* Constants.swift */,
+				895148A023462FDD00597E3E /* APIProtocols.swift */,
+				8951489E23462D6400597E3E /* APIClient.swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -628,12 +631,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E7728C23439F85007FAB25 /* CatalogInteractor.swift in Sources */,
+				8951489F23462D6400597E3E /* APIClient.swift in Sources */,
 				89E7728A234399F1007FAB25 /* Movie.swift in Sources */,
 				89E772A02343A385007FAB25 /* MovieDetailPresenter.swift in Sources */,
 				8998F19523426A9E00FD8364 /* AppDelegate.swift in Sources */,
 				89E7729C2343A2D6007FAB25 /* MovieDetailViewController.swift in Sources */,
 				89E772A22343A391007FAB25 /* MovieDetailRouter.swift in Sources */,
 				89796DAE2343E36D0031835C /* MovieTableViewCell.swift in Sources */,
+				895148A123462FDD00597E3E /* APIProtocols.swift in Sources */,
 				89796DAA2343AD310031835C /* RoundButton.swift in Sources */,
 				89E77286234398A4007FAB25 /* CatalogViewController.swift in Sources */,
 				89E7729A2343A221007FAB25 /* MovieDetailProtocols.swift in Sources */,
@@ -644,7 +649,6 @@
 				89A17AFF23440972007B9281 /* Helpers.swift in Sources */,
 				8998F19723426A9E00FD8364 /* SceneDelegate.swift in Sources */,
 				89E7728E23439F93007FAB25 /* CatalogPresenter.swift in Sources */,
-				894772C62344EB820038EAC3 /* WebServiceContext.swift in Sources */,
 				894772C42344EB6B0038EAC3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

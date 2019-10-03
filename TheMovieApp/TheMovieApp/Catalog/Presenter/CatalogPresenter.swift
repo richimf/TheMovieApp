@@ -16,11 +16,13 @@ class CatalogPresenter: CatalogPresenterProtocol {
   var router: CatalogRouterProtocol?
   
   private var data:[Movie] = []
-  
+  private let apiClient = APIClient()
+
   func loadMoviesData() {
-    // TODO assing data to global variable "data" here
-    // data = fetchedMoviesFromServer
-    view?.loadMovies()
+    apiClient.delegate = self
+    let movieRelease = MovieRelease().popular.id
+    let lang = MovieLanguage.MX.rawValue
+    apiClient.getTicker(movieRelease, lang: lang)
   }
   
   func getItem(at index: Int) -> Movie {
@@ -58,6 +60,20 @@ class CatalogPresenter: CatalogPresenterProtocol {
     router?.presentMovieDetailView(for: movie, from: view)
   }
 }
+
+// MARK: - API RESPONSE
+extension CatalogPresenter: APIResponseProtocol {
+ func getResult(data: MovieResults) {
+  guard let movies = data.results else { return }
+  self.data = movies
+  view?.loadMovies()
+ }
+ 
+ func onFailure(_ error: Error) {
+   print("error \(error)")
+ }
+}
+
 extension CatalogPresenter: CatalogInteractorOutputProtocol {
   //TODO
 }
