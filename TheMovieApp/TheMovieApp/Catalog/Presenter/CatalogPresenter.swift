@@ -15,12 +15,15 @@ class CatalogPresenter: CatalogPresenterProtocol {
   var interactor: CatalogInteractorInputProtocol?
   var router: CatalogRouterProtocol?
   
+  // FILTERING
+  var showSearchResults: Bool = false
+  
   func loadMoviesData() {
     interactor?.fetchMoviesData()
   }
   
   func getItemAt(indexPath: IndexPath) -> Movie? {
-    return interactor?.getItemAt(indexPath)
+    return interactor?.getItemAt(indexPath, isFiltering: showSearchResults)
   }
   
   func getNumberOfSections() -> Int {
@@ -28,7 +31,7 @@ class CatalogPresenter: CatalogPresenterProtocol {
   }
 
   func getNumberOfItemsAt(_ index: Int) -> Int {
-    return interactor?.getNumberOfItems(index) ?? 0
+    return interactor?.getNumberOfItemsAt(index, isFiltering: showSearchResults) ?? 0
   }
 
   func getSections() -> [String] {
@@ -43,7 +46,14 @@ class CatalogPresenter: CatalogPresenterProtocol {
   func showDetailView(for movie: Movie, from view: UIViewController) {
     router?.presentMovieDetailView(for: movie, from: view)
   }
-
+  
+  // MARK: - FILTERING SEARCH
+  func filterSearch(input: String, completion: () -> Void) {
+    interactor?.filterSearch(text: input)
+    completion()
+  }
+  
+  // MARK: - CUSTOMIZATION
   func setupSegmentedControl(control: inout UISegmentedControl) {
     customizeTextColorTo(control: &control)
     var index = 0
@@ -54,10 +64,12 @@ class CatalogPresenter: CatalogPresenterProtocol {
       index += 1
     }
     control.selectedSegmentIndex = 0
-    control.isHidden = false
-    control.isEnabled = true
+    if control.numberOfSegments > 1 {
+      control.isHidden = false
+      control.isEnabled = true
+    }
   }
-  
+
   private func customizeTextColorTo(control: inout UISegmentedControl) {
     let mainTextAtt = [NSAttributedString.Key.foregroundColor: Colors().Main]
     let unselectedTextAtt = [NSAttributedString.Key.foregroundColor: Colors().BlackSoft]
@@ -70,5 +82,9 @@ class CatalogPresenter: CatalogPresenterProtocol {
 extension CatalogPresenter: CatalogInteractorOutputProtocol {
   func updateData() {
     view?.loadMovies()
+  }
+  
+  func receivedError(_ error: Error){
+    view?.showErrorMessage("")
   }
 }

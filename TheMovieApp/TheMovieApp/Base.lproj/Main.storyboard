@@ -15,14 +15,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error" translatesAutoresizingMaskIntoConstraints="NO" id="aQJ-fP-bPU">
+                                <rect key="frame" x="177" y="272" width="60" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="2Cu-Zm-GtJ"/>
+                                    <constraint firstAttribute="width" constant="60" id="R8E-G8-aC8"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYU-Jq-W8c">
+                                <rect key="frame" x="72" y="360" width="270" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="FYO-hK-fkd"/>
+                                    <constraint firstAttribute="height" constant="50" id="cdT-VB-Qt5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j8j-Sg-AqH">
-                                <rect key="frame" x="0.0" y="88" width="414" height="751"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="764"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Busca tu película favorita" showsCancelButton="YES" id="vuU-k1-U1D">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
-                                </searchBar>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="i0f-NL-14g"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="HBS-a3-See"/>
@@ -31,10 +43,14 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="j8j-Sg-AqH" secondAttribute="bottom" constant="23" id="1cK-vU-WIV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="j8j-Sg-AqH" secondAttribute="bottom" constant="10" id="1cK-vU-WIV"/>
                             <constraint firstItem="j8j-Sg-AqH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GBk-y6-LDa"/>
                             <constraint firstItem="j8j-Sg-AqH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NoP-mm-p1n"/>
-                            <constraint firstItem="j8j-Sg-AqH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zyP-3c-wNB"/>
+                            <constraint firstItem="kYU-Jq-W8c" firstAttribute="centerX" secondItem="aQJ-fP-bPU" secondAttribute="centerX" id="QYe-yU-uLA"/>
+                            <constraint firstItem="aQJ-fP-bPU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wr7-98-hOV"/>
+                            <constraint firstItem="aQJ-fP-bPU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="184" id="Yq9-fA-fM8"/>
+                            <constraint firstItem="j8j-Sg-AqH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fef-eQ-aS2"/>
+                            <constraint firstItem="kYU-Jq-W8c" firstAttribute="top" secondItem="aQJ-fP-bPU" secondAttribute="bottom" constant="8" id="jbl-Pm-G4L"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -52,9 +68,14 @@
                                 <action selector="segmentedActions:" destination="BYZ-38-t0r" eventType="valueChanged" id="J9Z-kH-I6R"/>
                             </connections>
                         </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="NJZ-rA-Dvq">
+                            <connections>
+                                <action selector="search:" destination="BYZ-38-t0r" id="ZfZ-TW-ImU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchBar" destination="vuU-k1-U1D" id="TkO-13-OIb"/>
+                        <outlet property="buttonSearch" destination="NJZ-rA-Dvq" id="FxA-67-jLc"/>
                         <outlet property="segmentedControl" destination="xBu-tj-MW1" id="Ttq-9R-zrW"/>
                         <outlet property="tableView" destination="j8j-Sg-AqH" id="UFx-7w-T2V"/>
                     </connections>
@@ -185,6 +206,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="error" width="512" height="512"/>
         <image name="genericFlyer" width="1920" height="1080"/>
     </resources>
 </document>

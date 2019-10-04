@@ -20,6 +20,7 @@ protocol CatalogPresenterProtocol: class {
   var view: CatalogViewProtocol? { get set }
   var interactor: CatalogInteractorInputProtocol? { get set}
   var router: CatalogRouterProtocol? { get set }
+  var showSearchResults: Bool { get set }
   // VIEW -> PRESENTER
   func getItemAt(indexPath: IndexPath) -> Movie?
   func getSections() -> [String]
@@ -29,20 +30,23 @@ protocol CatalogPresenterProtocol: class {
   func loadMoviesData()
   func setupSegmentedControl(control: inout UISegmentedControl)
   func showDetailView(for movie: Movie, from view: UIViewController)
+  func filterSearch(input: String, completion: () -> Void)
 }
 
 protocol CatalogInteractorInputProtocol: class {
   var presenter: CatalogInteractorOutputProtocol? { get set}
   // PRESENTER -> INTERACTOR
   func fetchMoviesData()
-  func getNumberOfItems(_ index: Int) -> Int
+  func getNumberOfItemsAt(_ index: Int, isFiltering: Bool) -> Int
   func getSections() -> [String]
-  func getItemAt(_ indexPath: IndexPath) -> Movie?
+  func getItemAt(_ indexPath: IndexPath, isFiltering: Bool) -> Movie?
+  func filterSearch(text: String)
 }
 
 protocol CatalogInteractorOutputProtocol: class {
   // INTERACTOR -> PRESENTER
   func updateData()
+  func receivedError(_ error: Error)
 }
 
 protocol CatalogRouterProtocol: class {

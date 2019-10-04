@@ -34,6 +34,7 @@ public struct Movie {
   let rating: Float?
   let backdropPath: String?
   let releaseDate: String?
+  let genereIds: [Int]?
 }
 extension Movie: ImmutableMappable {
   public init(map: Map) throws {
@@ -46,5 +47,6 @@ extension Movie: ImmutableMappable {
     rating         = try? map.value("vote_average")
     backdropPath   = try? map.value("backdrop_path")
     releaseDate    = try? map.value("release_date")
+    genereIds      = try? map.value("genre_ids")
   }
 }

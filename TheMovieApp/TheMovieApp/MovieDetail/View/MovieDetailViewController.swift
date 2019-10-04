@@ -24,7 +24,7 @@ class MovieDetailViewController: UIViewController {
     super.viewDidLoad()
     presenter?.loadDetails()
     imageCover.setRoundedCorners(radius: 10)
-    let title = "Descripcion" //presenter?.title ?? "Description"
+    let title = "Descripcion"
     self.navigationItem.title = title
   }
   
