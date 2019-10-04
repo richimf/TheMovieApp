@@ -6,13 +6,14 @@
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - VIPER Protocols
 protocol MovieDetailViewProtocol: class {
   var presenter: MovieDetailPresenterProtocol? { get set }
   // PRESENTER -> VIEW
   func loadDetails(_ movie: Movie)
+  func loadImage(_ image: UIImage)
   func showErrorMessage(_ message: String)
 }
 
@@ -21,18 +22,21 @@ protocol MovieDetailPresenterProtocol: class {
   var interactor: MovieDetailInteractorInputProtocol? { get set }
   var router: MovieDetailRouterProtocol? { get set }
   // VIEW -> PRESENTER
-  func viewDidLoad()
+  var title: String? { get set }
+  func loadDetails()
 }
 
 protocol MovieDetailInteractorInputProtocol: class {
   var presenter: MovieDetailInteractorOutputProtocol? { get set }
+  var localDataManager: LocalDataManager { get set }
+  var coverImage: UIImage? { get set }
   // PRESENTER -> INTERACTOR
-  // func retreiveMovies()
+  func loadImage(of movie: Movie)
 }
 
 protocol MovieDetailInteractorOutputProtocol: class {
   // INTERACTOR -> PRESENTER
-  // TODO
+  func loadImage(_ image: UIImage)
 }
 
 protocol MovieDetailRouterProtocol: class {

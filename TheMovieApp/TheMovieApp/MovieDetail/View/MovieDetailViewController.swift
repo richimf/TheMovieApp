@@ -16,14 +16,16 @@ class MovieDetailViewController: UIViewController {
   @IBOutlet private weak var imageCover: UIImageView!
   @IBOutlet private weak var labelMovieName: UILabel!
   @IBOutlet private weak var labelMovieDetails: UILabel!
-  @IBOutlet private weak var labelMovieDescription: UILabel!
   @IBOutlet private weak var buttonWatchTrailer: RoundButton!
-  @IBOutlet private weak var buttonShare: UIButton!
-
+  @IBOutlet private weak var textViewMovieDescription: UITextView!
+  
   // MARK: - OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
-     presenter?.viewDidLoad()
+    self.imageCover.isHidden = true
+    presenter?.loadDetails()
+    let title = "Descripcion"
+    self.navigationItem.title = title
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -32,11 +34,16 @@ class MovieDetailViewController: UIViewController {
 
 extension MovieDetailViewController: MovieDetailViewProtocol {
   
+  func loadImage(_ image: UIImage) {
+    self.imageCover.image = image
+    self.imageCover.setRoundedCorners(radius: 10)
+    self.imageCover.isHidden = false
+  }
+
   func loadDetails(_ movie: Movie) {
-    self.imageCover.image = movie.cover
     self.labelMovieName.text = movie.title
-    self.labelMovieDetails.text = movie.description
-    self.labelMovieDescription.text = movie.description
+    self.labelMovieDetails.text = movieDetailConstructor(of: movie)
+    self.textViewMovieDescription.text = movie.description
   }
   
   func showErrorMessage(_ message: String) {

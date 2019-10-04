@@ -18,9 +18,9 @@ def dependency_pods
     pod 'ObjectMapper+Realm'
 
     # RxSwift
-    pod 'RxSwift', '~> 4.0'
-    pod 'RxCocoa', '~> 4.0'
-    pod 'RxGesture'
+    # pod 'RxSwift', '~> 4.0'
+    # pod 'RxCocoa', '~> 4.0'
+    # pod 'RxGesture'
 
     # Animations'
     # pod 'Hero'

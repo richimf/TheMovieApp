@@ -20,24 +20,35 @@ protocol CatalogPresenterProtocol: class {
   var view: CatalogViewProtocol? { get set }
   var interactor: CatalogInteractorInputProtocol? { get set}
   var router: CatalogRouterProtocol? { get set }
+  var showSearchResults: Bool { get set }
   // VIEW -> PRESENTER
-  func getItem(at: Int) -> Movie
+  func getItemAt(indexPath: IndexPath) -> Movie?
+  func getSections() -> [String]
   func getNumberOfSections() -> Int
-  func getNumberOfItems() -> Int
+  func getNumberOfItemsAt(_ index: Int) -> Int
   func nameForSection(_ section: Int) -> String
   func loadMoviesData()
+  func setupSegmentedControl(control: inout UISegmentedControl)
   func showDetailView(for movie: Movie, from view: UIViewController)
+  func filterSearch(input: String, completion: () -> Void)
+  func getImageCache() -> NSCache<NSString, UIImage>?
 }
 
 protocol CatalogInteractorInputProtocol: class {
   var presenter: CatalogInteractorOutputProtocol? { get set}
+  var localDataManager: LocalDataManager { get set }
   // PRESENTER -> INTERACTOR
-  // func retreiveMovies()
+  func fetchMoviesData()
+  func getNumberOfItemsAt(_ index: Int, isFiltering: Bool) -> Int
+  func getSections() -> [String]
+  func getItemAt(_ indexPath: IndexPath, isFiltering: Bool) -> Movie?
+  func filterSearch(text: String)
 }
 
 protocol CatalogInteractorOutputProtocol: class {
   // INTERACTOR -> PRESENTER
-  // TODO
+  func updateData()
+  func receivedError(_ error: Error)
 }
 
 protocol CatalogRouterProtocol: class {
@@ -49,7 +60,6 @@ protocol CatalogRouterProtocol: class {
 protocol MovieTableViewCellDelegate: class {
   func showMovieTrailer()
 }
-
 
 // MARK: - PROTOCOL Definition
 protocol UITableViewCellReusableView {

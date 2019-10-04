@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1C4CC1BA33C1326D29ABBDA2 /* Pods_TheMovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1DC33441CDDA94349BDB5C /* Pods_TheMovieApp.framework */; };
-		894772BD2344664F0038EAC3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894772BC2344664F0038EAC3 /* Constants.swift */; };
+		894772C42344EB6B0038EAC3 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894772C32344EB6B0038EAC3 /* APIConstants.swift */; };
+		8951489F23462D6400597E3E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8951489E23462D6400597E3E /* APIClient.swift */; };
+		895148A123462FDD00597E3E /* APIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895148A023462FDD00597E3E /* APIProtocols.swift */; };
+		895148A523466FF100597E3E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895148A423466FF100597E3E /* Constants.swift */; };
 		89796DAA2343AD310031835C /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89796DA92343AD310031835C /* RoundButton.swift */; };
 		89796DAE2343E36D0031835C /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89796DAC2343E36D0031835C /* MovieTableViewCell.swift */; };
 		89796DAF2343E36D0031835C /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89796DAD2343E36D0031835C /* MovieTableViewCell.xib */; };
@@ -22,9 +25,10 @@
 		8998F1A423426AA000FD8364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8998F1A223426AA000FD8364 /* LaunchScreen.storyboard */; };
 		8998F1AF23426AA000FD8364 /* TheMovieAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8998F1AE23426AA000FD8364 /* TheMovieAppTests.swift */; };
 		89A17AFF23440972007B9281 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A17AFE23440972007B9281 /* Helpers.swift */; };
+		89DA298E2347C23400C8BF50 /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DA298D2347C23400C8BF50 /* LocalDataManager.swift */; };
 		89E77286234398A4007FAB25 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77285234398A4007FAB25 /* CatalogViewController.swift */; };
 		89E772882343991D007FAB25 /* CatalogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E772872343991D007FAB25 /* CatalogProtocols.swift */; };
-		89E7728A234399F1007FAB25 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77289234399F1007FAB25 /* Movie.swift */; };
+		89E7728A234399F1007FAB25 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77289234399F1007FAB25 /* Entity.swift */; };
 		89E7728C23439F85007FAB25 /* CatalogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E7728B23439F85007FAB25 /* CatalogInteractor.swift */; };
 		89E7728E23439F93007FAB25 /* CatalogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E7728D23439F93007FAB25 /* CatalogPresenter.swift */; };
 		89E7729023439FA3007FAB25 /* CatalogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E7728F23439FA3007FAB25 /* CatalogRouter.swift */; };
@@ -51,7 +55,10 @@
 		521932DCD80F09796D23BF64 /* Pods_TheMovieAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		642B794A194C8833D66F7F27 /* Pods-TheMovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieApp/Pods-TheMovieApp.release.xcconfig"; sourceTree = "<group>"; };
 		72002CE99965FA4EE46B0A03 /* Pods-TheMovieAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieAppTests/Pods-TheMovieAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		894772BC2344664F0038EAC3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		894772C32344EB6B0038EAC3 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		8951489E23462D6400597E3E /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		895148A023462FDD00597E3E /* APIProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocols.swift; sourceTree = "<group>"; };
+		895148A423466FF100597E3E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		89796DA92343AD310031835C /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		89796DAC2343E36D0031835C /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		89796DAD2343E36D0031835C /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
@@ -69,9 +76,10 @@
 		8998F1AE23426AA000FD8364 /* TheMovieAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieAppTests.swift; sourceTree = "<group>"; };
 		8998F1B023426AA000FD8364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89A17AFE23440972007B9281 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		89DA298D2347C23400C8BF50 /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
 		89E77285234398A4007FAB25 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		89E772872343991D007FAB25 /* CatalogProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogProtocols.swift; sourceTree = "<group>"; };
-		89E77289234399F1007FAB25 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		89E77289234399F1007FAB25 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		89E7728B23439F85007FAB25 /* CatalogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogInteractor.swift; sourceTree = "<group>"; };
 		89E7728D23439F93007FAB25 /* CatalogPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogPresenter.swift; sourceTree = "<group>"; };
 		89E7728F23439FA3007FAB25 /* CatalogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogRouter.swift; sourceTree = "<group>"; };
@@ -127,11 +135,21 @@
 		894772BB2344663F0038EAC3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				89796DB72343ED680031835C /* Constants */,
 				89796DB22343E5C30031835C /* Fonts */,
 				89796DAB2343E1AA0031835C /* UIControls */,
+				895148A423466FF100597E3E /* Constants.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		894772C72344EB8C0038EAC3 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				8951489E23462D6400597E3E /* APIClient.swift */,
+				895148A023462FDD00597E3E /* APIProtocols.swift */,
+				894772C32344EB6B0038EAC3 /* APIConstants.swift */,
+			);
+			path = APIManager;
 			sourceTree = "<group>";
 		};
 		89796DAB2343E1AA0031835C /* UIControls */ = {
@@ -168,14 +186,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		89796DB72343ED680031835C /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				894772BC2344664F0038EAC3 /* Constants.swift */,
-			);
-			path = Constants;
-			sourceTree = "<group>";
-		};
 		8998F18823426A9E00FD8364 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +211,7 @@
 			children = (
 				8998F19423426A9E00FD8364 /* AppDelegate.swift */,
 				8998F19623426A9E00FD8364 /* SceneDelegate.swift */,
+				894772C72344EB8C0038EAC3 /* APIManager */,
 				894772BB2344663F0038EAC3 /* Resources */,
 				89E772792343961E007FAB25 /* Catalog */,
 				89E7727A23439627007FAB25 /* MovieDetail */,
@@ -271,7 +282,7 @@
 		89E7727C23439657007FAB25 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				89E77289234399F1007FAB25 /* Movie.swift */,
+				89E77289234399F1007FAB25 /* Entity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -327,6 +338,7 @@
 		89E77284234396EB007FAB25 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				89DA298D2347C23400C8BF50 /* LocalDataManager.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -549,9 +561,6 @@
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper+Realm/ObjectMapper_Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -565,9 +574,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper_Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,9 +597,6 @@
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper+Realm/ObjectMapper_Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -607,9 +610,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper_Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,12 +625,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E7728C23439F85007FAB25 /* CatalogInteractor.swift in Sources */,
-				89E7728A234399F1007FAB25 /* Movie.swift in Sources */,
+				895148A523466FF100597E3E /* Constants.swift in Sources */,
+				8951489F23462D6400597E3E /* APIClient.swift in Sources */,
+				89E7728A234399F1007FAB25 /* Entity.swift in Sources */,
 				89E772A02343A385007FAB25 /* MovieDetailPresenter.swift in Sources */,
 				8998F19523426A9E00FD8364 /* AppDelegate.swift in Sources */,
 				89E7729C2343A2D6007FAB25 /* MovieDetailViewController.swift in Sources */,
+				89DA298E2347C23400C8BF50 /* LocalDataManager.swift in Sources */,
 				89E772A22343A391007FAB25 /* MovieDetailRouter.swift in Sources */,
 				89796DAE2343E36D0031835C /* MovieTableViewCell.swift in Sources */,
+				895148A123462FDD00597E3E /* APIProtocols.swift in Sources */,
 				89796DAA2343AD310031835C /* RoundButton.swift in Sources */,
 				89E77286234398A4007FAB25 /* CatalogViewController.swift in Sources */,
 				89E7729A2343A221007FAB25 /* MovieDetailProtocols.swift in Sources */,
@@ -641,7 +645,7 @@
 				89A17AFF23440972007B9281 /* Helpers.swift in Sources */,
 				8998F19723426A9E00FD8364 /* SceneDelegate.swift in Sources */,
 				89E7728E23439F93007FAB25 /* CatalogPresenter.swift in Sources */,
-				894772BD2344664F0038EAC3 /* Constants.swift in Sources */,
+				894772C42344EB6B0038EAC3 /* APIConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
