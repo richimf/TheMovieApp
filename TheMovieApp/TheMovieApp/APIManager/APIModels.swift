@@ -25,6 +25,7 @@ extension MovieResults: Mappable {
 }
 
 public struct Movie {
+  let id: Int
   let originalTitle: String?
   let title: String?
   let description: String?
@@ -38,6 +39,7 @@ public struct Movie {
 }
 extension Movie: ImmutableMappable {
   public init(map: Map) throws {
+    id             = try map.value("id")
     originalTitle  = try? map.value("original_title")
     title          = try? map.value("title")
     description    = try? map.value("overview")

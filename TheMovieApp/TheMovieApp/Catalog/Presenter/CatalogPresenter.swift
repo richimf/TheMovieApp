@@ -15,6 +15,9 @@ class CatalogPresenter: CatalogPresenterProtocol {
   var interactor: CatalogInteractorInputProtocol?
   var router: CatalogRouterProtocol?
   
+  // IMAGE CACHE
+  var imageCache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
+  
   // FILTERING
   var showSearchResults: Bool = false
   

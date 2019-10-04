@@ -144,7 +144,12 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let movie = getItemAt(indexPath) else { return UITableViewCell() }
-    return setupCell(for: tableView, with: identifier, row: indexPath.row, data: movie, delegate: self)
+    return setupCell(for: tableView,
+                     with: identifier,
+                     row: indexPath.row,
+                     data: movie,
+                     delegate: self,
+                     cache: presenter?.imageCache)
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

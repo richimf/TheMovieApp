@@ -37,15 +37,29 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
   }
 
   func setup(with movie: Movie) {
-    //self.cover = Downloadimage(from: movie.posterPath)
     self.imageCover.setRoundedCorners(radius: 10)
     self.labelTitle.text = movie.title
     self.labelDescription.text = movieDetailConstructor(of: movie)
   }
   
-  func loadImage(key: NSString, imageCache: NSCache<NSString, UIImage>) {
-    if let cachedImage = imageCache.object(forKey: key) {
-        self.imageCover.image = cachedImage
+  func loadImage(of movie: Movie, cache: NSCache<NSString, UIImage>?) {
+    guard let path = movie.posterPath else { return }
+    let key = NSString(string: "\(movie.id)")
+    let fullPath: String = "\(APIUrls.img.rawValue)\(path)"
+    if let cacheStorage = cache, let cachedImage = cacheStorage.object(forKey: key) {
+      self.imageCover.image = cachedImage
+    } else {
+      DispatchQueue.global(qos: .background).async {
+        guard  let url: URL = URL(string: fullPath),
+          let data = try? Data(contentsOf: url),
+          let image: UIImage = UIImage(data: data)
+          else { return }
+        
+        DispatchQueue.main.async {
+          cache?.setObject(image, forKey: key)
+          self.imageCover.image = image
+        }
+      }
     }
   }
 

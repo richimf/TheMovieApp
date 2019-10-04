@@ -11,11 +11,13 @@ import UIKit
 func setupCell(for tableView: UITableView,
                with identifier: String,
                row: Int, data: Movie,
-               delegate: MovieTableViewCellDelegate) -> UITableViewCell {
+               delegate: MovieTableViewCellDelegate,
+               cache: NSCache<NSString, UIImage>?) -> UITableViewCell {
   guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MovieTableViewCell else {
     return UITableViewCell()
   }
   cell.setup(with: data)
+  cell.loadImage(of: data, cache: cache)
   cell.delegate = delegate
   return cell
 }

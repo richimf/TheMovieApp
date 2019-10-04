@@ -21,6 +21,7 @@ protocol CatalogPresenterProtocol: class {
   var interactor: CatalogInteractorInputProtocol? { get set}
   var router: CatalogRouterProtocol? { get set }
   var showSearchResults: Bool { get set }
+  var imageCache: NSCache<NSString, UIImage> { get set }
   // VIEW -> PRESENTER
   func getItemAt(indexPath: IndexPath) -> Movie?
   func getSections() -> [String]
