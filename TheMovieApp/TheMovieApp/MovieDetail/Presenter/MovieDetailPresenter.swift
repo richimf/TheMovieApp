@@ -6,7 +6,7 @@
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class MovieDetailPresenter: MovieDetailPresenterProtocol {
   
@@ -26,7 +26,11 @@ class MovieDetailPresenter: MovieDetailPresenterProtocol {
   func loadDetails() {
     guard let movie = self.movie else { return }
     view?.loadDetails(movie)
+    interactor?.loadImage(of: movie)
   }
 }
 extension MovieDetailPresenter:  MovieDetailInteractorOutputProtocol {
+  func loadImage(_ image: UIImage) {
+    view?.loadImage(image)
+  }
 }

@@ -32,6 +32,7 @@ func movieDetailConstructor(of movie: Movie) -> String {
 extension UIImageView {
   func setRoundedCorners(radius: Int) {
     self.layer.cornerRadius = CGFloat(radius)
+    self.layer.masksToBounds = true
     self.clipsToBounds = true
   }
 }

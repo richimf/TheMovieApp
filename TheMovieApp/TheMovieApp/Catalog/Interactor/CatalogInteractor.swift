@@ -6,7 +6,7 @@
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class CatalogInteractor: CatalogInteractorInputProtocol {
   
@@ -20,7 +20,10 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
   private var topRated: [Movie] = []
   private var upcoming: [Movie] = []
   private(set) var sections: [Release] = []
-
+  
+  // CACHE
+  var localDataManager: LocalDataManager = LocalDataManager()
+  
   // FILTERS
   private var allData: [Movie] = []
   private var filteredData: [Movie] = []

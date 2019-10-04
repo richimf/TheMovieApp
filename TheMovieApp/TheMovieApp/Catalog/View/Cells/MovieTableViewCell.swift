@@ -34,13 +34,15 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
   
   func loadImage(of movie: Movie, from cache: NSCache<NSString, UIImage>?) {
     self.imageCover.image = nil
+    self.imageCover.isHidden = false
     guard let path = movie.posterPath else { return }
     let key = NSString(string: "\(movie.id)")
     let fullPath: String = "\(APIUrls.img.rawValue)\(path)"
+
     if let cacheStorage = cache, let cachedImage = cacheStorage.object(forKey: key) {
       self.imageCover.image = cachedImage
     } else {
-      DispatchQueue.global(qos: .background).async {
+      DispatchQueue.global(qos: .default).async {
         guard
           let url: URL = URL(string: fullPath),
           let data = try? Data(contentsOf: url),
@@ -49,7 +51,6 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
         DispatchQueue.main.async {
           cache?.setObject(image, forKey: key)
           self.imageCover.image = image
-          self.imageCover.isHidden = false
         }
       }
     }

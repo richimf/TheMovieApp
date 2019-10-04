@@ -22,8 +22,8 @@ class MovieDetailViewController: UIViewController {
   // MARK: - OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.imageCover.isHidden = true
     presenter?.loadDetails()
-    imageCover.setRoundedCorners(radius: 10)
     let title = "Descripcion"
     self.navigationItem.title = title
   }
@@ -34,8 +34,13 @@ class MovieDetailViewController: UIViewController {
 
 extension MovieDetailViewController: MovieDetailViewProtocol {
   
+  func loadImage(_ image: UIImage) {
+    self.imageCover.image = image
+    self.imageCover.setRoundedCorners(radius: 10)
+    self.imageCover.isHidden = false
+  }
+
   func loadDetails(_ movie: Movie) {
-    //self.imageCover.image = movie.cover
     self.labelMovieName.text = movie.title
     self.labelMovieDetails.text = movieDetailConstructor(of: movie)
     self.textViewMovieDescription.text = movie.description

@@ -21,7 +21,6 @@ protocol CatalogPresenterProtocol: class {
   var interactor: CatalogInteractorInputProtocol? { get set}
   var router: CatalogRouterProtocol? { get set }
   var showSearchResults: Bool { get set }
-  var imageCache: NSCache<NSString, UIImage> { get set }
   // VIEW -> PRESENTER
   func getItemAt(indexPath: IndexPath) -> Movie?
   func getSections() -> [String]
@@ -32,10 +31,12 @@ protocol CatalogPresenterProtocol: class {
   func setupSegmentedControl(control: inout UISegmentedControl)
   func showDetailView(for movie: Movie, from view: UIViewController)
   func filterSearch(input: String, completion: () -> Void)
+  func getImageCache() -> NSCache<NSString, UIImage>?
 }
 
 protocol CatalogInteractorInputProtocol: class {
   var presenter: CatalogInteractorOutputProtocol? { get set}
+  var localDataManager: LocalDataManager { get set }
   // PRESENTER -> INTERACTOR
   func fetchMoviesData()
   func getNumberOfItemsAt(_ index: Int, isFiltering: Bool) -> Int

@@ -26,6 +26,7 @@
 		8998F1A423426AA000FD8364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8998F1A223426AA000FD8364 /* LaunchScreen.storyboard */; };
 		8998F1AF23426AA000FD8364 /* TheMovieAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8998F1AE23426AA000FD8364 /* TheMovieAppTests.swift */; };
 		89A17AFF23440972007B9281 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A17AFE23440972007B9281 /* Helpers.swift */; };
+		89DA298E2347C23400C8BF50 /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DA298D2347C23400C8BF50 /* LocalDataManager.swift */; };
 		89E77286234398A4007FAB25 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77285234398A4007FAB25 /* CatalogViewController.swift */; };
 		89E772882343991D007FAB25 /* CatalogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E772872343991D007FAB25 /* CatalogProtocols.swift */; };
 		89E7728A234399F1007FAB25 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77289234399F1007FAB25 /* Entity.swift */; };
@@ -77,6 +78,7 @@
 		8998F1AE23426AA000FD8364 /* TheMovieAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieAppTests.swift; sourceTree = "<group>"; };
 		8998F1B023426AA000FD8364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89A17AFE23440972007B9281 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		89DA298D2347C23400C8BF50 /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
 		89E77285234398A4007FAB25 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		89E772872343991D007FAB25 /* CatalogProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogProtocols.swift; sourceTree = "<group>"; };
 		89E77289234399F1007FAB25 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 		89E77284234396EB007FAB25 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				89DA298D2347C23400C8BF50 /* LocalDataManager.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				89E772A02343A385007FAB25 /* MovieDetailPresenter.swift in Sources */,
 				8998F19523426A9E00FD8364 /* AppDelegate.swift in Sources */,
 				89E7729C2343A2D6007FAB25 /* MovieDetailViewController.swift in Sources */,
+				89DA298E2347C23400C8BF50 /* LocalDataManager.swift in Sources */,
 				895148A323463A8900597E3E /* APIModels.swift in Sources */,
 				89E772A22343A391007FAB25 /* MovieDetailRouter.swift in Sources */,
 				89796DAE2343E36D0031835C /* MovieTableViewCell.swift in Sources */,

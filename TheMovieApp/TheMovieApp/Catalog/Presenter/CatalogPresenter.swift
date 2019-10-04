@@ -14,15 +14,16 @@ class CatalogPresenter: CatalogPresenterProtocol {
   weak var view: CatalogViewProtocol?
   var interactor: CatalogInteractorInputProtocol?
   var router: CatalogRouterProtocol?
-  
-  // IMAGE CACHE
-  var imageCache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
-  
+
   // FILTERING
   var showSearchResults: Bool = false
   
   func loadMoviesData() {
     interactor?.fetchMoviesData()
+  }
+  
+  func getImageCache() -> NSCache<NSString, UIImage>? {
+    return interactor?.localDataManager.imageCache
   }
   
   func getItemAt(indexPath: IndexPath) -> Movie? {
