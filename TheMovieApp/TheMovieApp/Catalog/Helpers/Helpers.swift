@@ -12,12 +12,12 @@ func setupCell(for tableView: UITableView,
                with identifier: String,
                row: Int, data: Movie,
                delegate: MovieTableViewCellDelegate,
-               cache: NSCache<NSString, UIImage>?) -> UITableViewCell {
+               from cache: NSCache<NSString, UIImage>?) -> UITableViewCell {
   guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MovieTableViewCell else {
     return UITableViewCell()
   }
   cell.setup(with: data)
-  cell.loadImage(of: data, cache: cache)
+  cell.loadImage(of: data, from: cache)
   cell.delegate = delegate
   return cell
 }
