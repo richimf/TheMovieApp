@@ -22,7 +22,8 @@ class CatalogViewController: UIViewController {
   private let cellHeight: CGFloat = 175.0
   private let titleNavigation: String = "Movies"
   private let fontSection: UIFont? = UIFont(name: "Futura", size: 20)
-  
+  private lazy var loaderView: LoaderView = LoaderView()
+
   // SEARCH
   private let searchPlaceholder: String = "Busca tu película favorita..."
   private var searchController = UISearchController(searchResultsController: nil)
@@ -33,6 +34,7 @@ class CatalogViewController: UIViewController {
   // OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
+    showLoader()
     setup()
   }
   
@@ -87,7 +89,6 @@ class CatalogViewController: UIViewController {
     searchController.searchBar.sizeToFit()
     navigationItem.searchController = searchController
     searchController.searchBar.delegate = self
-    //searchController.searchBar.scopeButtonTitles = ["Todas","Comedia", "Accion", "Aventura", "Drama", "Terror"]
   }
   
   private func updateSegmentedControl() {
@@ -106,6 +107,27 @@ class CatalogViewController: UIViewController {
     self.tableView.reloadData()
   }
   
+  private func showLoader() {
+    let window = UIApplication.shared.connectedScenes
+    .filter({$0.activationState == .foregroundActive})
+    .map({$0 as? UIWindowScene})
+    .compactMap({$0})
+    .first?.windows
+    .filter({$0.isKeyWindow}).first
+    window?.addSubview(loaderView)
+    //self.view.addSubview(loaderView)
+    self.loaderView.pinEdgesToSuperView()
+  }
+  
+  private func dismissLoader() {
+    let seconds = 2.0
+    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+       UIView.animate(withDuration: 1.0, animations: {
+          self.loaderView.alpha = 0.0
+        })
+    }
+  }
+
   private func setupNavigationBar() {
     self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
     self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -117,6 +139,7 @@ class CatalogViewController: UIViewController {
 extension CatalogViewController: CatalogViewProtocol {
   
   func loadMovies() {
+    dismissLoader()
     self.tableView.reloadData()
     updateSegmentedControl()
   }

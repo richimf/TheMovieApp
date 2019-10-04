@@ -26,6 +26,8 @@
 		8998F1AF23426AA000FD8364 /* TheMovieAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8998F1AE23426AA000FD8364 /* TheMovieAppTests.swift */; };
 		89A17AFF23440972007B9281 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A17AFE23440972007B9281 /* Helpers.swift */; };
 		89DA298E2347C23400C8BF50 /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DA298D2347C23400C8BF50 /* LocalDataManager.swift */; };
+		89DA29902347CEDA00C8BF50 /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 89DA298F2347CEDA00C8BF50 /* loader.json */; };
+		89DA29942347CF5400C8BF50 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DA29922347CF5400C8BF50 /* LoaderView.swift */; };
 		89E77286234398A4007FAB25 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77285234398A4007FAB25 /* CatalogViewController.swift */; };
 		89E772882343991D007FAB25 /* CatalogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E772872343991D007FAB25 /* CatalogProtocols.swift */; };
 		89E7728A234399F1007FAB25 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77289234399F1007FAB25 /* Entity.swift */; };
@@ -77,6 +79,8 @@
 		8998F1B023426AA000FD8364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89A17AFE23440972007B9281 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		89DA298D2347C23400C8BF50 /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
+		89DA298F2347CEDA00C8BF50 /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
+		89DA29922347CF5400C8BF50 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		89E77285234398A4007FAB25 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		89E772872343991D007FAB25 /* CatalogProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogProtocols.swift; sourceTree = "<group>"; };
 		89E77289234399F1007FAB25 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		894772BB2344663F0038EAC3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				89DA29912347CEE000C8BF50 /* Loader */,
 				89796DB22343E5C30031835C /* Fonts */,
 				89796DAB2343E1AA0031835C /* UIControls */,
 				895148A423466FF100597E3E /* Constants.swift */,
@@ -239,6 +244,15 @@
 				89A17AFE23440972007B9281 /* Helpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		89DA29912347CEE000C8BF50 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				89DA298F2347CEDA00C8BF50 /* loader.json */,
+				89DA29922347CF5400C8BF50 /* LoaderView.swift */,
+			);
+			path = Loader;
 			sourceTree = "<group>";
 		};
 		89E772792343961E007FAB25 /* Catalog */ = {
@@ -485,6 +499,7 @@
 				8998F1A423426AA000FD8364 /* LaunchScreen.storyboard in Resources */,
 				8998F1A123426AA000FD8364 /* Assets.xcassets in Resources */,
 				89796DB52343E62A0031835C /* avant-garde-regular.otf in Resources */,
+				89DA29902347CEDA00C8BF50 /* loader.json in Resources */,
 				89796DB62343E62A0031835C /* avant-garde-light.otf in Resources */,
 				89796DAF2343E36D0031835C /* MovieTableViewCell.xib in Resources */,
 				8998F19C23426A9E00FD8364 /* Main.storyboard in Resources */,
@@ -645,6 +660,7 @@
 				89A17AFF23440972007B9281 /* Helpers.swift in Sources */,
 				8998F19723426A9E00FD8364 /* SceneDelegate.swift in Sources */,
 				89E7728E23439F93007FAB25 /* CatalogPresenter.swift in Sources */,
+				89DA29942347CF5400C8BF50 /* LoaderView.swift in Sources */,
 				894772C42344EB6B0038EAC3 /* APIConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
