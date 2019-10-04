@@ -42,7 +42,7 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
       self.imageCover.image = cachedImage
       self.imageCover.isHidden = false
     } else {
-      DispatchQueue.global(qos: .default).async {
+      DispatchQueue.global(qos: .background).async {
         guard
           let url: URL = URL(string: fullPath),
           let data = try? Data(contentsOf: url),

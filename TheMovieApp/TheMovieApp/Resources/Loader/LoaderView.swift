@@ -37,13 +37,4 @@ public class LoaderView: UIView {
     animationView.widthAnchor.constraint(equalToConstant: 280).isActive = true
     animationView.heightAnchor.constraint(equalToConstant: 108).isActive = true
   }
-  
-  func pinEdgesToSuperView() {
-    guard let superView = superview else { return }
-    translatesAutoresizingMaskIntoConstraints = false
-    topAnchor.constraint(equalTo: superView.topAnchor).isActive = true
-    leftAnchor.constraint(equalTo: superView.leftAnchor).isActive = true
-    bottomAnchor.constraint(equalTo: superView.bottomAnchor).isActive = true
-    rightAnchor.constraint(equalTo: superView.rightAnchor).isActive = true
-  }
 }
