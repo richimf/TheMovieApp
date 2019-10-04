@@ -11,7 +11,6 @@
 		894772C42344EB6B0038EAC3 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894772C32344EB6B0038EAC3 /* APIConstants.swift */; };
 		8951489F23462D6400597E3E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8951489E23462D6400597E3E /* APIClient.swift */; };
 		895148A123462FDD00597E3E /* APIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895148A023462FDD00597E3E /* APIProtocols.swift */; };
-		895148A323463A8900597E3E /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895148A223463A8900597E3E /* APIModels.swift */; };
 		895148A523466FF100597E3E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895148A423466FF100597E3E /* Constants.swift */; };
 		89796DAA2343AD310031835C /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89796DA92343AD310031835C /* RoundButton.swift */; };
 		89796DAE2343E36D0031835C /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89796DAC2343E36D0031835C /* MovieTableViewCell.swift */; };
@@ -59,7 +58,6 @@
 		894772C32344EB6B0038EAC3 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		8951489E23462D6400597E3E /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		895148A023462FDD00597E3E /* APIProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocols.swift; sourceTree = "<group>"; };
-		895148A223463A8900597E3E /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
 		895148A423466FF100597E3E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		89796DA92343AD310031835C /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		89796DAC2343E36D0031835C /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				8951489E23462D6400597E3E /* APIClient.swift */,
-				895148A223463A8900597E3E /* APIModels.swift */,
 				895148A023462FDD00597E3E /* APIProtocols.swift */,
 				894772C32344EB6B0038EAC3 /* APIConstants.swift */,
 			);
@@ -635,7 +632,6 @@
 				8998F19523426A9E00FD8364 /* AppDelegate.swift in Sources */,
 				89E7729C2343A2D6007FAB25 /* MovieDetailViewController.swift in Sources */,
 				89DA298E2347C23400C8BF50 /* LocalDataManager.swift in Sources */,
-				895148A323463A8900597E3E /* APIModels.swift in Sources */,
 				89E772A22343A391007FAB25 /* MovieDetailRouter.swift in Sources */,
 				89796DAE2343E36D0031835C /* MovieTableViewCell.swift in Sources */,
 				895148A123462FDD00597E3E /* APIProtocols.swift in Sources */,
