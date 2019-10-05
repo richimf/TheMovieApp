@@ -12,6 +12,11 @@ import Foundation
 import Alamofire
 import AlamofireObjectMapper
 
+protocol APIResponseProtocol {
+  func fetchedResult(data: MovieResults)
+  func onFailure(_ error: Error)
+}
+
 class APIClient {
   
   var delegate: APIResponseProtocol?
@@ -22,7 +27,6 @@ class APIClient {
     let URL = url.rawValue + release.rawValue
     let params = [APIParams.key.rawValue: RequestValues().key,
                   APIParams.lang.rawValue: lang.rawValue]
-    print(URL)
     Alamofire.request(URL, parameters: params).responseObject { (response: DataResponse<MovieResults>) in
       switch response.result {
       case .success(var results):

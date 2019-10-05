@@ -147,9 +147,8 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     self.segmentedControl.selectedSegmentIndex = indexPath.section
     guard let movie = getItemAt(indexPath) else { return UITableViewCell() }
-    let cache = presenter?.getImageCache() ?? nil
     let imageHelper: CellHelper = CellHelper()
-    return imageHelper.setupCell(for: tableView, with: identifier, row: indexPath.row, data: movie, delegate: self, from: cache)
+    return imageHelper.setupCell(for: tableView, with: identifier, row: indexPath.row, data: movie, delegate: self)
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

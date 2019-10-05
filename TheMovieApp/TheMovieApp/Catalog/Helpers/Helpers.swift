@@ -49,6 +49,8 @@ public class Loader {
     }
   }
 }
+
+// MARK: - UIVIEW ANIMATION EXTENSIONS
 extension UIView {
   func pinEdgesToSuperView() {
     guard let superView = superview else { return }
@@ -83,13 +85,11 @@ class CellHelper {
   func setupCell(for tableView: UITableView,
                  with identifier: String,
                  row: Int, data: Movie,
-                 delegate: MovieTableViewCellDelegate,
-                 from cache: NSCache<NSString, UIImage>?) -> UITableViewCell {
+                 delegate: MovieTableViewCellDelegate) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MovieTableViewCell else {
       return UITableViewCell()
     }
     cell.setup(with: data)
-    //cell.loadImage(of: data, from: cache)
     cell.delegate = delegate
     return cell
   }

@@ -17,6 +17,8 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
   @IBOutlet private weak var labelDescription: UILabel!
   @IBOutlet private weak var buttonWatch: UIButton!
   
+  private let genericTitle: String = "Movie"
+  
   private var coverImageView: ImageLoader = {
     let imageView = ImageLoader()
     imageView.image = UIImage()
@@ -27,6 +29,7 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    self.labelTitle.text = genericTitle
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,7 +39,12 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
   func setup(with movie: Movie) {
     self.imageCover.image = nil
     self.imageCover.setRoundedCorners(radius: 10)
-    self.labelTitle.text = movie.title
+    if let title = movie.title {
+      self.labelTitle.text = title
+    }
+    if let name = movie.name{
+      self.labelTitle.text = name
+    }
     self.labelDescription.text = MovieDetails.formatInfo(of: movie)
     self.coverImageView.loadImage(of: movie)
     self.imageCover.isHidden = false

@@ -34,7 +34,6 @@ class MovieDetailViewController: UIViewController {
   @IBAction func watchTrailer(_ sender: Any) {
     buttonWatchTrailer.bounce()
   }
-  
 }
 
 extension MovieDetailViewController: MovieDetailViewProtocol {
@@ -44,9 +43,14 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
     self.imageCover.setRoundedCorners(radius: 10)
     Loader.showFade(view: imageCover)
   }
-
+  
   func loadDetails(_ movie: Movie) {
-    self.labelMovieName.text = movie.title
+    if let title = movie.title {
+      self.labelMovieName.text = title
+    }
+    if let name = movie.name {
+      self.labelMovieName.text = name
+    }
     self.labelMovieDetails.text = MovieDetails.formatInfo(of: movie)
     self.textViewMovieDescription.text = movie.description
   }

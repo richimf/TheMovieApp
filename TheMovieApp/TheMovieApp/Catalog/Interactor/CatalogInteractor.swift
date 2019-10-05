@@ -33,6 +33,9 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
     apiClient.fetchMovieListOf(url: .movie, release: .popular,  lang: .MX)
     apiClient.fetchMovieListOf(url: .movie, release: .topRated, lang: .MX)
     apiClient.fetchMovieListOf(url: .movie, release: .upcoming, lang: .MX)
+    apiClient.fetchMovieListOf(url: .tv, release: .popular,  lang: .MX)
+    apiClient.fetchMovieListOf(url: .tv, release: .topRated, lang: .MX)
+    apiClient.fetchMovieListOf(url: .tv, release: .upcoming, lang: .MX)
   }
   
   private func appendAllData() {
