@@ -20,6 +20,7 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
   private var topRated: [Movie] = []
   private var upcoming: [Movie] = []
   private(set) var sections: [Release] = []
+  private var genresCategories: [Genre] = []
   
   // CACHE
   var localDataManager: LocalDataManager = LocalDataManager()
@@ -37,8 +38,8 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
     apiClient.fetchMovieListOf(url: .tv, release: .topRated, lang: .MX)
     apiClient.fetchMovieListOf(url: .tv, release: .upcoming, lang: .MX)
     // Request Genres
-    apiClient.fetchGenreListOf(url: .genreMovie, release: .none, lang: .MX)
     apiClient.fetchGenreListOf(url: .genreTV, release: .none, lang: .MX)
+    apiClient.fetchGenreListOf(url: .genreMovie, release: .none, lang: .MX)
     //apiClient.fetch(url: .genreMovie, release: .none, lang: .MX, as: Genres.self)
   }
   
@@ -135,9 +136,12 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
 }
 // MARK: - API RESPONSE
 extension CatalogInteractor: APIResponseProtocol {
-
+  
   func fetchedGenres(data: Genres) {
-    print(data)
+    data.categories.forEach { genre in
+      self.genresCategories.append(genre)
+    }
+    print(" CATEGORIES: \(genresCategories)")
   }
   
   func fetchedResult(data: MovieResults) {
