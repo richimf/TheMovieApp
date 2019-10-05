@@ -138,6 +138,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="watchTrailer:" destination="HE7-a5-Gh5" eventType="touchUpInside" id="hbz-e5-v5O"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2a-bq-McQ">
                                 <rect key="frame" x="24" y="387" width="366" height="468"/>

@@ -72,6 +72,7 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
   //  }
   
   @IBAction func watchTrailer(_ sender: Any) {
+    self.buttonWatch.bounce()
     delegate?.showMovieTrailer()
   }
 }

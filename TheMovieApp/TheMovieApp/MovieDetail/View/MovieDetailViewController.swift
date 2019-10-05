@@ -22,7 +22,7 @@ class MovieDetailViewController: UIViewController {
   // MARK: - OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.imageCover.isHidden = true
+    self.imageCover.alpha = 0
     presenter?.loadDetails()
     let title = "Descripcion"
     self.navigationItem.title = title
@@ -30,6 +30,11 @@ class MovieDetailViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
   }
+  
+  @IBAction func watchTrailer(_ sender: Any) {
+    buttonWatchTrailer.bounce()
+  }
+  
 }
 
 extension MovieDetailViewController: MovieDetailViewProtocol {
@@ -37,7 +42,7 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
   func loadImage(_ image: UIImage) {
     self.imageCover.image = image
     self.imageCover.setRoundedCorners(radius: 10)
-    self.imageCover.isHidden = false
+    Loader.showFade(view: imageCover)
   }
 
   func loadDetails(_ movie: Movie) {
