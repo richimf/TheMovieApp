@@ -29,14 +29,19 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
   
   func fetchMoviesData() {
     apiClient.delegate = self
+    // Request Movie and TV shows List
     apiClient.fetchMovieListOf(url: .movie, release: .popular,  lang: .MX)
     apiClient.fetchMovieListOf(url: .movie, release: .topRated, lang: .MX)
     apiClient.fetchMovieListOf(url: .movie, release: .upcoming, lang: .MX)
     apiClient.fetchMovieListOf(url: .tv, release: .popular,  lang: .MX)
     apiClient.fetchMovieListOf(url: .tv, release: .topRated, lang: .MX)
     apiClient.fetchMovieListOf(url: .tv, release: .upcoming, lang: .MX)
+    // Request Genres
+    apiClient.fetchGenreListOf(url: .genreMovie, release: .none, lang: .MX)
+    apiClient.fetchGenreListOf(url: .genreTV, release: .none, lang: .MX)
+    //apiClient.fetch(url: .genreMovie, release: .none, lang: .MX, as: Genres.self)
   }
-
+  
   func filterSearch(text: String) {
     if text.isEmpty {
       self.filteredData = []
@@ -79,6 +84,8 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
       return upcoming.count
     case .topRated:
       return topRated.count
+    case .none:
+      return 0
     }
   }
   
@@ -91,10 +98,10 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
   }
   
   private func getItemAt(_ indexPath: IndexPath) -> Movie? {
-     let section = sections[indexPath.section]
-     return getDataFrom(section: section, at: indexPath.row)
-   }
-
+    let section = sections[indexPath.section]
+    return getDataFrom(section: section, at: indexPath.row)
+  }
+  
   func getDataFrom(section: APIMovieParams, at row: Int) -> Movie? {
     switch section {
     case .popular:
@@ -103,9 +110,11 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
       return upcoming[row]
     case .topRated:
       return topRated[row]
+    case .none:
+      return nil
     }
   }
-
+  
   func getSections() -> [String] {
     var output: [String] = []
     sections.forEach {
@@ -116,14 +125,21 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
         output.append(MovieCategories.upcoming.rawValue)
       case .topRated:
         output.append(MovieCategories.topRated.rawValue)
+      case .none:
+        break
       }
     }
     return output
   }
-
+  
 }
 // MARK: - API RESPONSE
 extension CatalogInteractor: APIResponseProtocol {
+
+  func fetchedGenres(data: Genres) {
+    print(data)
+  }
+  
   func fetchedResult(data: MovieResults) {
     if let section = data.release, let movies = data.results {
       // Append section
@@ -138,11 +154,13 @@ extension CatalogInteractor: APIResponseProtocol {
         self.upcoming.append(contentsOf: movies)
       case .topRated:
         self.topRated.append(contentsOf: movies)
+      case .none:
+        break
       }
     }
     self.presenter?.updateData()
   }
-
+  
   func onFailure(_ error: Error) {
     presenter?.receivedError(error)
   }

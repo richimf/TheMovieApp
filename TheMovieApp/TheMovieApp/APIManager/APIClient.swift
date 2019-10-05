@@ -11,9 +11,11 @@
 import Foundation
 import Alamofire
 import AlamofireObjectMapper
+import ObjectMapper
 
 protocol APIResponseProtocol {
   func fetchedResult(data: MovieResults)
+  func fetchedGenres(data: Genres)
   func onFailure(_ error: Error)
 }
 
@@ -32,6 +34,20 @@ class APIClient {
       case .success(var results):
         results.release = release
         self.delegate?.fetchedResult(data: results)
+      case .failure(let error):
+        self.delegate?.onFailure(error)
+      }
+    }
+  }
+
+  func fetchGenreListOf(url: APIUrls, release: APIMovieParams, lang: MovieLanguage) {
+    let URL = url.rawValue + release.rawValue
+    let params = [APIParams.key.rawValue: RequestValues().key,
+                  APIParams.lang.rawValue: lang.rawValue]
+    Alamofire.request(URL, parameters: params).responseObject { (response: DataResponse<Genres>) in
+      switch response.result {
+      case .success(let results):
+        self.delegate?.fetchedGenres(data: results)
       case .failure(let error):
         self.delegate?.onFailure(error)
       }
