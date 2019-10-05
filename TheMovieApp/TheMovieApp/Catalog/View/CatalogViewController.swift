@@ -34,7 +34,7 @@ class CatalogViewController: UIViewController {
   // OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
-    showLoader(view: loaderView)
+    Loader.show(view: loaderView)
     setup()
   }
   
@@ -118,7 +118,7 @@ class CatalogViewController: UIViewController {
 extension CatalogViewController: CatalogViewProtocol {
   
   func loadMovies() {
-    dismissLoader(view: loaderView)
+    Loader.dismiss(view: loaderView)
     self.tableView.reloadData()
     updateSegmentedControl()
   }
@@ -148,7 +148,8 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
     self.segmentedControl.selectedSegmentIndex = indexPath.section
     guard let movie = getItemAt(indexPath) else { return UITableViewCell() }
     let cache = presenter?.getImageCache() ?? nil
-    return setupCell(for: tableView, with: identifier, row: indexPath.row, data: movie, delegate: self, from: cache)
+    let imageHelper: CellHelper = CellHelper()
+    return imageHelper.setupCell(for: tableView, with: identifier, row: indexPath.row, data: movie, delegate: self, from: cache)
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

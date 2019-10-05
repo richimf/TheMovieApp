@@ -120,10 +120,25 @@ extension CatalogInteractor: APIResponseProtocol {
         self.topRated.append(contentsOf: movies)
       }
     }
-    presenter?.updateData()
+    self.presenter?.updateData()
     appendAllData()
   }
   
+//  private func downloadAllCoverImages() {
+//    let imgLoader: ImageLoader = ImageLoader()
+//    self.popular.forEach { movie in
+//      imgLoader.loadImage(of: movie)
+//    }
+//    self.topRated.forEach { movie in
+//      imgLoader.loadImage(of: movie)
+//    }
+//    self.upcoming.forEach { movie in
+//      imgLoader.loadImage(of: movie)
+//    }
+//    // UPDATE TABLE VIEW
+//    self.presenter?.updateData()
+//  }
+
   func onFailure(_ error: Error) {
     presenter?.receivedError(error)
   }

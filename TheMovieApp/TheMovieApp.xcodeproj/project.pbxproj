@@ -28,6 +28,7 @@
 		89DA298E2347C23400C8BF50 /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DA298D2347C23400C8BF50 /* LocalDataManager.swift */; };
 		89DA29902347CEDA00C8BF50 /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 89DA298F2347CEDA00C8BF50 /* loader.json */; };
 		89DA29942347CF5400C8BF50 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DA29922347CF5400C8BF50 /* LoaderView.swift */; };
+		89DA2999234837D600C8BF50 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DA2998234837D600C8BF50 /* ImageLoader.swift */; };
 		89E77286234398A4007FAB25 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77285234398A4007FAB25 /* CatalogViewController.swift */; };
 		89E772882343991D007FAB25 /* CatalogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E772872343991D007FAB25 /* CatalogProtocols.swift */; };
 		89E7728A234399F1007FAB25 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77289234399F1007FAB25 /* Entity.swift */; };
@@ -81,6 +82,7 @@
 		89DA298D2347C23400C8BF50 /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
 		89DA298F2347CEDA00C8BF50 /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 		89DA29922347CF5400C8BF50 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		89DA2998234837D600C8BF50 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		89E77285234398A4007FAB25 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		89E772872343991D007FAB25 /* CatalogProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogProtocols.swift; sourceTree = "<group>"; };
 		89E77289234399F1007FAB25 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 		89E77283234396E7007FAB25 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				89DA2998234837D600C8BF50 /* ImageLoader.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				89796DAA2343AD310031835C /* RoundButton.swift in Sources */,
 				89E77286234398A4007FAB25 /* CatalogViewController.swift in Sources */,
 				89E7729A2343A221007FAB25 /* MovieDetailProtocols.swift in Sources */,
+				89DA2999234837D600C8BF50 /* ImageLoader.swift in Sources */,
 				89E772882343991D007FAB25 /* CatalogProtocols.swift in Sources */,
 				89E7729E2343A37C007FAB25 /* MovieDetailInteractor.swift in Sources */,
 				89E7729023439FA3007FAB25 /* CatalogRouter.swift in Sources */,

@@ -42,7 +42,7 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
 
   func loadDetails(_ movie: Movie) {
     self.labelMovieName.text = movie.title
-    self.labelMovieDetails.text = movieDetailConstructor(of: movie)
+    self.labelMovieDetails.text = MovieDetails.formatInfo(of: movie)
     self.textViewMovieDescription.text = movie.description
   }
   
