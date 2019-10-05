@@ -54,3 +54,23 @@ extension Movie: ImmutableMappable {
     genereIds      = try? map.value("genre_ids")
   }
 }
+
+public struct Genres {
+  let categories: [Genre]
+}
+extension Genres: ImmutableMappable {
+  public init(map: Map) throws {
+    categories = try map.value("genres")
+  }
+}
+
+public struct Genre {
+  let id: Int
+  let name: String?
+}
+extension Genre: ImmutableMappable {
+  public init(map: Map) throws {
+    id = try map.value("id")
+    name = try map.value("name")
+  }
+}
