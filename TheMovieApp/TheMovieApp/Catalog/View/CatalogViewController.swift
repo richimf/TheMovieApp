@@ -22,7 +22,8 @@ class CatalogViewController: UIViewController {
   private let cellHeight: CGFloat = 175.0
   private let titleNavigation: String = "Movies"
   private let fontSection: UIFont? = UIFont(name: "Futura", size: 20)
-  
+  private lazy var loaderView: LoaderView = LoaderView()
+
   // SEARCH
   private let searchPlaceholder: String = "Busca tu película favorita..."
   private var searchController = UISearchController(searchResultsController: nil)
@@ -33,7 +34,9 @@ class CatalogViewController: UIViewController {
   // OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
+    Loader.show(view: loaderView)
     setup()
+    self.presenter?.loadMoviesData()
   }
   
   // MARK: - IBACTIONS
@@ -59,8 +62,6 @@ class CatalogViewController: UIViewController {
     setupSearchController()
     // Setup TableView
     setupTableView()
-    // Load Movies Info
-    self.presenter?.loadMoviesData()
   }
   
   private func scrollTo(section: Int) {
@@ -87,7 +88,6 @@ class CatalogViewController: UIViewController {
     searchController.searchBar.sizeToFit()
     navigationItem.searchController = searchController
     searchController.searchBar.delegate = self
-    //searchController.searchBar.scopeButtonTitles = ["Todas","Comedia", "Accion", "Aventura", "Drama", "Terror"]
   }
   
   private func updateSegmentedControl() {
@@ -117,6 +117,7 @@ class CatalogViewController: UIViewController {
 extension CatalogViewController: CatalogViewProtocol {
   
   func loadMovies() {
+    Loader.dismiss(view: loaderView)
     self.tableView.reloadData()
     updateSegmentedControl()
   }
@@ -145,8 +146,8 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     self.segmentedControl.selectedSegmentIndex = indexPath.section
     guard let movie = getItemAt(indexPath) else { return UITableViewCell() }
-    let cache = presenter?.getImageCache() ?? nil
-    return setupCell(for: tableView, with: identifier, row: indexPath.row, data: movie, delegate: self, from: cache)
+    let imageHelper: CellHelper = CellHelper()
+    return imageHelper.setupCell(for: tableView, with: identifier, row: indexPath.row, data: movie, delegate: self)
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

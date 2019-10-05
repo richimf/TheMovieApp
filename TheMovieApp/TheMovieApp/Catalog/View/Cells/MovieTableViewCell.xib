@@ -23,7 +23,7 @@
                             <constraint firstAttribute="height" constant="20" id="rDt-A9-m2y"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" systemColor="opaqueSeparatorColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cover" translatesAutoresizingMaskIntoConstraints="NO" id="8q3-F8-8OP">
@@ -81,7 +81,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="buttonWatch" destination="Mw9-4Q-Azw" id="fTl-QK-9gx"/>
-                <outlet property="imageCover" destination="8q3-F8-8OP" id="te8-Z5-sn7"/>
+                <outlet property="imageCover" destination="8q3-F8-8OP" id="ldE-s5-Djt"/>
                 <outlet property="labelDescription" destination="bFc-Oq-s9p" id="BCv-EX-9oL"/>
                 <outlet property="labelTitle" destination="OOt-Nq-7Kr" id="5Un-FA-QbK"/>
             </connections>

@@ -31,6 +31,9 @@ class CatalogPresenter: CatalogPresenterProtocol {
   }
   
   func getNumberOfSections() -> Int {
+    if showSearchResults {
+      return 1
+    }
     return interactor?.getSections().count ?? 0
   }
 
@@ -43,6 +46,9 @@ class CatalogPresenter: CatalogPresenterProtocol {
   }
 
   func nameForSection(_ section: Int) -> String {
+    if showSearchResults {
+      return "Resultados"
+    }
     let sections = getSections()
     return sections[section]
   }

@@ -25,7 +25,6 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
   var localDataManager: LocalDataManager = LocalDataManager()
   
   // FILTERS
-  private var allData: [Movie] = []
   private var filteredData: [Movie] = []
   
   func fetchMoviesData() {
@@ -33,16 +32,37 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
     apiClient.fetchMovieListOf(url: .movie, release: .popular,  lang: .MX)
     apiClient.fetchMovieListOf(url: .movie, release: .topRated, lang: .MX)
     apiClient.fetchMovieListOf(url: .movie, release: .upcoming, lang: .MX)
+    apiClient.fetchMovieListOf(url: .tv, release: .popular,  lang: .MX)
+    apiClient.fetchMovieListOf(url: .tv, release: .topRated, lang: .MX)
+    apiClient.fetchMovieListOf(url: .tv, release: .upcoming, lang: .MX)
   }
-  
-  private func appendAllData() {
-    allData.append(contentsOf: popular)
-    allData.append(contentsOf: topRated)
-    allData.append(contentsOf: upcoming)
-  }
-  
+
   func filterSearch(text: String) {
-    filteredData = allData.filter { $0.title?.contains(text) ?? false }
+    if text.isEmpty {
+      self.filteredData = []
+      return
+    }
+    let allData: [[Movie]] = [popular, topRated, topRated]
+    allData.forEach { movies in
+      let results = filterArray(input: text, array: movies)
+      if !results.isEmpty {
+        self.filteredData = results
+        return
+      }
+    }
+  }
+  
+  private func filterArray(input: String, array: [Movie]) -> [Movie] {
+    let results = array.filter {
+      if let title = $0.title {
+        return title.contains(input)
+      }
+      if let name = $0.name {
+        return name.contains(input)
+      }
+      return false
+    }
+    return results
   }
   
   func getNumberOfItemsAt(_ index: Int, isFiltering: Bool) -> Int {
@@ -120,10 +140,9 @@ extension CatalogInteractor: APIResponseProtocol {
         self.topRated.append(contentsOf: movies)
       }
     }
-    presenter?.updateData()
-    appendAllData()
+    self.presenter?.updateData()
   }
-  
+
   func onFailure(_ error: Error) {
     presenter?.receivedError(error)
   }
