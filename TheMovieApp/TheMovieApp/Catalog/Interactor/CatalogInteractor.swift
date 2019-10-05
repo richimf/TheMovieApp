@@ -25,7 +25,6 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
   var localDataManager: LocalDataManager = LocalDataManager()
   
   // FILTERS
-  private var allData: [Movie] = []
   private var filteredData: [Movie] = []
   
   func fetchMoviesData() {
@@ -37,15 +36,33 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
     apiClient.fetchMovieListOf(url: .tv, release: .topRated, lang: .MX)
     apiClient.fetchMovieListOf(url: .tv, release: .upcoming, lang: .MX)
   }
-  
-  private func appendAllData() {
-    allData.append(contentsOf: popular)
-    allData.append(contentsOf: topRated)
-    allData.append(contentsOf: upcoming)
+
+  func filterSearch(text: String) {
+    if text.isEmpty {
+      self.filteredData = []
+      return
+    }
+    let allData: [[Movie]] = [popular, topRated, topRated]
+    allData.forEach { movies in
+      let results = filterArray(input: text, array: movies)
+      if !results.isEmpty {
+        self.filteredData = results
+        return
+      }
+    }
   }
   
-  func filterSearch(text: String) {
-    filteredData = allData.filter { $0.title?.contains(text) ?? false }
+  private func filterArray(input: String, array: [Movie]) -> [Movie] {
+    let results = array.filter {
+      if let title = $0.title {
+        return title.contains(input)
+      }
+      if let name = $0.name {
+        return name.contains(input)
+      }
+      return false
+    }
+    return results
   }
   
   func getNumberOfItemsAt(_ index: Int, isFiltering: Bool) -> Int {
@@ -124,23 +141,7 @@ extension CatalogInteractor: APIResponseProtocol {
       }
     }
     self.presenter?.updateData()
-    appendAllData()
   }
-  
-//  private func downloadAllCoverImages() {
-//    let imgLoader: ImageLoader = ImageLoader()
-//    self.popular.forEach { movie in
-//      imgLoader.loadImage(of: movie)
-//    }
-//    self.topRated.forEach { movie in
-//      imgLoader.loadImage(of: movie)
-//    }
-//    self.upcoming.forEach { movie in
-//      imgLoader.loadImage(of: movie)
-//    }
-//    // UPDATE TABLE VIEW
-//    self.presenter?.updateData()
-//  }
 
   func onFailure(_ error: Error) {
     presenter?.receivedError(error)

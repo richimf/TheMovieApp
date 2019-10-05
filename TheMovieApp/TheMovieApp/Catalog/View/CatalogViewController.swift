@@ -36,6 +36,7 @@ class CatalogViewController: UIViewController {
     super.viewDidLoad()
     Loader.show(view: loaderView)
     setup()
+    self.presenter?.loadMoviesData()
   }
   
   // MARK: - IBACTIONS
@@ -61,8 +62,6 @@ class CatalogViewController: UIViewController {
     setupSearchController()
     // Setup TableView
     setupTableView()
-    // Load Movies Info
-    self.presenter?.loadMoviesData()
   }
   
   private func scrollTo(section: Int) {
