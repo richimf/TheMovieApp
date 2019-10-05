@@ -20,7 +20,7 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
   private var topRated: [Movie] = []
   private var upcoming: [Movie] = []
   private(set) var sections: [Release] = []
-  private var genresCategories: [Genre] = []
+  private var genresCategories: [Genre] = [Genre(id: 0, name: "Todas")]
   
   // CACHE
   var localDataManager: LocalDataManager = LocalDataManager()
