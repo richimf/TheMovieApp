@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1C4CC1BA33C1326D29ABBDA2 /* Pods_TheMovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1DC33441CDDA94349BDB5C /* Pods_TheMovieApp.framework */; };
+		8930E2B7234AA41400B19C22 /* LoaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E2B6234AA41400B19C22 /* LoaderHelper.swift */; };
+		8930E2B9234AA43600B19C22 /* CellHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E2B8234AA43500B19C22 /* CellHelper.swift */; };
+		8930E2BB234AA47D00B19C22 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E2BA234AA47D00B19C22 /* Extensions.swift */; };
 		894772C42344EB6B0038EAC3 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894772C32344EB6B0038EAC3 /* APIConstants.swift */; };
 		8951489F23462D6400597E3E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8951489E23462D6400597E3E /* APIClient.swift */; };
 		895148A523466FF100597E3E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895148A423466FF100597E3E /* Constants.swift */; };
@@ -58,6 +61,9 @@
 		521932DCD80F09796D23BF64 /* Pods_TheMovieAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		642B794A194C8833D66F7F27 /* Pods-TheMovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieApp/Pods-TheMovieApp.release.xcconfig"; sourceTree = "<group>"; };
 		72002CE99965FA4EE46B0A03 /* Pods-TheMovieAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieAppTests/Pods-TheMovieAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8930E2B6234AA41400B19C22 /* LoaderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderHelper.swift; sourceTree = "<group>"; };
+		8930E2B8234AA43500B19C22 /* CellHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHelper.swift; sourceTree = "<group>"; };
+		8930E2BA234AA47D00B19C22 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		894772C32344EB6B0038EAC3 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		8951489E23462D6400597E3E /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		895148A423466FF100597E3E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -145,6 +151,8 @@
 				89796DB22343E5C30031835C /* Fonts */,
 				89796DAB2343E1AA0031835C /* UIControls */,
 				895148A423466FF100597E3E /* Constants.swift */,
+				8930E2B8234AA43500B19C22 /* CellHelper.swift */,
+				8930E2BA234AA47D00B19C22 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -259,8 +267,9 @@
 		89DA29912347CEE000C8BF50 /* Loader */ = {
 			isa = PBXGroup;
 			children = (
-				89DA298F2347CEDA00C8BF50 /* loader.json */,
+				8930E2B6234AA41400B19C22 /* LoaderHelper.swift */,
 				89DA29922347CF5400C8BF50 /* LoaderView.swift */,
+				89DA298F2347CEDA00C8BF50 /* loader.json */,
 			);
 			path = Loader;
 			sourceTree = "<group>";
@@ -639,9 +648,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E7728C23439F85007FAB25 /* CatalogInteractor.swift in Sources */,
+				8930E2BB234AA47D00B19C22 /* Extensions.swift in Sources */,
 				897B3515234A3FC500E0A2E6 /* DataManager.swift in Sources */,
 				895148A523466FF100597E3E /* Constants.swift in Sources */,
 				8951489F23462D6400597E3E /* APIClient.swift in Sources */,
+				8930E2B7234AA41400B19C22 /* LoaderHelper.swift in Sources */,
+				8930E2B9234AA43600B19C22 /* CellHelper.swift in Sources */,
 				89E7728A234399F1007FAB25 /* Entity.swift in Sources */,
 				89E772A02343A385007FAB25 /* MovieDetailPresenter.swift in Sources */,
 				8998F19523426A9E00FD8364 /* AppDelegate.swift in Sources */,

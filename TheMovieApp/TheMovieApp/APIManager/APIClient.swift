@@ -19,6 +19,7 @@ protocol APIResponseProtocol {
   func onFailure(_ error: Error)
 }
 
+// MARK: - CONNECTIVITY
 // Helps to know if device is connected to internet
 class Connectivity {
   class var isConnectedToInternet: Bool {
@@ -26,6 +27,7 @@ class Connectivity {
   }
 }
 
+// MARK: - CLIENT
 class APIClient {
   
   var delegate: APIResponseProtocol?
