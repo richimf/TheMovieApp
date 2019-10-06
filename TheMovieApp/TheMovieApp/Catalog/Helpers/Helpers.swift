@@ -18,6 +18,19 @@ public class MovieDetails {
   }
 }
 
+func getCategoryKeyFrom(name: String) -> APIMovieParams {
+  switch name {
+  case "popular":
+    return APIMovieParams.popular
+  case "top_rated":
+    return APIMovieParams.topRated
+  case "upcoming":
+    return APIMovieParams.upcoming
+  default:
+    return APIMovieParams.none
+  }
+}
+
 // MARK: - LOADER VIEW HELPER for LOTTIE
 public class Loader {
   static func show(view: UIView) {
@@ -39,7 +52,7 @@ public class Loader {
       })
     }
   }
-
+  
   static func dismiss(view: UIView) {
     let duration = 2.0
     DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
@@ -81,7 +94,7 @@ extension UIButton {
 class CellHelper {
   
   init() {}
-
+  
   func setupCell(for tableView: UITableView,
                  with identifier: String,
                  row: Int, data: Movie,

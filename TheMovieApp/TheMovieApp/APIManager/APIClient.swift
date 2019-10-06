@@ -19,6 +19,13 @@ protocol APIResponseProtocol {
   func onFailure(_ error: Error)
 }
 
+// Helps to know if device is connected to internet
+class Connectivity {
+  class var isConnectedToInternet: Bool {
+    return NetworkReachabilityManager()?.isReachable ?? false
+  }
+}
+
 class APIClient {
   
   var delegate: APIResponseProtocol?
@@ -32,7 +39,7 @@ class APIClient {
     Alamofire.request(URL, parameters: params).responseObject { (response: DataResponse<MovieResults>) in
       switch response.result {
       case .success(var results):
-        results.release = release
+        results.category = release
         self.delegate?.fetchedResult(data: results)
       case .failure(let error):
         self.delegate?.onFailure(error)

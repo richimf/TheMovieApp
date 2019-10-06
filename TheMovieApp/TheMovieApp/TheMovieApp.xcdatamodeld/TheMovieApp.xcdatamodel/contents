@@ -2,26 +2,35 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CDGenre" representedClassName="CDGenre" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="movie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDMovie" inverseName="genres" inverseEntity="CDMovie"/>
     </entity>
     <entity name="CDMovie" representedClassName="CDMovie" syncable="YES" codeGenerationType="class">
         <attribute name="backdropImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="backdropPath" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="originalTitle" optional="YES" attributeType="String"/>
         <attribute name="overview" optional="YES" attributeType="String"/>
+        <attribute name="popularity" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="posterImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="posterPath" optional="YES" attributeType="String"/>
         <attribute name="rating" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="releaseDate" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <attribute name="voteCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="voteCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="genres" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDGenre" inverseName="movie" inverseEntity="CDGenre"/>
+        <relationship name="results" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDResult"/>
+    </entity>
+    <entity name="CDResult" representedClassName="CDResult" syncable="YES" codeGenerationType="class">
+        <attribute name="sections" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="popular" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDMovie"/>
+        <relationship name="topRated" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDMovie"/>
+        <relationship name="upcoming" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDMovie"/>
     </entity>
     <elements>
-        <element name="CDGenre" positionX="-71.203125" positionY="44.25390625" width="128" height="88"/>
-        <element name="CDMovie" positionX="-355.61328125" positionY="-143.953125" width="128" height="238"/>
+        <element name="CDGenre" positionX="-428.7890625" positionY="9.828125" width="128" height="73"/>
+        <element name="CDMovie" positionX="-611.58203125" positionY="-244.5625" width="128" height="283"/>
+        <element name="CDResult" positionX="-812.765625" positionY="-241.3984375" width="128" height="103"/>
     </elements>
 </model>

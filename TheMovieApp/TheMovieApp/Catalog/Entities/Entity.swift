@@ -9,11 +9,11 @@
 import ObjectMapper
 
 /// Object used to map all the response from the service
-public typealias Release = APIMovieParams
+public typealias Category = APIMovieParams
 public struct MovieResults {
   var totalPages: Int?
   var results: [Movie]?
-  var release: Release?
+  var category: Category?
 }
 extension MovieResults: Mappable {
   public init?(map: Map) {
@@ -25,22 +25,29 @@ extension MovieResults: Mappable {
 }
 
 public struct Movie {
-  let id: Int
-  let originalTitle: String?
-  let title: String?
-  let name: String?
-  let overview: String?
-  let posterPath: String?
-  let popularity: Float?
-  let voteCount: Int?
-  let rating: Float?
-  let backdropPath: String?
-  let releaseDate: String?
-  let genereIds: [Int]?
+  var id: Int?
+  var originalTitle: String?
+  var title: String?
+  var name: String?
+  var overview: String?
+  var posterPath: String?
+  var popularity: Float?
+  var voteCount: Int?
+  var rating: Float?
+  var backdropPath: String?
+  var releaseDate: String?
+  var genereIds: [Int]?
+  // Images
+  var posterImage: Data?
+  var backdropImage: Data?
+  //
+  var category: Category?
 }
-extension Movie: ImmutableMappable {
-  public init(map: Map) throws {
-    id             = try map.value("id")
+extension Movie: Mappable {
+  public init?(map: Map) {
+  }
+  public mutating func mapping(map: Map) {
+    id             = try? map.value("id")
     originalTitle  = try? map.value("original_title")
     title          = try? map.value("title")
     name           = try? map.value("name")

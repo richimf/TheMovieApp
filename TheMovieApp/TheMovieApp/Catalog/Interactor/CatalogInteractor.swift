@@ -19,7 +19,7 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
   private var popular: [Movie] = []
   private var topRated: [Movie] = []
   private var upcoming: [Movie] = []
-  private(set) var sections: [Release] = []
+  private(set) var sections: [Category] = []
   private var genresCategories: [Genre] = [Genre(id: 0, name: "Todas")]
   
   // CACHE
@@ -29,18 +29,34 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
   private var filteredData: [Movie] = []
   
   func fetchMoviesData() {
-    apiClient.delegate = self
-    // Request Movie and TV shows List
-    apiClient.fetchMovieListOf(url: .movie, release: .popular,  lang: .MX)
-    apiClient.fetchMovieListOf(url: .movie, release: .topRated, lang: .MX)
-    apiClient.fetchMovieListOf(url: .movie, release: .upcoming, lang: .MX)
-    apiClient.fetchMovieListOf(url: .tv, release: .popular,  lang: .MX)
-    apiClient.fetchMovieListOf(url: .tv, release: .topRated, lang: .MX)
-    apiClient.fetchMovieListOf(url: .tv, release: .upcoming, lang: .MX)
-    // Request Genres
-    apiClient.fetchGenreListOf(url: .genreTV, release: .none, lang: .MX)
-    apiClient.fetchGenreListOf(url: .genreMovie, release: .none, lang: .MX)
-    //apiClient.fetch(url: .genreMovie, release: .none, lang: .MX, as: Genres.self)
+    if Connectivity.isConnectedToInternet {
+      apiClient.delegate = self
+      // Request Movie and TV shows List
+      apiClient.fetchMovieListOf(url: .movie, release: .popular,  lang: .MX)
+      apiClient.fetchMovieListOf(url: .movie, release: .topRated, lang: .MX)
+      apiClient.fetchMovieListOf(url: .movie, release: .upcoming, lang: .MX)
+      apiClient.fetchMovieListOf(url: .tv, release: .popular,  lang: .MX)
+      apiClient.fetchMovieListOf(url: .tv, release: .topRated, lang: .MX)
+      apiClient.fetchMovieListOf(url: .tv, release: .upcoming, lang: .MX)
+      // Request Genres
+      apiClient.fetchGenreListOf(url: .genreTV, release: .none, lang: .MX)
+      apiClient.fetchGenreListOf(url: .genreMovie, release: .none, lang: .MX)
+    } else {
+      // Load from local storage
+      let dataManager = DataManager()
+      dataManager.retrieveMoviesData(from: Category.popular.rawValue) {
+        self.popular = $0
+        self.presenter?.updateData()
+      }
+      dataManager.retrieveMoviesData(from: Category.topRated.rawValue) {
+        self.topRated = $0
+        self.presenter?.updateData()
+      }
+      dataManager.retrieveMoviesData(from: Category.upcoming.rawValue) {
+        self.upcoming = $0
+        self.presenter?.updateData()
+      }
+    }
   }
   
   func filterSearch(text: String) {
@@ -141,15 +157,16 @@ extension CatalogInteractor: APIResponseProtocol {
     data.categories.forEach { genre in
       self.genresCategories.append(genre)
     }
-    //print(" CATEGORIES: \(genresCategories)")
   }
   
   func fetchedResult(data: MovieResults) {
-    if let section = data.release, let movies = data.results {
+    if let section = data.category, let movies = data.results {
       // Append section
       if !self.sections.contains(section) {
         self.sections.append(section)
       }
+      // Store
+      storeMovies(movies: movies, category: section)
       // Append elements to each section
       switch section {
       case .popular:
@@ -163,6 +180,13 @@ extension CatalogInteractor: APIResponseProtocol {
       }
     }
     self.presenter?.updateData()
+  }
+  
+  private func storeMovies(movies: [Movie], category: Category) {
+    let dataManager = DataManager()
+    movies.forEach {
+      dataManager.saveEntryOf(movie: $0, category: category)
+    }
   }
   
   func onFailure(_ error: Error) {
