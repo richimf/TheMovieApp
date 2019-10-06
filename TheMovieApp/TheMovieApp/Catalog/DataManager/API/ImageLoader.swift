@@ -10,7 +10,7 @@ import UIKit
 
 class ImageLoader: UIImageView {
   
-  // Image cache singleton
+  // Image Cache Singleton
   private let imageCache = LocalDataManager.shared.imageCache
   private var urlImageString: String?
   
@@ -19,8 +19,8 @@ class ImageLoader: UIImageView {
     let fullPath: String = "\(APIUrls.img.rawValue)\(path)"
     return fullPath
   }
-  
-  func loadImage(of movie: Movie) {
+
+  func loadCompressedImage(of movie: Movie, size: CGSize) {
     let path = getURL(of: movie)
     let key: NSString = NSString(string: path)
     self.urlImageString = path
@@ -31,21 +31,37 @@ class ImageLoader: UIImageView {
       self.image = imageCached
       return
     }
-    // Download Image from API
-    DispatchQueue.global(qos: .background).async {
-      guard
-        let url: URL = URL(string: path),
-        let data = try? Data(contentsOf: url),
-        let imageDownloaded: UIImage = UIImage(data: data) else { return }
-      // Set image
-      DispatchQueue.main.async {
-        // Avoid overlaping image in cells
-        if self.urlImageString == path {
-          self.image = imageDownloaded
-          self.imageCache.setObject(imageDownloaded, forKey: key)
+    // Download and Compress image to fit container size
+    if self.urlImageString == path {
+      DispatchQueue.global(qos: .background).async {
+        guard let url: URL = URL(string: path),
+          let newimage = self.downloadAndCompress(url: url, newSize: size) else { return }
+        DispatchQueue.main.async {
+          // Set Image
+          // if self.urlImageString == path { // avoid repetition but slows scrolling
+            self.image = newimage
+            // Store new image in cache
+            self.imageCache.setObject(newimage, forKey: key)
+         // }
         }
       }
     }
   }
-
+  
+  private func downloadAndCompress(url: URL, newSize: CGSize) -> UIImage? {
+    guard let imageSource = CGImageSourceCreateWithURL(url as NSURL, nil),
+      let image = CGImageSourceCreateImageAtIndex(imageSource, 0, nil),
+      let colorSpace = CGColorSpace(name: CGColorSpace.sRGB) else { return nil }
+    let context = CGContext(data: nil,
+                            width: Int(newSize.width),
+                            height: Int(newSize.height),
+                            bitsPerComponent: image.bitsPerComponent,
+                            bytesPerRow: image.bytesPerRow,
+                            space: image.colorSpace ?? colorSpace,
+                            bitmapInfo: image.bitmapInfo.rawValue)
+    context?.interpolationQuality = .high
+    context?.draw(image, in: CGRect(origin: .zero, size: newSize))
+    guard let scaledImage = context?.makeImage() else { return nil }
+    return UIImage(cgImage: scaledImage)
+  }
 }

@@ -46,7 +46,7 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
       self.labelTitle.text = name
     }
     self.labelDescription.text = MovieDetails.formatInfo(of: movie)
-    self.coverImageView.loadImage(of: movie)
+    self.coverImageView.loadCompressedImage(of: movie, size: self.imageCover.frame.size)
     self.imageCover.isHidden = false
     self.imageCover.image = self.coverImageView.image
   }
