@@ -2,7 +2,7 @@
 //  Constants.swift
 //  TheMovieApp
 //
-//  Created by Richie on 10/2/19.
+//  Created by Ricardo Montesinos on 10/2/19.
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 

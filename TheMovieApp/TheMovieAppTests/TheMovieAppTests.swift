@@ -2,7 +2,7 @@
 //  TheMovieAppTests.swift
 //  TheMovieAppTests
 //
-//  Created by Richie on 9/30/19.
+//  Created by Ricardo Montesinos on 9/30/19.
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 

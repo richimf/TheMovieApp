@@ -2,13 +2,29 @@
 //  DataManager.swift
 //  TheMovieApp
 //
-//  Created by Richie on 10/6/19.
+//  Created by Ricardo Montesinos on 10/6/19.
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
+// MARK: - CORE DATA ENTITY NAMES
+// Protocols to help get coredata entity names
+protocol EntityNameProtocol: class {
+  func getEntityName() -> String
+}
+extension EntityNameProtocol where Self: NSManagedObject {
+  func getEntityName() -> String {
+    let thisType = type(of: self)
+    return String(describing: thisType)
+  }
+}
+extension CDResult: EntityNameProtocol {}
+extension CDMovie: EntityNameProtocol {}
+extension CDGenre: EntityNameProtocol {}
+
+// MARK: - CORE DATA MANAGER
 public class DataManager {
   
   typealias RetreiveMovies = (_ movies: [Movie])->Void
@@ -155,18 +171,3 @@ public class DataManager {
   }
   
 }
-
-// MARK: - CORE DATA ENTITY NAMES
-// Protocols to help get coredata entity names
-protocol EntityNameProtocol: class {
-  func getEntityName() -> String
-}
-extension EntityNameProtocol where Self: NSManagedObject {
-  func getEntityName() -> String {
-    let thisType = type(of: self)
-    return String(describing: thisType)
-  }
-}
-extension CDResult: EntityNameProtocol {}
-extension CDMovie: EntityNameProtocol {}
-extension CDGenre: EntityNameProtocol {}
