@@ -28,6 +28,7 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
   // FILTERS
   private var filteredData: [Movie] = []
   
+  // MARK: - REQUEST DATA
   func fetchMoviesData() {
     if Connectivity.isConnectedToInternet {
       apiClient.delegate = self
@@ -46,19 +47,23 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
       let dataManager = DataManager()
       dataManager.retrieveMoviesData(from: Category.popular.rawValue) {
         self.popular = $0
+        self.appendSection(.popular)
         self.presenter?.updateData()
       }
       dataManager.retrieveMoviesData(from: Category.topRated.rawValue) {
         self.topRated = $0
+        self.appendSection(.topRated)
         self.presenter?.updateData()
       }
       dataManager.retrieveMoviesData(from: Category.upcoming.rawValue) {
         self.upcoming = $0
+        self.appendSection(.upcoming)
         self.presenter?.updateData()
       }
     }
   }
   
+  // MARK: - FILTERING DATA
   func filterSearch(text: String) {
     if text.isEmpty {
       self.filteredData = []
@@ -87,6 +92,7 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
     return results
   }
   
+  // MARK: - GET ITEMS AT INDEX
   func getNumberOfItemsAt(_ index: Int, isFiltering: Bool) -> Int {
     return isFiltering ? filteredData.count : getNumberOfItems(index)
   }
@@ -148,7 +154,6 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
     }
     return output
   }
-  
 }
 // MARK: - API RESPONSE
 extension CatalogInteractor: APIResponseProtocol {
@@ -162,9 +167,7 @@ extension CatalogInteractor: APIResponseProtocol {
   func fetchedResult(data: MovieResults) {
     if let section = data.category, let movies = data.results {
       // Append section
-      if !self.sections.contains(section) {
-        self.sections.append(section)
-      }
+      appendSection(section)
       // Store
       storeMovies(movies: movies, category: section)
       // Append elements to each section
@@ -182,6 +185,13 @@ extension CatalogInteractor: APIResponseProtocol {
     self.presenter?.updateData()
   }
   
+  private func appendSection(_ section: Category) {
+    // Append section
+    if !self.sections.contains(section) {
+      self.sections.append(section)
+    }
+  }
+
   private func storeMovies(movies: [Movie], category: Category) {
     let dataManager = DataManager()
     movies.forEach {

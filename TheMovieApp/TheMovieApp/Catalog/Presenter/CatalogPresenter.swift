@@ -17,6 +17,7 @@ class CatalogPresenter: CatalogPresenterProtocol {
 
   // FILTERING
   var showSearchResults: Bool = false
+  private let resultsTitle: String = "Resultados"
   
   func loadMoviesData() {
     interactor?.fetchMoviesData()
@@ -47,7 +48,7 @@ class CatalogPresenter: CatalogPresenterProtocol {
 
   func nameForSection(_ section: Int) -> String {
     if showSearchResults {
-      return "Resultados"
+      return resultsTitle
     }
     let sections = getSections()
     return sections[section]
@@ -91,6 +92,7 @@ class CatalogPresenter: CatalogPresenterProtocol {
 // Data received from Interactor
 extension CatalogPresenter: CatalogInteractorOutputProtocol {
   func updateData() {
+    print(#function)
     view?.loadMovies()
   }
   

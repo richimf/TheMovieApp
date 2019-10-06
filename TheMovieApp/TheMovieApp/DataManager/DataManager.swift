@@ -46,6 +46,7 @@ public class DataManager {
     if category == .upcoming {
       resultEntity.addToUpcoming(movieEntity)
     }
+
     // Save
     do {
       try managedContext.save()
