@@ -9,21 +9,6 @@
 import UIKit
 import CoreData
 
-// MARK: - CORE DATA ENTITY NAMES
-// Protocols to help get coredata entity names
-protocol EntityNameProtocol: class {
-  func getEntityName() -> String
-}
-extension EntityNameProtocol where Self: NSManagedObject {
-  func getEntityName() -> String {
-    let thisType = type(of: self)
-    return String(describing: thisType)
-  }
-}
-extension CDResult: EntityNameProtocol {}
-extension CDMovie: EntityNameProtocol {}
-extension CDGenre: EntityNameProtocol {}
-
 // MARK: - CORE DATA MANAGER
 public class DataManager {
   
@@ -36,7 +21,7 @@ public class DataManager {
     // Get context
     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
     let managedContext = appDelegate.persistentContainer.viewContext
-    
+
     // Mapping
     let resultEntity = CDResult(context: managedContext)
     let movieEntity = CDMovie(context: managedContext)
@@ -128,6 +113,7 @@ public class DataManager {
     }
   }
   
+  // Movie MAPPING
   private func mapMovie(data: CDMovie, category: Category, genres: [Int]?) -> Movie {
     return Movie(id: Int(data.id),
                  originalTitle: data.originalTitle,
@@ -146,15 +132,14 @@ public class DataManager {
                  category: category)
   }
   
-  
   func updateData() {
+    // Context
     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
     let managedContext = appDelegate.persistentContainer.viewContext
     
     let cdMovie = CDMovie()
     let entityName = cdMovie.getEntityName()
     let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: entityName)
-    // let resultPredicate = NSPredicate(format: "name contains[c] %@", searchText)
     fetchRequest.predicate = NSPredicate(format: "name = %@", "Test name 5")
     do {
       let test = try managedContext.fetch(fetchRequest)
