@@ -14,12 +14,7 @@ class ImageLoader: UIImageView {
   private let imageCache = LocalDataManager.shared.imageCache
   private var urlImageString: String?
   
-  private func getURL(of movie: Movie) -> String {
-    guard let path = movie.posterPath else { return "" }
-    let fullPath: String = "\(APIUrls.img.rawValue)\(path)"
-    return fullPath
-  }
-
+  // DOWNLOAD IMAGE METHOD
   func loadCompressedImage(of movie: Movie, size: CGSize) {
     let path = getURL(of: movie)
     let key: NSString = NSString(string: path)
@@ -39,15 +34,16 @@ class ImageLoader: UIImageView {
         DispatchQueue.main.async {
           // Set Image
           // if self.urlImageString == path { // avoid repetition but slows scrolling
-            self.image = newimage
-            // Store new image in cache
-            self.imageCache.setObject(newimage, forKey: key)
-         // }
+          self.image = newimage
+          // Store new image in cache
+          self.imageCache.setObject(newimage, forKey: key)
+          // }
         }
       }
     }
   }
   
+  // DOWNLOAD AND COMPRESSING IMAGE METHOD
   private func downloadAndCompress(url: URL, newSize: CGSize) -> UIImage? {
     guard let imageSource = CGImageSourceCreateWithURL(url as NSURL, nil),
       let image = CGImageSourceCreateImageAtIndex(imageSource, 0, nil),
@@ -63,5 +59,12 @@ class ImageLoader: UIImageView {
     context?.draw(image, in: CGRect(origin: .zero, size: newSize))
     guard let scaledImage = context?.makeImage() else { return nil }
     return UIImage(cgImage: scaledImage)
+  }
+  
+  // URL CREATOR
+  private func getURL(of movie: Movie) -> String {
+    guard let path = movie.posterPath else { return "" }
+    let fullPath: String = "\(APIUrls.img.rawValue)\(path)"
+    return fullPath
   }
 }
