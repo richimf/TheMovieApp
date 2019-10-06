@@ -141,7 +141,7 @@ extension CatalogInteractor: APIResponseProtocol {
     data.categories.forEach { genre in
       self.genresCategories.append(genre)
     }
-    print(" CATEGORIES: \(genresCategories)")
+    //print(" CATEGORIES: \(genresCategories)")
   }
   
   func fetchedResult(data: MovieResults) {

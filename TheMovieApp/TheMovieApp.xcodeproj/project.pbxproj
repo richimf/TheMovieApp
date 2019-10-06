@@ -16,6 +16,7 @@
 		89796DAF2343E36D0031835C /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89796DAD2343E36D0031835C /* MovieTableViewCell.xib */; };
 		89796DB52343E62A0031835C /* avant-garde-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89796DB32343E62A0031835C /* avant-garde-regular.otf */; };
 		89796DB62343E62A0031835C /* avant-garde-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89796DB42343E62A0031835C /* avant-garde-light.otf */; };
+		897B3515234A3FC500E0A2E6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897B3514234A3FC500E0A2E6 /* DataManager.swift */; };
 		8998F19523426A9E00FD8364 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8998F19423426A9E00FD8364 /* AppDelegate.swift */; };
 		8998F19723426A9E00FD8364 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8998F19623426A9E00FD8364 /* SceneDelegate.swift */; };
 		8998F19C23426A9E00FD8364 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8998F19A23426A9E00FD8364 /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		89796DAD2343E36D0031835C /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 		89796DB32343E62A0031835C /* avant-garde-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "avant-garde-regular.otf"; sourceTree = "<group>"; };
 		89796DB42343E62A0031835C /* avant-garde-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "avant-garde-light.otf"; sourceTree = "<group>"; };
+		897B3514234A3FC500E0A2E6 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		8998F19123426A9E00FD8364 /* TheMovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8998F19423426A9E00FD8364 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8998F19623426A9E00FD8364 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +192,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		897B3513234A3FB800E0A2E6 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				897B3514234A3FC500E0A2E6 /* DataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 		8998F18823426A9E00FD8364 = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +225,7 @@
 			children = (
 				8998F19423426A9E00FD8364 /* AppDelegate.swift */,
 				8998F19623426A9E00FD8364 /* SceneDelegate.swift */,
+				897B3513234A3FB800E0A2E6 /* DataManager */,
 				894772C72344EB8C0038EAC3 /* APIManager */,
 				894772BB2344663F0038EAC3 /* Resources */,
 				89E772792343961E007FAB25 /* Catalog */,
@@ -573,9 +584,6 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper+Realm/ObjectMapper_Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -586,9 +594,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper_Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -609,9 +614,6 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper+Realm/ObjectMapper_Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -622,9 +624,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper_Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,6 +639,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E7728C23439F85007FAB25 /* CatalogInteractor.swift in Sources */,
+				897B3515234A3FC500E0A2E6 /* DataManager.swift in Sources */,
 				895148A523466FF100597E3E /* Constants.swift in Sources */,
 				8951489F23462D6400597E3E /* APIClient.swift in Sources */,
 				89E7728A234399F1007FAB25 /* Entity.swift in Sources */,

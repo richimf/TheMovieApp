@@ -14,8 +14,8 @@ def dependency_pods
     pod 'AlamofireObjectMapper', '~> 5.2'
     
     # REALM
-    pod 'RealmSwift'
-    pod 'ObjectMapper+Realm'
+    # pod 'RealmSwift'
+    # pod 'ObjectMapper+Realm'
 
     # RxSwift
     # pod 'RxSwift', '~> 4.0'

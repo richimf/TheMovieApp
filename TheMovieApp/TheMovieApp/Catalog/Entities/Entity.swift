@@ -29,7 +29,7 @@ public struct Movie {
   let originalTitle: String?
   let title: String?
   let name: String?
-  let description: String?
+  let overview: String?
   let posterPath: String?
   let popularity: Float?
   let voteCount: Int?
@@ -44,7 +44,7 @@ extension Movie: ImmutableMappable {
     originalTitle  = try? map.value("original_title")
     title          = try? map.value("title")
     name           = try? map.value("name")
-    description    = try? map.value("overview")
+    overview       = try? map.value("overview")
     posterPath     = try? map.value("poster_path")
     popularity     = try? map.value("popularity")
     voteCount      = try? map.value("vote_count")

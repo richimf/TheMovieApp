@@ -52,7 +52,7 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
       self.labelMovieName.text = name
     }
     self.labelMovieDetails.text = MovieDetails.formatInfo(of: movie)
-    self.textViewMovieDescription.text = movie.description
+    self.textViewMovieDescription.text = movie.overview
   }
   
   func showErrorMessage(_ message: String) {
