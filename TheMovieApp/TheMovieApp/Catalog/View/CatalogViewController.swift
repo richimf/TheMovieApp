@@ -34,7 +34,7 @@ class CatalogViewController: UIViewController {
   // OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
-    Loader.show(view: loaderView)
+    Animator.show(view: loaderView)
     setup()
     self.presenter?.loadMoviesData()
   }
@@ -117,7 +117,7 @@ class CatalogViewController: UIViewController {
 extension CatalogViewController: CatalogViewProtocol {
   
   func loadMovies() {
-    Loader.dismiss(view: loaderView)
+    Animator.dismiss(view: loaderView)
     self.tableView.reloadData()
     updateSegmentedControl()
   }
@@ -136,7 +136,7 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return presenter?.nameForSection(section)
+    return presenter?.getNameForSection(section)
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

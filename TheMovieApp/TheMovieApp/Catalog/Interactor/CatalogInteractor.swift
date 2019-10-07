@@ -20,7 +20,8 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
   private var topRated: [Movie] = []
   private var upcoming: [Movie] = []
   private(set) var sections: [Category] = []
-  private var genresCategories: [Genre] = [Genre(id: 0, name: "Todas")]
+  var genresCategories: [Genre] = []
+  var genresFilteredIds: [Int] = []
   
   // CACHE
   var cacheDataManager: CacheDataManager = CacheDataManager()
@@ -42,6 +43,7 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
       apiClient.fetchMovieListOf(url: .tv, release: .popular,  lang: .MX)
       apiClient.fetchMovieListOf(url: .tv, release: .topRated, lang: .MX)
       apiClient.fetchMovieListOf(url: .tv, release: .upcoming, lang: .MX)
+      
     } else {
       // Load from local storage
       let dataManager = DataManager()
@@ -84,7 +86,7 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
     }
     let allData: [[Movie]] = [popular, topRated, topRated]
     allData.forEach { movies in
-      let results = filterArray(input: text, array: movies)
+      let results = filterArray(input: text, data: movies)
       if !results.isEmpty {
         self.filteredData = results
         return
@@ -92,8 +94,8 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
     }
   }
   
-  private func filterArray(input: String, array: [Movie]) -> [Movie] {
-    let results = array.filter {
+  private func filterArray(input: String, data: [Movie]) -> [Movie] {
+    let results = data.filter {
       if let title = $0.title {
         return title.contains(input)
       }
@@ -105,7 +107,34 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
     return results
   }
   
-  // MARK: - GET ITEMS AT INDEX
+  // MARK: - FILTERING BY GENRE
+  func filterByGenre(_ ids: [Int]) {
+    self.genresFilteredIds = ids
+    if ids.isEmpty {
+      self.filteredData = []
+      return
+    }
+    let allData: [[Movie]] = [popular, topRated, topRated]
+    allData.forEach { movies in
+      let results = finterByGenre(ids, data: movies)
+      if !results.isEmpty {
+        self.filteredData = results
+        return
+      }
+    }
+  }
+  
+  private func finterByGenre(_ ids: [Int], data: [Movie]) -> [Movie] {
+    let results = data.filter {
+      if let movieIds = $0.genereIds {
+        return movieIds.contains{ ids.contains($0) }
+      }
+      return false
+    }
+    return results
+  }
+  
+  // MARK: - GET NUMBER OF ITEMS AT
   func getNumberOfItemsAt(_ index: Int, isFiltering: Bool) -> Int {
     return isFiltering ? filteredData.count : getNumberOfItems(index)
   }
@@ -125,6 +154,7 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
     }
   }
   
+  // MARK: - GET DATA FROM OR ITEM AT
   func getItemAt(_ indexPath: IndexPath, isFiltering: Bool) -> Movie? {
     if indexPath.row < filteredData.count && isFiltering {
       return filteredData[indexPath.row]
@@ -168,14 +198,17 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
     return output
   }
 }
+
 // MARK: - API RESPONSE
 extension CatalogInteractor: APIResponseProtocol {
   
   func fetchedGenres(data: Genres) {
     let local = DataManager()
     data.categories.forEach { genre in
-      self.genresCategories.append(genre)
-      local.saveEntryOf(genre: genre)
+      if !genresCategories.contains(genre){
+        self.genresCategories.append(genre)
+        local.saveEntryOf(genre: genre)
+      }
     }
   }
   
@@ -200,6 +233,7 @@ extension CatalogInteractor: APIResponseProtocol {
     self.presenter?.updateData()
   }
   
+  // PRIVATE METHODS
   private func appendSection(_ section: Category) {
     // Append section
     if !self.sections.contains(section) {
@@ -214,6 +248,7 @@ extension CatalogInteractor: APIResponseProtocol {
     }
   }
   
+  // MARK: - ERROR RESPONSE
   func onFailure(_ error: Error) {
     presenter?.receivedError(error)
   }

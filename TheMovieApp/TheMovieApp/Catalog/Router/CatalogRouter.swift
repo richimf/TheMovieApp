@@ -26,4 +26,16 @@ class CatalogRouter: CatalogRouterProtocol {
     MovieDetailRouter.createMovieTrailerModule(for: detailView, and: movie)
     view.navigationController?.pushViewController(detailView, animated: true)
   }
+  
+  func presentCategoryFilterView(from view: UIViewController,
+                                 categories: [Genre],
+                                 filteredIds: [Int],
+                                 delegate: CategoryFilterDelegate?) {
+    guard let filterView = view.storyboard?.instantiateViewController(withIdentifier: "CategoryFilterViewController") as? CategoryFilterViewController else { return }
+    filterView.items = categories
+    filterView.delegate = delegate
+    filterView.selectedGenresIds = filteredIds
+    view.present(filterView, animated: true, completion: nil)
+  }
+
 }

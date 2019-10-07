@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C4CC1BA33C1326D29ABBDA2 /* Pods_TheMovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1DC33441CDDA94349BDB5C /* Pods_TheMovieApp.framework */; };
-		8930E2B7234AA41400B19C22 /* LoaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E2B6234AA41400B19C22 /* LoaderHelper.swift */; };
+		8930E2B7234AA41400B19C22 /* AnimatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E2B6234AA41400B19C22 /* AnimatorHelper.swift */; };
 		8930E2B9234AA43600B19C22 /* CellHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E2B8234AA43500B19C22 /* CellHelper.swift */; };
 		8930E2BB234AA47D00B19C22 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E2BA234AA47D00B19C22 /* Extensions.swift */; };
 		8930E2BD234AA50A00B19C22 /* DataManagerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E2BC234AA50A00B19C22 /* DataManagerProtocols.swift */; };
@@ -21,6 +21,9 @@
 		89796DB52343E62A0031835C /* avant-garde-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89796DB32343E62A0031835C /* avant-garde-regular.otf */; };
 		89796DB62343E62A0031835C /* avant-garde-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89796DB42343E62A0031835C /* avant-garde-light.otf */; };
 		897B3515234A3FC500E0A2E6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897B3514234A3FC500E0A2E6 /* DataManager.swift */; };
+		89877112234AFF7C0094E56C /* CategoryFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89877111234AFF7C0094E56C /* CategoryFilterViewController.swift */; };
+		89877115234B006B0094E56C /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89877113234B006B0094E56C /* CategoryTableViewCell.swift */; };
+		89877116234B006B0094E56C /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89877114234B006B0094E56C /* CategoryTableViewCell.xib */; };
 		8998F19523426A9E00FD8364 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8998F19423426A9E00FD8364 /* AppDelegate.swift */; };
 		8998F19723426A9E00FD8364 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8998F19623426A9E00FD8364 /* SceneDelegate.swift */; };
 		8998F19C23426A9E00FD8364 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8998F19A23426A9E00FD8364 /* Main.storyboard */; };
@@ -62,7 +65,7 @@
 		521932DCD80F09796D23BF64 /* Pods_TheMovieAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		642B794A194C8833D66F7F27 /* Pods-TheMovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieApp/Pods-TheMovieApp.release.xcconfig"; sourceTree = "<group>"; };
 		72002CE99965FA4EE46B0A03 /* Pods-TheMovieAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieAppTests/Pods-TheMovieAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8930E2B6234AA41400B19C22 /* LoaderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderHelper.swift; sourceTree = "<group>"; };
+		8930E2B6234AA41400B19C22 /* AnimatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorHelper.swift; sourceTree = "<group>"; };
 		8930E2B8234AA43500B19C22 /* CellHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHelper.swift; sourceTree = "<group>"; };
 		8930E2BA234AA47D00B19C22 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8930E2BC234AA50A00B19C22 /* DataManagerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocols.swift; sourceTree = "<group>"; };
@@ -75,6 +78,9 @@
 		89796DB32343E62A0031835C /* avant-garde-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "avant-garde-regular.otf"; sourceTree = "<group>"; };
 		89796DB42343E62A0031835C /* avant-garde-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "avant-garde-light.otf"; sourceTree = "<group>"; };
 		897B3514234A3FC500E0A2E6 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		89877111234AFF7C0094E56C /* CategoryFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterViewController.swift; sourceTree = "<group>"; };
+		89877113234B006B0094E56C /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		89877114234B006B0094E56C /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		8998F19123426A9E00FD8364 /* TheMovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8998F19423426A9E00FD8364 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8998F19623426A9E00FD8364 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +158,7 @@
 				89DA29912347CEE000C8BF50 /* Loader */,
 				89796DB22343E5C30031835C /* Fonts */,
 				89796DAB2343E1AA0031835C /* UIControls */,
+				8930E2B6234AA41400B19C22 /* AnimatorHelper.swift */,
 				895148A423466FF100597E3E /* Constants.swift */,
 				8930E2B8234AA43500B19C22 /* CellHelper.swift */,
 				8930E2BA234AA47D00B19C22 /* Extensions.swift */,
@@ -241,6 +248,7 @@
 				894772BB2344663F0038EAC3 /* Resources */,
 				89E772792343961E007FAB25 /* Catalog */,
 				89E7727A23439627007FAB25 /* MovieDetail */,
+				89B81F79234AFDA000C23A37 /* CategoryFilter */,
 				8998F19A23426A9E00FD8364 /* Main.storyboard */,
 				8998F1A023426AA000FD8364 /* Assets.xcassets */,
 				8998F1A223426AA000FD8364 /* LaunchScreen.storyboard */,
@@ -267,10 +275,19 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		89B81F79234AFDA000C23A37 /* CategoryFilter */ = {
+			isa = PBXGroup;
+			children = (
+				89877111234AFF7C0094E56C /* CategoryFilterViewController.swift */,
+				89877113234B006B0094E56C /* CategoryTableViewCell.swift */,
+				89877114234B006B0094E56C /* CategoryTableViewCell.xib */,
+			);
+			path = CategoryFilter;
+			sourceTree = "<group>";
+		};
 		89DA29912347CEE000C8BF50 /* Loader */ = {
 			isa = PBXGroup;
 			children = (
-				8930E2B6234AA41400B19C22 /* LoaderHelper.swift */,
 				89DA29922347CF5400C8BF50 /* LoaderView.swift */,
 				89DA298F2347CEDA00C8BF50 /* loader.json */,
 			);
@@ -522,6 +539,7 @@
 				8998F1A423426AA000FD8364 /* LaunchScreen.storyboard in Resources */,
 				8998F1A123426AA000FD8364 /* Assets.xcassets in Resources */,
 				89796DB52343E62A0031835C /* avant-garde-regular.otf in Resources */,
+				89877116234B006B0094E56C /* CategoryTableViewCell.xib in Resources */,
 				89DA29902347CEDA00C8BF50 /* loader.json in Resources */,
 				89796DB62343E62A0031835C /* avant-garde-light.otf in Resources */,
 				89796DAF2343E36D0031835C /* MovieTableViewCell.xib in Resources */,
@@ -655,7 +673,8 @@
 				897B3515234A3FC500E0A2E6 /* DataManager.swift in Sources */,
 				895148A523466FF100597E3E /* Constants.swift in Sources */,
 				8951489F23462D6400597E3E /* APIClient.swift in Sources */,
-				8930E2B7234AA41400B19C22 /* LoaderHelper.swift in Sources */,
+				89877115234B006B0094E56C /* CategoryTableViewCell.swift in Sources */,
+				8930E2B7234AA41400B19C22 /* AnimatorHelper.swift in Sources */,
 				8930E2B9234AA43600B19C22 /* CellHelper.swift in Sources */,
 				89E7728A234399F1007FAB25 /* Entity.swift in Sources */,
 				89E772A02343A385007FAB25 /* MovieDetailPresenter.swift in Sources */,
@@ -672,6 +691,7 @@
 				8930E2BD234AA50A00B19C22 /* DataManagerProtocols.swift in Sources */,
 				89E7729E2343A37C007FAB25 /* MovieDetailInteractor.swift in Sources */,
 				89E7729023439FA3007FAB25 /* CatalogRouter.swift in Sources */,
+				89877112234AFF7C0094E56C /* CategoryFilterViewController.swift in Sources */,
 				8998F19F23426A9E00FD8364 /* TheMovieApp.xcdatamodeld in Sources */,
 				89A17AFF23440972007B9281 /* Helpers.swift in Sources */,
 				8998F19723426A9E00FD8364 /* SceneDelegate.swift in Sources */,

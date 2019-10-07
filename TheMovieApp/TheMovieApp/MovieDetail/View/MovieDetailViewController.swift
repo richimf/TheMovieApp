@@ -42,7 +42,7 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
   func loadImage(_ image: UIImage) {
     self.imageCover.image = image
     self.imageCover.setRoundedCorners(radius: 10)
-    Loader.showFade(view: imageCover)
+    Animator.showFade(view: imageCover)
   }
   
   func loadDetails(_ movie: Movie) {
