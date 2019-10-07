@@ -21,6 +21,7 @@ class CategoryTableViewCell: UITableViewCell, UITableViewCellReusableView {
   override func awakeFromNib() {
     super.awakeFromNib()
     self.selectionStyle = .none
+    self.backgroundColor = UIColor.clear
   }
   
   func setup(item: Genre, color: UIColor, select: Bool = false) {

@@ -56,6 +56,7 @@ class CategoryFilterViewController: UIViewController {
   }
   
   private func setupTableView() {
+    self.view.backgroundColor = UIColor.clear
     self.tableView.backgroundColor = UIColor.clear
     self.tableView.delegate = self
     self.tableView.dataSource = self
@@ -63,13 +64,13 @@ class CategoryFilterViewController: UIViewController {
     self.tableView.estimatedRowHeight = cellHeight
     self.tableView.rowHeight = UITableView.automaticDimension
     self.tableView.register(CategoryTableViewCell.nib(), forCellReuseIdentifier: identifier)
-    // blur effect
-    //    let blurEffect = UIBlurEffect(style: .extraLight)
-    //    let blurEffectView = UIVisualEffectView(effect: blurEffect)
-    //    blurEffectView.frame = self.view.frame
-    //    self.view.backgroundColor = UIColor.clear
-    //    self.view.addSubview(blurEffectView)
-    //    self.tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurEffect)
+
+    // Blur Effect
+    let blurEffect = UIBlurEffect(style: .prominent)
+    let blurEffectView = UIVisualEffectView(effect: blurEffect)
+    blurEffectView.frame = self.view.frame
+    self.tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurEffect)
+    self.view.insertSubview(blurEffectView, at: 0)
   }
 }
 extension CategoryFilterViewController: UITableViewDelegate, UITableViewDataSource {
