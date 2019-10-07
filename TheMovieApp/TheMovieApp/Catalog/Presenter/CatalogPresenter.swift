@@ -2,7 +2,7 @@
 //  CatalogPresenter.swift
 //  TheMovieApp
 //
-//  Created by Richie on 10/1/19.
+//  Created by Ricardo Montesinos on 10/1/19.
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
@@ -17,13 +17,18 @@ class CatalogPresenter: CatalogPresenterProtocol {
 
   // FILTERING
   var showSearchResults: Bool = false
+  private let resultsTitle: String = "Resultados"
   
   func loadMoviesData() {
     interactor?.fetchMoviesData()
   }
   
   func getImageCache() -> NSCache<NSString, UIImage>? {
-    return interactor?.localDataManager.imageCache
+    return interactor?.cacheDataManager.imageCache
+  }
+  
+  func getImageFromLocalStorage(key: String) -> UIImage? {
+    return interactor?.getImageFromLocalStorage(key: key)
   }
   
   func getItemAt(indexPath: IndexPath) -> Movie? {
@@ -47,7 +52,7 @@ class CatalogPresenter: CatalogPresenterProtocol {
 
   func nameForSection(_ section: Int) -> String {
     if showSearchResults {
-      return "Resultados"
+      return resultsTitle
     }
     let sections = getSections()
     return sections[section]
@@ -91,6 +96,7 @@ class CatalogPresenter: CatalogPresenterProtocol {
 // Data received from Interactor
 extension CatalogPresenter: CatalogInteractorOutputProtocol {
   func updateData() {
+    print(#function)
     view?.loadMovies()
   }
   

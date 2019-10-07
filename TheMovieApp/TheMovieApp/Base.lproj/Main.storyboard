@@ -15,23 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error" translatesAutoresizingMaskIntoConstraints="NO" id="aQJ-fP-bPU">
-                                <rect key="frame" x="177" y="272" width="60" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="2Cu-Zm-GtJ"/>
-                                    <constraint firstAttribute="width" constant="60" id="R8E-G8-aC8"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYU-Jq-W8c">
-                                <rect key="frame" x="72" y="360" width="270" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="FYO-hK-fkd"/>
-                                    <constraint firstAttribute="height" constant="50" id="cdT-VB-Qt5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j8j-Sg-AqH">
                                 <rect key="frame" x="0.0" y="88" width="414" height="764"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -46,11 +29,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="j8j-Sg-AqH" secondAttribute="bottom" constant="10" id="1cK-vU-WIV"/>
                             <constraint firstItem="j8j-Sg-AqH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GBk-y6-LDa"/>
                             <constraint firstItem="j8j-Sg-AqH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NoP-mm-p1n"/>
-                            <constraint firstItem="kYU-Jq-W8c" firstAttribute="centerX" secondItem="aQJ-fP-bPU" secondAttribute="centerX" id="QYe-yU-uLA"/>
-                            <constraint firstItem="aQJ-fP-bPU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wr7-98-hOV"/>
-                            <constraint firstItem="aQJ-fP-bPU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="184" id="Yq9-fA-fM8"/>
                             <constraint firstItem="j8j-Sg-AqH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fef-eQ-aS2"/>
-                            <constraint firstItem="kYU-Jq-W8c" firstAttribute="top" secondItem="aQJ-fP-bPU" secondAttribute="bottom" constant="8" id="jbl-Pm-G4L"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -118,7 +97,7 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3C-oS-Nv8">
                                 <rect key="frame" x="20" y="380" width="374" height="1"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="xTi-eg-Bm4"/>
                                 </constraints>
@@ -146,7 +125,7 @@
                                 <rect key="frame" x="24" y="387" width="366" height="468"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="systemGrayColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -208,7 +187,4 @@
             <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="error" width="512" height="512"/>
-    </resources>
 </document>

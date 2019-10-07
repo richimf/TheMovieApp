@@ -2,7 +2,7 @@
 //  Protocols.swift
 //  TheMovieApp
 //
-//  Created by Richie on 10/1/19.
+//  Created by Ricardo Montesinos on 10/1/19.
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
@@ -32,17 +32,19 @@ protocol CatalogPresenterProtocol: class {
   func showDetailView(for movie: Movie, from view: UIViewController)
   func filterSearch(input: String, completion: () -> Void)
   func getImageCache() -> NSCache<NSString, UIImage>?
+  func getImageFromLocalStorage(key: String) -> UIImage?
 }
 
 protocol CatalogInteractorInputProtocol: class {
   var presenter: CatalogInteractorOutputProtocol? { get set}
-  var localDataManager: LocalDataManager { get set }
+  var cacheDataManager: CacheDataManager { get set }
   // PRESENTER -> INTERACTOR
   func fetchMoviesData()
   func getNumberOfItemsAt(_ index: Int, isFiltering: Bool) -> Int
   func getSections() -> [String]
   func getItemAt(_ indexPath: IndexPath, isFiltering: Bool) -> Movie?
   func filterSearch(text: String)
+  func getImageFromLocalStorage(key: String) -> UIImage?
 }
 
 protocol CatalogInteractorOutputProtocol: class {

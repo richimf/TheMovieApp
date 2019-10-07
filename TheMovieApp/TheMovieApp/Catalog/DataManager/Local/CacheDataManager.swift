@@ -2,16 +2,16 @@
 //  LocalDataManager.swift
 //  TheMovieApp
 //
-//  Created by Richie on 10/4/19.
+//  Created by Ricardo Montesinos on 10/4/19.
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
 import UIKit
 
 // MARK: - IMAGE CACHE SINGLETON
-public class LocalDataManager {
+public class CacheDataManager {
   
-  static let shared = LocalDataManager()
+  static let shared = CacheDataManager()
   
   private(set) var imageCache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
 

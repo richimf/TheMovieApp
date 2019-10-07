@@ -2,7 +2,7 @@
 //  MovieDetailViewController.swift
 //  TheMovieApp
 //
-//  Created by Richie on 10/1/19.
+//  Created by Ricardo Montesinos on 10/1/19.
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
@@ -19,13 +19,14 @@ class MovieDetailViewController: UIViewController {
   @IBOutlet private weak var buttonWatchTrailer: RoundButton!
   @IBOutlet private weak var textViewMovieDescription: UITextView!
   
+  private let navigationTitle: String = "Descripción"
+  
   // MARK: - OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
     self.imageCover.alpha = 0
     presenter?.loadDetails()
-    let title = "Descripcion"
-    self.navigationItem.title = title
+    self.navigationItem.title = navigationTitle
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +53,7 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
       self.labelMovieName.text = name
     }
     self.labelMovieDetails.text = MovieDetails.formatInfo(of: movie)
-    self.textViewMovieDescription.text = movie.description
+    self.textViewMovieDescription.text = movie.overview
   }
   
   func showErrorMessage(_ message: String) {

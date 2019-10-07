@@ -2,7 +2,7 @@
 //  MovieDetailProtocols.swift
 //  TheMovieApp
 //
-//  Created by Richie on 10/1/19.
+//  Created by Ricardo Montesinos on 10/1/19.
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
@@ -28,7 +28,7 @@ protocol MovieDetailPresenterProtocol: class {
 
 protocol MovieDetailInteractorInputProtocol: class {
   var presenter: MovieDetailInteractorOutputProtocol? { get set }
-  var localDataManager: LocalDataManager { get set }
+  var cacheDataManager: CacheDataManager { get set }
   var coverImage: UIImage? { get set }
   // PRESENTER -> INTERACTOR
   func loadImage(of movie: Movie)

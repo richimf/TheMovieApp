@@ -2,7 +2,7 @@
 //  DetailViewController.swift
 //  TheMovieApp
 //
-//  Created by Richie on 10/1/19.
+//  Created by Ricardo Montesinos on 10/1/19.
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
@@ -147,7 +147,14 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
     self.segmentedControl.selectedSegmentIndex = indexPath.section
     guard let movie = getItemAt(indexPath) else { return UITableViewCell() }
     let imageHelper: CellHelper = CellHelper()
-    return imageHelper.setupCell(for: tableView, with: identifier, row: indexPath.row, data: movie, delegate: self)
+    let key = getURL(of: movie)
+    let image = presenter?.getImageFromLocalStorage(key: key as String)
+    return imageHelper.setupCell(for: tableView,
+                                 with: identifier,
+                                 row: indexPath.row,
+                                 data: movie,
+                                 image: image,
+                                 delegate: self)
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

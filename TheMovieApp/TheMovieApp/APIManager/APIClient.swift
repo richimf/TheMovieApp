@@ -2,7 +2,7 @@
 //  APIManager.swift
 //  TheMovieApp
 //
-//  Created by Richie on 10/3/19.
+//  Created by Ricardo Montesinos on 10/3/19.
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 // Examples:
@@ -19,6 +19,15 @@ protocol APIResponseProtocol {
   func onFailure(_ error: Error)
 }
 
+// MARK: - CONNECTIVITY
+// Helps to know if device is connected to internet
+class Connectivity {
+  class var isConnectedToInternet: Bool {
+    return NetworkReachabilityManager()?.isReachable ?? false
+  }
+}
+
+// MARK: - CLIENT
 class APIClient {
   
   var delegate: APIResponseProtocol?
@@ -32,7 +41,7 @@ class APIClient {
     Alamofire.request(URL, parameters: params).responseObject { (response: DataResponse<MovieResults>) in
       switch response.result {
       case .success(var results):
-        results.release = release
+        results.category = release
         self.delegate?.fetchedResult(data: results)
       case .failure(let error):
         self.delegate?.onFailure(error)

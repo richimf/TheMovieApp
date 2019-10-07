@@ -1,4 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDAllGenres" representedClassName="CDAllGenres" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <relationship name="genres" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDGenre"/>
+    </entity>
+    <entity name="CDGallery" representedClassName="CDGallery" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDImages"/>
+    </entity>
+    <entity name="CDGenre" representedClassName="CDGenre" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="all" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDAllGenres"/>
+        <relationship name="movie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDMovie" inverseName="genres" inverseEntity="CDMovie"/>
+    </entity>
+    <entity name="CDImages" representedClassName="CDImages" syncable="YES" codeGenerationType="class">
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="key" optional="YES" attributeType="String"/>
+        <relationship name="gallery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDGallery"/>
+    </entity>
+    <entity name="CDMovie" representedClassName="CDMovie" syncable="YES" codeGenerationType="class">
+        <attribute name="backdropPath" optional="YES" attributeType="String"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="originalTitle" optional="YES" attributeType="String"/>
+        <attribute name="overview" optional="YES" attributeType="String"/>
+        <attribute name="popularity" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="posterPath" optional="YES" attributeType="String"/>
+        <attribute name="rating" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="releaseDate" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="voteCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="genres" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDGenre" inverseName="movie" inverseEntity="CDGenre"/>
+        <relationship name="results" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDResult"/>
+    </entity>
+    <entity name="CDResult" representedClassName="CDResult" syncable="YES" codeGenerationType="class">
+        <attribute name="sections" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="popular" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDMovie"/>
+        <relationship name="topRated" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDMovie"/>
+        <relationship name="upcoming" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDMovie"/>
+    </entity>
+    <elements>
+        <element name="CDAllGenres" positionX="-311.90625" positionY="-156.05078125" width="128" height="73"/>
+        <element name="CDGallery" positionX="-835.171875" positionY="58.37890625" width="128" height="73"/>
+        <element name="CDGenre" positionX="-426.3671875" positionY="-37.1015625" width="128" height="103"/>
+        <element name="CDImages" positionX="-619.91015625" positionY="152.5625" width="128" height="88"/>
+        <element name="CDMovie" positionX="-614.2265625" positionY="-231.5078125" width="128" height="253"/>
+        <element name="CDResult" positionX="-834.06640625" positionY="-241.796875" width="128" height="103"/>
+    </elements>
 </model>

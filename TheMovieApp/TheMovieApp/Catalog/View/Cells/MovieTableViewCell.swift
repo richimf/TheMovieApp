@@ -2,7 +2,7 @@
 //  MovieTableViewCell.swift
 //  TheMovieApp
 //
-//  Created by Richie on 10/1/19.
+//  Created by Ricardo Montesinos on 10/1/19.
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
@@ -36,7 +36,7 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
     super.setSelected(selected, animated: animated)
   }
   
-  func setup(with movie: Movie) {
+  func setup(with movie: Movie, image: UIImage? = nil) {
     self.imageCover.image = nil
     self.imageCover.setRoundedCorners(radius: 10)
     if let title = movie.title {
@@ -46,7 +46,12 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
       self.labelTitle.text = name
     }
     self.labelDescription.text = MovieDetails.formatInfo(of: movie)
-    self.coverImageView.loadImage(of: movie)
+    // If image is given just set it otherwise download it
+    if let image = image {
+      self.coverImageView.image = image
+    } else {
+      self.coverImageView.loadCompressedImage(of: movie, size: self.imageCover.frame.size)
+    }
     self.imageCover.isHidden = false
     self.imageCover.image = self.coverImageView.image
   }
