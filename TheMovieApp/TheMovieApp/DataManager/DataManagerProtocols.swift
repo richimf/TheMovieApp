@@ -23,3 +23,5 @@ extension EntityNameProtocol where Self: NSManagedObject {
 extension CDResult: EntityNameProtocol {}
 extension CDMovie: EntityNameProtocol {}
 extension CDGenre: EntityNameProtocol {}
+extension CDGallery: EntityNameProtocol {}
+extension CDImages: EntityNameProtocol {}

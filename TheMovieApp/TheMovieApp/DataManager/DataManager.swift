@@ -12,7 +12,8 @@ import CoreData
 // MARK: - CORE DATA MANAGER
 public class DataManager {
   
-  typealias RetreiveMovies = (_ movies: [Movie])->Void
+  typealias RetreiveMovies = (_ movies: [Movie]) -> Void
+  typealias RetreiveImageData = (_ imageData: Data?) -> Void
   
   init() {}
   
@@ -21,7 +22,7 @@ public class DataManager {
     // Get context
     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
     let managedContext = appDelegate.persistentContainer.viewContext
-
+    
     // Mapping
     let resultEntity = CDResult(context: managedContext)
     let movieEntity = CDMovie(context: managedContext)
@@ -46,7 +47,7 @@ public class DataManager {
     if category == .upcoming {
       resultEntity.addToUpcoming(movieEntity)
     }
-
+    
     // Save
     do {
       try managedContext.save()
@@ -63,6 +64,29 @@ public class DataManager {
     // Mapping
     genreEntity.id = Int64(genre.id)
     //genreEntity.name = genre.name
+    // Save
+    do {
+      try managedContext.save()
+    } catch let error as NSError {
+      print("Could not save. \(error), \(error.userInfo)")
+    }
+  }
+  
+  
+  // MARK: - SAVE IMAGE DATA
+  func saveImageDataFor(key: String, and imageData: Data?) {
+    // Get context
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+    let managedContext = appDelegate.persistentContainer.viewContext
+    
+    guard let image = imageData else { return }
+    // Set Data
+    let galleryEntity = CDGallery(context: managedContext)
+    let imgEntity = CDImages(context: managedContext)
+    imgEntity.key = key
+    imgEntity.image = image
+    galleryEntity.addToImages(imgEntity)
+    
     // Save
     do {
       try managedContext.save()
@@ -114,7 +138,39 @@ public class DataManager {
     }
   }
   
-  // Movie MAPPING
+  // MARK: - RETREIVE IMAGE DATA
+  func retrieveImageDataFrom(key: String, completion: @escaping RetreiveImageData) {
+    // Context
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+    let managedContext = appDelegate.persistentContainer.viewContext
+    
+    // Setup
+    var output: Data?
+    let entity = CDGallery(context: managedContext)
+    let entityName = entity.getEntityName()
+    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+    
+    // Retreive image
+    do {
+      let results = try managedContext.fetch(fetchRequest)
+      results.forEach { result in
+        let galleryResults = result as? CDGallery
+        let images = galleryResults?.images?.allObjects as? [CDImages]  ?? []
+        //let finalImage = images.filter { $0.key == key }
+        images.forEach { img in
+          if img.key == key {
+            output = img.image
+            return
+          }
+        }
+      }
+      completion(output)
+    } catch {
+      print(error)
+    }
+  }
+  
+  // MARK: - MAPPING MOVIE DATA
   private func mapMovie(data: CDMovie, category: Category, genres: [Int]?) -> Movie {
     return Movie(id: Int(data.id),
                  originalTitle: data.originalTitle,
@@ -128,32 +184,6 @@ public class DataManager {
                  backdropPath: data.backdropPath,
                  releaseDate: data.releaseDate,
                  genereIds: genres,
-                 posterImage: data.posterImage,
-                 backdropImage: data.backdropImage,
                  category: category)
   }
-  
-  func updateData() {
-    // Context
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-    let managedContext = appDelegate.persistentContainer.viewContext
-    
-    let cdMovie = CDMovie()
-    let entityName = cdMovie.getEntityName()
-    let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: entityName)
-    fetchRequest.predicate = NSPredicate(format: "name = %@", "Test name 5")
-    do {
-      let test = try managedContext.fetch(fetchRequest)
-      guard let objectUpdate = test[0] as? NSManagedObject else { return }
-      objectUpdate.setValue("richie", forKey: "name")
-      do {
-        try managedContext.save()
-      } catch {
-        print(error)
-      }
-    } catch {
-      print(error)
-    }
-  }
-  
 }

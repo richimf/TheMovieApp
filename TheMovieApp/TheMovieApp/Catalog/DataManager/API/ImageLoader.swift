@@ -12,6 +12,7 @@ class ImageLoader: UIImageView {
   
   // Image Cache Singleton
   private let imageCache = LocalDataManager.shared.imageCache
+  private let dataManager = DataManager()
   private var urlImageString: String?
   
   // DOWNLOAD IMAGE METHOD
@@ -21,6 +22,14 @@ class ImageLoader: UIImageView {
     self.urlImageString = path
     self.image = nil
     
+    // Get image From Local Storage
+    if !Connectivity.isConnectedToInternet {
+      dataManager.retrieveImageDataFrom(key: key as String) { data in
+        guard let data = data else { return }
+        self.image = UIImage(data: data)
+        return
+      }
+    }
     // Get Image Cached
     if let imageCached: UIImage = imageCache.object(forKey: key) {
       self.image = imageCached
@@ -31,7 +40,10 @@ class ImageLoader: UIImageView {
       DispatchQueue.global(qos: .background).async {
         guard let url: URL = URL(string: path),
           let newimage = self.downloadAndCompress(url: url, newSize: size) else { return }
+        // Show in UI
         DispatchQueue.main.async {
+          // Save in core data
+          self.saveImageLocallyWith(key: key as String, and: newimage.pngData())
           // Set Image
           // if self.urlImageString == path { // avoid repetition but slows scrolling
           self.image = newimage
@@ -43,6 +55,7 @@ class ImageLoader: UIImageView {
     }
   }
   
+  // MARK: - PRIVATE METHODS
   // DOWNLOAD AND COMPRESSING IMAGE METHOD
   private func downloadAndCompress(url: URL, newSize: CGSize) -> UIImage? {
     guard let imageSource = CGImageSourceCreateWithURL(url as NSURL, nil),
@@ -66,5 +79,9 @@ class ImageLoader: UIImageView {
     guard let path = movie.posterPath else { return "" }
     let fullPath: String = "\(APIUrls.img.rawValue)\(path)"
     return fullPath
+  }
+  
+  private func saveImageLocallyWith(key: String, and data: Data?) {
+    dataManager.saveImageDataFor(key: key, and: data)
   }
 }

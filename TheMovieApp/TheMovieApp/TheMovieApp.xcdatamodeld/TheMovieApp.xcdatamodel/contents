@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDGallery" representedClassName="CDGallery" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDImages"/>
+    </entity>
     <entity name="CDGenre" representedClassName="CDGenre" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="movie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDMovie" inverseName="genres" inverseEntity="CDMovie"/>
     </entity>
+    <entity name="CDImages" representedClassName="CDImages" syncable="YES" codeGenerationType="class">
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="key" optional="YES" attributeType="String"/>
+        <relationship name="gallery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDGallery"/>
+    </entity>
     <entity name="CDMovie" representedClassName="CDMovie" syncable="YES" codeGenerationType="class">
-        <attribute name="backdropImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="backdropPath" optional="YES" attributeType="String"/>
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
@@ -13,7 +21,6 @@
         <attribute name="originalTitle" optional="YES" attributeType="String"/>
         <attribute name="overview" optional="YES" attributeType="String"/>
         <attribute name="popularity" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="posterImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="posterPath" optional="YES" attributeType="String"/>
         <attribute name="rating" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="releaseDate" optional="YES" attributeType="String"/>
@@ -29,8 +36,10 @@
         <relationship name="upcoming" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDMovie"/>
     </entity>
     <elements>
+        <element name="CDGallery" positionX="-803.55859375" positionY="82.91796875" width="128" height="73"/>
         <element name="CDGenre" positionX="-428.7890625" positionY="9.828125" width="128" height="73"/>
-        <element name="CDMovie" positionX="-611.58203125" positionY="-244.5625" width="128" height="283"/>
+        <element name="CDImages" positionX="-614.22265625" positionY="201.95703125" width="128" height="88"/>
+        <element name="CDMovie" positionX="-611.58203125" positionY="-244.5625" width="128" height="253"/>
         <element name="CDResult" positionX="-812.765625" positionY="-241.3984375" width="128" height="103"/>
     </elements>
 </model>
