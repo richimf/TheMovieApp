@@ -103,6 +103,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9O-kP-tbh" customClass="YTPlayerView">
+                                <rect key="frame" x="14" y="64" width="387" height="220"/>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cEf-Q9-wtI">
                                 <rect key="frame" x="14" y="64" width="387" height="220"/>
                                 <constraints>
@@ -147,11 +150,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="rtb-fd-LGe" firstAttribute="bottom" secondItem="e2a-bq-McQ" secondAttribute="bottom" constant="7" id="8be-Fx-Zd3"/>
+                            <constraint firstItem="J9O-kP-tbh" firstAttribute="top" secondItem="rtb-fd-LGe" secondAttribute="top" constant="20" id="FVO-iz-Y1m"/>
                             <constraint firstItem="6R4-Zg-pkX" firstAttribute="leading" secondItem="jgM-DC-d0Z" secondAttribute="leading" constant="3" id="HlT-fd-ErL"/>
                             <constraint firstItem="cEf-Q9-wtI" firstAttribute="leading" secondItem="rtb-fd-LGe" secondAttribute="leading" constant="14" id="JaU-HN-EFt"/>
                             <constraint firstItem="rtb-fd-LGe" firstAttribute="trailing" secondItem="jgM-DC-d0Z" secondAttribute="trailing" constant="20" id="JbF-pf-z56"/>
+                            <constraint firstItem="jgM-DC-d0Z" firstAttribute="top" secondItem="J9O-kP-tbh" secondAttribute="bottom" constant="15" id="KzF-cM-du2"/>
                             <constraint firstItem="n3C-oS-Nv8" firstAttribute="trailing" secondItem="Nsr-cx-2x5" secondAttribute="trailing" id="POE-86-12Z"/>
+                            <constraint firstItem="rtb-fd-LGe" firstAttribute="trailing" secondItem="J9O-kP-tbh" secondAttribute="trailing" constant="13" id="QQP-QJ-1oj"/>
                             <constraint firstItem="6R4-Zg-pkX" firstAttribute="top" secondItem="jgM-DC-d0Z" secondAttribute="bottom" constant="4" id="RIA-8H-iLY"/>
+                            <constraint firstItem="J9O-kP-tbh" firstAttribute="centerY" secondItem="cEf-Q9-wtI" secondAttribute="centerY" id="Sv4-PK-fts"/>
+                            <constraint firstItem="J9O-kP-tbh" firstAttribute="leading" secondItem="rtb-fd-LGe" secondAttribute="leading" constant="14" id="Uzw-p9-lAq"/>
                             <constraint firstItem="Nsr-cx-2x5" firstAttribute="top" secondItem="6R4-Zg-pkX" secondAttribute="top" id="Vs6-gx-0ye"/>
                             <constraint firstItem="Nsr-cx-2x5" firstAttribute="leading" secondItem="6R4-Zg-pkX" secondAttribute="trailing" constant="8" id="aMf-jV-SCt"/>
                             <constraint firstItem="e2a-bq-McQ" firstAttribute="leading" secondItem="rtb-fd-LGe" secondAttribute="leading" constant="24" id="cBN-nv-4yA"/>
@@ -159,6 +167,7 @@
                             <constraint firstItem="e2a-bq-McQ" firstAttribute="centerX" secondItem="rtb-fd-LGe" secondAttribute="centerX" id="erL-cK-Ys3"/>
                             <constraint firstItem="cEf-Q9-wtI" firstAttribute="top" secondItem="rtb-fd-LGe" secondAttribute="top" constant="20" id="ggr-C5-d6e"/>
                             <constraint firstItem="jgM-DC-d0Z" firstAttribute="top" secondItem="cEf-Q9-wtI" secondAttribute="bottom" constant="15" id="hnB-5q-TJP"/>
+                            <constraint firstItem="J9O-kP-tbh" firstAttribute="centerX" secondItem="cEf-Q9-wtI" secondAttribute="centerX" id="jUD-aY-qRE"/>
                             <constraint firstItem="n3C-oS-Nv8" firstAttribute="leading" secondItem="6R4-Zg-pkX" secondAttribute="leading" constant="-11" id="lRf-JM-BmB"/>
                             <constraint firstItem="n3C-oS-Nv8" firstAttribute="top" secondItem="6R4-Zg-pkX" secondAttribute="bottom" constant="22" id="npv-On-FtL"/>
                             <constraint firstItem="jgM-DC-d0Z" firstAttribute="leading" secondItem="cEf-Q9-wtI" secondAttribute="leading" constant="14" id="tH8-Ib-gBO"/>
@@ -176,6 +185,7 @@
                         <outlet property="labelMovieDetails" destination="6R4-Zg-pkX" id="Vb6-Xl-wRo"/>
                         <outlet property="labelMovieName" destination="jgM-DC-d0Z" id="M6q-BT-Pq3"/>
                         <outlet property="textViewMovieDescription" destination="e2a-bq-McQ" id="KWa-JS-Cqk"/>
+                        <outlet property="viewPlayerVideo" destination="J9O-kP-tbh" id="5FG-zl-rwZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXK-9n-44h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

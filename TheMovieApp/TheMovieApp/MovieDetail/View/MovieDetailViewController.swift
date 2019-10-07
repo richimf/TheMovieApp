@@ -7,19 +7,48 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
 
 class MovieDetailViewController: UIViewController {
-  
-  // MARK: - VIPER
-  var presenter: MovieDetailPresenterProtocol?
-  
+    
+  @IBOutlet private weak var viewPlayerVideo: YTPlayerView!
   @IBOutlet private weak var imageCover: UIImageView!
   @IBOutlet private weak var labelMovieName: UILabel!
   @IBOutlet private weak var labelMovieDetails: UILabel!
   @IBOutlet private weak var buttonWatchTrailer: RoundButton!
   @IBOutlet private weak var textViewMovieDescription: UITextView!
   
+  // MARK: - VIPER
+   var presenter: MovieDetailPresenterProtocol?
+  
+  private var movie: Movie?
+  
   private let navigationTitle: String = "Descripción"
+  private let nowPlayingTitle: String = "Reproduciendo"
+  private let notAvailableTitle: String = "No disponible"
+
+  private let params: [String: Any] = [
+    "autoplay": 0,
+    "playsinline" : 1,
+    "enablejsapi": 1,
+    "wmode": "transparent",
+    "controls": 0,
+    "showinfo": 0,
+    "rel": 0,
+    "fs" : 1,
+    "modestbranding": 0,
+    "iv_load_policy": 3
+  ]
+
+  // observe videokey changes then perform loading
+  private var videoKey: String = "" {
+    didSet {
+      if !videoKey.isEmpty {
+        self.imageCover.isHidden = true
+        self.viewPlayerVideo.load(withVideoId: videoKey, playerVars: params)
+      }
+    }
+  }
   
   // MARK: - OVERRIDES
   override func viewDidLoad() {
@@ -27,16 +56,27 @@ class MovieDetailViewController: UIViewController {
     self.imageCover.alpha = 0
     presenter?.loadDetails()
     self.navigationItem.title = navigationTitle
+    self.viewPlayerVideo.delegate = self
   }
-  
-  override func viewWillAppear(_ animated: Bool) {
-  }
-  
+
   @IBAction func watchTrailer(_ sender: Any) {
     buttonWatchTrailer.bounce()
+    // Load trailer
+    guard let movie = self.movie else { return }
+    let apiclient = APIClient()
+    apiclient.fetchYouTubeKey(of: movie) { key in
+      if let key = key{
+        self.videoKey = key
+        self.buttonWatchTrailer.setTitle(self.nowPlayingTitle, for: .normal)
+      } else {
+        self.buttonWatchTrailer.setTitle(self.notAvailableTitle, for: .normal)
+      }
+      self.buttonWatchTrailer.isEnabled = false
+    }
   }
 }
 
+// MARK: - DETAIL VIEW PROTOCOL
 extension MovieDetailViewController: MovieDetailViewProtocol {
   
   func loadImage(_ image: UIImage) {
@@ -46,6 +86,7 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
   }
   
   func loadDetails(_ movie: Movie) {
+    self.movie = movie
     if let title = movie.title {
       self.labelMovieName.text = title
     }
@@ -58,5 +99,16 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
   
   func showErrorMessage(_ message: String) {
     // TODO
+  }
+}
+
+// MARK: - YOUTUBE VIDEO PROTOCOLS
+extension MovieDetailViewController : YTPlayerViewDelegate {
+  func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
+    self.viewPlayerVideo.playVideo()
+  }
+
+  func playerView(_ playerView: YTPlayerView, didPlayTime playTime: Float) {
+   // print("time \(playTime)")
   }
 }

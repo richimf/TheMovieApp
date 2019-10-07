@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C4CC1BA33C1326D29ABBDA2 /* Pods_TheMovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1DC33441CDDA94349BDB5C /* Pods_TheMovieApp.framework */; };
+		8914B610234BC883000EC92A /* MovieDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8914B60F234BC883000EC92A /* MovieDetailEntity.swift */; };
 		8930E2B7234AA41400B19C22 /* AnimatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E2B6234AA41400B19C22 /* AnimatorHelper.swift */; };
 		8930E2B9234AA43600B19C22 /* CellHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E2B8234AA43500B19C22 /* CellHelper.swift */; };
 		8930E2BB234AA47D00B19C22 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E2BA234AA47D00B19C22 /* Extensions.swift */; };
@@ -38,7 +39,7 @@
 		89DA2999234837D600C8BF50 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DA2998234837D600C8BF50 /* ImageLoader.swift */; };
 		89E77286234398A4007FAB25 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77285234398A4007FAB25 /* CatalogViewController.swift */; };
 		89E772882343991D007FAB25 /* CatalogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E772872343991D007FAB25 /* CatalogProtocols.swift */; };
-		89E7728A234399F1007FAB25 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77289234399F1007FAB25 /* Entity.swift */; };
+		89E7728A234399F1007FAB25 /* CatalogEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77289234399F1007FAB25 /* CatalogEntity.swift */; };
 		89E7728C23439F85007FAB25 /* CatalogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E7728B23439F85007FAB25 /* CatalogInteractor.swift */; };
 		89E7728E23439F93007FAB25 /* CatalogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E7728D23439F93007FAB25 /* CatalogPresenter.swift */; };
 		89E7729023439FA3007FAB25 /* CatalogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E7728F23439FA3007FAB25 /* CatalogRouter.swift */; };
@@ -65,6 +66,7 @@
 		521932DCD80F09796D23BF64 /* Pods_TheMovieAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		642B794A194C8833D66F7F27 /* Pods-TheMovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieApp/Pods-TheMovieApp.release.xcconfig"; sourceTree = "<group>"; };
 		72002CE99965FA4EE46B0A03 /* Pods-TheMovieAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieAppTests/Pods-TheMovieAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8914B60F234BC883000EC92A /* MovieDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailEntity.swift; sourceTree = "<group>"; };
 		8930E2B6234AA41400B19C22 /* AnimatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorHelper.swift; sourceTree = "<group>"; };
 		8930E2B8234AA43500B19C22 /* CellHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHelper.swift; sourceTree = "<group>"; };
 		8930E2BA234AA47D00B19C22 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -99,7 +101,7 @@
 		89DA2998234837D600C8BF50 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		89E77285234398A4007FAB25 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		89E772872343991D007FAB25 /* CatalogProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogProtocols.swift; sourceTree = "<group>"; };
-		89E77289234399F1007FAB25 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		89E77289234399F1007FAB25 /* CatalogEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogEntity.swift; sourceTree = "<group>"; };
 		89E7728B23439F85007FAB25 /* CatalogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogInteractor.swift; sourceTree = "<group>"; };
 		89E7728D23439F93007FAB25 /* CatalogPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogPresenter.swift; sourceTree = "<group>"; };
 		89E7728F23439FA3007FAB25 /* CatalogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogRouter.swift; sourceTree = "<group>"; };
@@ -150,6 +152,14 @@
 				E3766DADBA1D2EBE206E7035 /* Pods-TheMovieAppTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8914B611234BC88F000EC92A /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				8914B60F234BC883000EC92A /* MovieDetailEntity.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		894772BB2344663F0038EAC3 /* Resources */ = {
@@ -316,6 +326,7 @@
 				89E772952343A148007FAB25 /* View */,
 				89E772942343A143007FAB25 /* Interactor */,
 				89E772932343A13F007FAB25 /* Presenter */,
+				8914B611234BC88F000EC92A /* Entities */,
 				89E772912343A136007FAB25 /* Router */,
 			);
 			path = MovieDetail;
@@ -333,7 +344,7 @@
 		89E7727C23439657007FAB25 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				89E77289234399F1007FAB25 /* Entity.swift */,
+				89E77289234399F1007FAB25 /* CatalogEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -599,6 +610,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -609,6 +621,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -629,6 +642,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -639,6 +653,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -660,7 +675,7 @@
 				89877115234B006B0094E56C /* CategoryTableViewCell.swift in Sources */,
 				8930E2B7234AA41400B19C22 /* AnimatorHelper.swift in Sources */,
 				8930E2B9234AA43600B19C22 /* CellHelper.swift in Sources */,
-				89E7728A234399F1007FAB25 /* Entity.swift in Sources */,
+				89E7728A234399F1007FAB25 /* CatalogEntity.swift in Sources */,
 				89E772A02343A385007FAB25 /* MovieDetailPresenter.swift in Sources */,
 				8998F19523426A9E00FD8364 /* AppDelegate.swift in Sources */,
 				89E7729C2343A2D6007FAB25 /* MovieDetailViewController.swift in Sources */,
@@ -677,6 +692,7 @@
 				89E7729023439FA3007FAB25 /* CatalogRouter.swift in Sources */,
 				89877112234AFF7C0094E56C /* CategoryFilterViewController.swift in Sources */,
 				8998F19F23426A9E00FD8364 /* TheMovieApp.xcdatamodeld in Sources */,
+				8914B610234BC883000EC92A /* MovieDetailEntity.swift in Sources */,
 				89A17AFF23440972007B9281 /* Helpers.swift in Sources */,
 				8998F19723426A9E00FD8364 /* SceneDelegate.swift in Sources */,
 				89E7728E23439F93007FAB25 /* CatalogPresenter.swift in Sources */,
