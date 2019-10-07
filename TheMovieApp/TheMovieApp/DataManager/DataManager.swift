@@ -27,6 +27,15 @@ public class DataManager {
     // Mapping
     let resultEntity = CDResult(context: managedContext)
     let movieEntity = CDMovie(context: managedContext)
+    
+    // Verify if Entry is already saved
+    guard let id = movie.id else { return }
+    if id == 0 { return }
+    let predicate = NSPredicate.init(format: "id == %i", id)
+    guard let isSaved = isEntrySaved(entity: movieEntity.getEntityName(), predicate: predicate) else { return }
+    if isSaved { return }
+
+    // Setup to save movie data
     movieEntity.id = Int32(movie.id ?? 0)
     movieEntity.name = movie.name
     movieEntity.title = movie.title
