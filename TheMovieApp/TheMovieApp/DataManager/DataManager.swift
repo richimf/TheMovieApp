@@ -69,6 +69,13 @@ public class DataManager {
     let managedContext = appDelegate.persistentContainer.viewContext
     let allGenreEntity = CDAllGenres(context: managedContext)
     let genreEntity = CDGenre(context: managedContext)
+    
+    // Verify if Entry is already saved
+    let predicate = NSPredicate.init(format: "name == %@", genre.name ?? "")
+    guard let isSaved = isEntrySaved(entity: genreEntity.getEntityName(), predicate: predicate) else { return }
+    if isSaved {
+      return
+    }
     // Mapping
     genreEntity.id = Int64(genre.id)
     genreEntity.name = genre.name
@@ -80,7 +87,6 @@ public class DataManager {
       print("Could not save. \(error), \(error.userInfo)")
     }
   }
-  
   
   // MARK: - SAVE IMAGE DATA
   func saveImageDataFor(key: String, and imageData: Data?) {
@@ -206,6 +212,26 @@ public class DataManager {
       print(error)
     }
   }
+  
+  // MARK: - SEARCH DATA
+  func isEntrySaved(entity name: String, predicate: NSPredicate) -> Bool? {
+    // Context
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
+    let managedContext = appDelegate.persistentContainer.viewContext
+    // Perform search
+    let entityForTableName = NSEntityDescription.entity(forEntityName: name, in: managedContext)
+    let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+    fetchRequest.predicate = predicate
+    fetchRequest.entity = entityForTableName
+    do {
+      let results = try managedContext.fetch(fetchRequest)
+      return !results.isEmpty
+    } catch {
+      print(error.localizedDescription)
+    }
+    return nil
+  }
+  
   
   // MARK: - MAPPING MOVIE DATA
   private func mapMovie(data: CDMovie, category: Category, genres: [Int]?) -> Movie {

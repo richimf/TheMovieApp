@@ -32,6 +32,9 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
   func fetchMoviesData() {
     if Connectivity.isConnectedToInternet {
       apiClient.delegate = self
+      // Request Genres
+      apiClient.fetchGenreListOf(url: .genreTV, release: .none, lang: .MX)
+      apiClient.fetchGenreListOf(url: .genreMovie, release: .none, lang: .MX)
       // Request Movie and TV shows List
       apiClient.fetchMovieListOf(url: .movie, release: .popular,  lang: .MX)
       apiClient.fetchMovieListOf(url: .movie, release: .topRated, lang: .MX)
@@ -39,9 +42,6 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
       apiClient.fetchMovieListOf(url: .tv, release: .popular,  lang: .MX)
       apiClient.fetchMovieListOf(url: .tv, release: .topRated, lang: .MX)
       apiClient.fetchMovieListOf(url: .tv, release: .upcoming, lang: .MX)
-      // Request Genres
-      apiClient.fetchGenreListOf(url: .genreTV, release: .none, lang: .MX)
-      apiClient.fetchGenreListOf(url: .genreMovie, release: .none, lang: .MX)
     } else {
       // Load from local storage
       let dataManager = DataManager()
@@ -206,7 +206,7 @@ extension CatalogInteractor: APIResponseProtocol {
       self.sections.append(section)
     }
   }
-
+  
   private func storeMovies(movies: [Movie], category: Category) {
     let dataManager = DataManager()
     movies.forEach {
