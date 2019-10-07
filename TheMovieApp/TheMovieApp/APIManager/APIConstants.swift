@@ -25,6 +25,20 @@ public enum MovieLanguage: String {
   case MX = "es-MX"
 }
 
+// MARK: VIDEO PARAMS
+public let YouTubeParams: [String: Any] = [
+  "autoplay": 0,
+  "playsinline" : 1,
+  "enablejsapi": 1,
+  "wmode": "transparent",
+  "controls": 0,
+  "showinfo": 0,
+  "rel": 0,
+  "fs" : 1,
+  "modestbranding": 0,
+  "iv_load_policy": 3
+]
+
 // MARK: API
 public enum APIUrls: String {
   case movie = "https://api.themoviedb.org/3/movie/"

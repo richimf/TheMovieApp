@@ -7,6 +7,7 @@ PODS:
     - ObjectMapper (~> 3.4)
   - lottie-ios (3.1.3)
   - ObjectMapper (3.5.1)
+  - youtube-ios-player-helper (0.1.6)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - AlamofireObjectMapper (~> 5.2)
   - lottie-ios
   - ObjectMapper
+  - youtube-ios-player-helper (~> 0.1.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -22,6 +24,7 @@ SPEC REPOS:
     - AlamofireObjectMapper
     - lottie-ios
     - ObjectMapper
+    - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
@@ -29,7 +32,8 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
   lottie-ios: 496ac5cea1bbf1a7bd1f1f472f3232eb1b8d744b
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
+  youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: 522d5d1d1b5514ed3448fca082c068dabe9ac10e
+PODFILE CHECKSUM: 47b53c06f5da441bb365a93cad44cad1f4f4e9ed
 
 COCOAPODS: 1.5.3

@@ -62,4 +62,21 @@ class APIClient {
       }
     }
   }
+  
+  func fetchYouTubeKey(of movie: Movie, completion: @escaping (_ key: String?) -> Void) {
+    guard let id = movie.id else { return }
+    let URL = APIUrls.movie.rawValue + "\(id)/videos"
+    let params = [APIParams.key.rawValue: RequestValues().key,
+                  APIParams.lang.rawValue: MovieLanguage.US.rawValue]
+    Alamofire.request(URL, parameters: params).responseObject { (response: DataResponse<Video>) in
+      switch response.result {
+      case .success(let details):
+        let keysResults = details.results?.compactMap { $0.key }
+        completion(keysResults?.first)
+      case .failure(_ ):
+        completion(nil)
+        break
+      }
+    }
+  }
 }

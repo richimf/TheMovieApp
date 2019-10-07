@@ -14,6 +14,7 @@ protocol MovieDetailViewProtocol: class {
   // PRESENTER -> VIEW
   func loadDetails(_ movie: Movie)
   func loadImage(_ image: UIImage)
+  func loadVideo(_ key: String?)
   func showErrorMessage(_ message: String)
 }
 
@@ -24,6 +25,7 @@ protocol MovieDetailPresenterProtocol: class {
   // VIEW -> PRESENTER
   var title: String? { get set }
   func loadDetails()
+  func loadVideo()
 }
 
 protocol MovieDetailInteractorInputProtocol: class {

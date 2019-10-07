@@ -215,6 +215,7 @@ extension CatalogViewController: UISearchResultsUpdating, UISearchBarDelegate {
 
 // MARK: - CELL Delegate Protocol
 extension CatalogViewController: MovieTableViewCellDelegate {
-  func showMovieTrailer() {
+  func showMovieTrailer(of movie: Movie) {
+    presenter?.showVideoPreview(for: movie, from: self)
   }
 }

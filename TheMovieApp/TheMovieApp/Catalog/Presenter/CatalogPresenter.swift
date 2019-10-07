@@ -71,6 +71,15 @@ class CatalogPresenter: CatalogPresenterProtocol {
     router?.presentCategoryFilterView(from: view, categories: genres, filteredIds: ids, delegate: self)
   }
   
+  func showVideoPreview(for movie: Movie, from view: UIViewController) {
+    let apiclient = APIClient()
+    apiclient.fetchYouTubeKey(of: movie) { videoKey in
+      if let key = videoKey {
+        self.router?.presentVideoPreview(from: view, with: key)
+      }
+    }
+  }
+  
   // MARK: - FILTERING SEARCH
   func filterSearch(input: String, completion: () -> Void) {
     interactor?.filterSearch(text: input)
