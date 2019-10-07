@@ -27,25 +27,12 @@ class MovieDetailViewController: UIViewController {
   private let nowPlayingTitle: String = "Reproduciendo"
   private let notAvailableTitle: String = "No disponible"
 
-  private let params: [String: Any] = [
-    "autoplay": 0,
-    "playsinline" : 1,
-    "enablejsapi": 1,
-    "wmode": "transparent",
-    "controls": 0,
-    "showinfo": 0,
-    "rel": 0,
-    "fs" : 1,
-    "modestbranding": 0,
-    "iv_load_policy": 3
-  ]
-
   // observe videokey changes then perform loading
   private var videoKey: String = "" {
     didSet {
       if !videoKey.isEmpty {
         self.imageCover.isHidden = true
-        self.viewPlayerVideo.load(withVideoId: videoKey, playerVars: params)
+        self.viewPlayerVideo.load(withVideoId: videoKey, playerVars: YouTubeParams)
       }
     }
   }
@@ -61,18 +48,7 @@ class MovieDetailViewController: UIViewController {
 
   @IBAction func watchTrailer(_ sender: Any) {
     buttonWatchTrailer.bounce()
-    // Load trailer
-    guard let movie = self.movie else { return }
-    let apiclient = APIClient()
-    apiclient.fetchYouTubeKey(of: movie) { key in
-      if let key = key{
-        self.videoKey = key
-        self.buttonWatchTrailer.setTitle(self.nowPlayingTitle, for: .normal)
-      } else {
-        self.buttonWatchTrailer.setTitle(self.notAvailableTitle, for: .normal)
-      }
-      self.buttonWatchTrailer.isEnabled = false
-    }
+    presenter?.loadVideo()
   }
 }
 
@@ -95,6 +71,16 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
     }
     self.labelMovieDetails.text = MovieDetails.formatInfo(of: movie)
     self.textViewMovieDescription.text = movie.overview
+  }
+  
+  func loadVideo(_ key: String?) {
+    if let key = key{
+      self.videoKey = key
+      self.buttonWatchTrailer.setTitle(self.nowPlayingTitle, for: .normal)
+    } else {
+      self.buttonWatchTrailer.setTitle(self.notAvailableTitle, for: .normal)
+    }
+    self.buttonWatchTrailer.isEnabled = false
   }
   
   func showErrorMessage(_ message: String) {

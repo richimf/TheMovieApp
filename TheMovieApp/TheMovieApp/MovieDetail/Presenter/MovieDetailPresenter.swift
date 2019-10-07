@@ -28,6 +28,15 @@ class MovieDetailPresenter: MovieDetailPresenterProtocol {
     view?.loadDetails(movie)
     interactor?.loadImage(of: movie)
   }
+  
+  func loadVideo() {
+    guard let movie = self.movie else { return }
+    let apiclient = APIClient()
+    apiclient.fetchYouTubeKey(of: movie) { key in
+      self.view?.loadVideo(key)
+    }
+  }
+  
 }
 extension MovieDetailPresenter:  MovieDetailInteractorOutputProtocol {
   func loadImage(_ image: UIImage) {
