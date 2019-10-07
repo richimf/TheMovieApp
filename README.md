@@ -15,8 +15,8 @@ Finally **Build and Run**.
 
 ## How to use
 
-![ScreenShot](https://github.com/richimf/TheMovieApp/screenshots/1.png)
-![ScreenShot](https://github.com/richimf/TheMovieApp/screenshots/2.png)
-![ScreenShot](https://github.com/richimf/TheMovieApp/screenshots/3.png)
-![ScreenShot](https://github.com/richimf/TheMovieApp/screenshots/4.png)
-![ScreenShot](https://github.com/richimf/TheMovieApp/screenshots/5.png)
+![ScreenShot](https://github.com/richimf/TheMovieApp/blob/develop/screenshots/1.gif)
+![ScreenShot](https://github.com/richimf/TheMovieApp/blob/develop/screenshots/2.gif)
+![ScreenShot](https://github.com/richimf/TheMovieApp/blob/develop/screenshots/3.gif)
+![ScreenShot](https://github.com/richimf/TheMovieApp/blob/develop/screenshots/4.gif)
+![ScreenShot](https://github.com/richimf/TheMovieApp/blob/develop/screenshots/5.gif)
