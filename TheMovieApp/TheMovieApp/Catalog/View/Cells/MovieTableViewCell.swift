@@ -18,6 +18,7 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
   @IBOutlet private weak var buttonWatch: UIButton!
   
   private let genericTitle: String = "Movie"
+  private var movie: Movie?
   
   private var coverImageView: ImageLoader = {
     let imageView = ImageLoader()
@@ -37,6 +38,7 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
   }
   
   func setup(with movie: Movie, image: UIImage? = nil) {
+    self.movie = movie
     self.imageCover.image = nil
     self.imageCover.setRoundedCorners(radius: 10)
     if let title = movie.title {
@@ -58,6 +60,7 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
   
   @IBAction func watchTrailer(_ sender: Any) {
     self.buttonWatch.bounce()
-    delegate?.showMovieTrailer()
+    guard let movie = movie else { return }
+    delegate?.showMovieTrailer(of: movie)
   }
 }

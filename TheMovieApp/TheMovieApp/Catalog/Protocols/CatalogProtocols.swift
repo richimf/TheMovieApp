@@ -29,8 +29,10 @@ protocol CatalogPresenterProtocol: class {
   func getNameForSection(_ section: Int) -> String
   func loadMoviesData()
   func setupSegmentedControl(control: inout UISegmentedControl)
+  // Show Views
   func showDetailView(for movie: Movie, from view: UIViewController)
   func showFilterView(from view: UIViewController)
+  func showVideoPreview(for movie: Movie, from view: UIViewController)
   // FILTERING
   func filterSearch(input: String, completion: () -> Void)
   func filterGenres(input: [Int], completion: () -> Void)
@@ -65,11 +67,12 @@ protocol CatalogRouterProtocol: class {
   // PRESENTER -> ROUTER
   func presentMovieDetailView(for item: Movie, from view: UIViewController)
   func presentCategoryFilterView(from view: UIViewController, categories: [Genre], filteredIds: [Int], delegate: CategoryFilterDelegate?)
+  func presentVideoPreview(from view: UIViewController, with key: String)
 }
 
 // MARK: - UITABLEVIEWCELL Protocols
 protocol MovieTableViewCellDelegate: class {
-  func showMovieTrailer()
+  func showMovieTrailer(of movie: Movie)
 }
 
 // MARK: - PROTOCOL Definition

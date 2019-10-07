@@ -275,6 +275,51 @@
             </objects>
             <point key="canvasLocation" x="2452.1739130434785" y="114.50892857142857"/>
         </scene>
+        <!--Video Player View Controller-->
+        <scene sceneID="UxI-ew-LqL">
+            <objects>
+                <viewController storyboardIdentifier="VideoPlayerViewController" id="6BR-ov-XWp" customClass="VideoPlayerViewController" customModule="TheMovieApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XZy-LG-iCQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7b-Z8-rzV" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="92" width="414" height="615"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFa-I3-Nxp">
+                                <rect key="frame" x="116" y="729" width="182" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="182" id="JAB-gb-or2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="cerrar">
+                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss:" destination="6BR-ov-XWp" eventType="touchUpInside" id="BDa-xx-KQi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TFa-I3-Nxp" firstAttribute="centerX" secondItem="B7b-Z8-rzV" secondAttribute="centerX" id="3fR-TM-Rxv"/>
+                            <constraint firstItem="B7b-Z8-rzV" firstAttribute="leading" secondItem="YeQ-d3-uOF" secondAttribute="leading" id="Ls5-fL-GKd"/>
+                            <constraint firstItem="TFa-I3-Nxp" firstAttribute="top" secondItem="B7b-Z8-rzV" secondAttribute="bottom" constant="22" id="RIp-IW-o1t"/>
+                            <constraint firstItem="B7b-Z8-rzV" firstAttribute="trailing" secondItem="YeQ-d3-uOF" secondAttribute="trailing" id="Vka-yH-Hc8"/>
+                            <constraint firstItem="YeQ-d3-uOF" firstAttribute="bottom" secondItem="B7b-Z8-rzV" secondAttribute="bottom" constant="155" id="s86-xi-EIu"/>
+                            <constraint firstItem="B7b-Z8-rzV" firstAttribute="top" secondItem="YeQ-d3-uOF" secondAttribute="top" constant="48" id="yv0-zb-YtM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YeQ-d3-uOF"/>
+                    </view>
+                    <connections>
+                        <outlet property="viewPlayer" destination="B7b-Z8-rzV" id="vqo-UQ-nZN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kVk-XR-R3a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3150.7246376811595" y="115.84821428571428"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="029-vn-MVQ">
             <objects>

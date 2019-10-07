@@ -37,5 +37,11 @@ class CatalogRouter: CatalogRouterProtocol {
     filterView.selectedGenresIds = filteredIds
     view.present(filterView, animated: true, completion: nil)
   }
+  
+  func presentVideoPreview(from view: UIViewController, with key: String) {
+    guard let videoPreview = view.storyboard?.instantiateViewController(withIdentifier: "VideoPlayerViewController") as? VideoPlayerViewController else { return }
+    videoPreview.videoKey = key
+    view.present(videoPreview, animated: true, completion: nil)
+  }
 
 }
