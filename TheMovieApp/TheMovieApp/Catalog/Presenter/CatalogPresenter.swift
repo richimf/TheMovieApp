@@ -24,7 +24,7 @@ class CatalogPresenter: CatalogPresenterProtocol {
   }
   
   func getImageCache() -> NSCache<NSString, UIImage>? {
-    return interactor?.localDataManager.imageCache
+    return interactor?.cacheDataManager.imageCache
   }
   
   func getImageFromLocalStorage(key: String) -> UIImage? {

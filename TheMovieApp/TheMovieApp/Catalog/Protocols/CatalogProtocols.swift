@@ -37,7 +37,7 @@ protocol CatalogPresenterProtocol: class {
 
 protocol CatalogInteractorInputProtocol: class {
   var presenter: CatalogInteractorOutputProtocol? { get set}
-  var localDataManager: LocalDataManager { get set }
+  var cacheDataManager: CacheDataManager { get set }
   // PRESENTER -> INTERACTOR
   func fetchMoviesData()
   func getNumberOfItemsAt(_ index: Int, isFiltering: Bool) -> Int

@@ -28,7 +28,7 @@ protocol MovieDetailPresenterProtocol: class {
 
 protocol MovieDetailInteractorInputProtocol: class {
   var presenter: MovieDetailInteractorOutputProtocol? { get set }
-  var localDataManager: LocalDataManager { get set }
+  var cacheDataManager: CacheDataManager { get set }
   var coverImage: UIImage? { get set }
   // PRESENTER -> INTERACTOR
   func loadImage(of movie: Movie)

@@ -11,7 +11,7 @@ import UIKit
 class ImageLoader: UIImageView {
   
   // Image Cache Singleton
-  private lazy var imageCache = LocalDataManager.shared.imageCache
+  private lazy var imageCache = CacheDataManager.shared.imageCache
   private lazy var dataManager = DataManager()
   private var urlImageString: String?
   

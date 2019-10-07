@@ -9,9 +9,9 @@
 import UIKit
 
 // MARK: - IMAGE CACHE SINGLETON
-public class LocalDataManager {
+public class CacheDataManager {
   
-  static let shared = LocalDataManager()
+  static let shared = CacheDataManager()
   
   private(set) var imageCache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
 

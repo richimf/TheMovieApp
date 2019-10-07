@@ -23,7 +23,7 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
   private var genresCategories: [Genre] = [Genre(id: 0, name: "Todas")]
   
   // CACHE
-  var localDataManager: LocalDataManager = LocalDataManager()
+  var cacheDataManager: CacheDataManager = CacheDataManager()
   
   // FILTERS
   private var filteredData: [Movie] = []
