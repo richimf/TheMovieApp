@@ -40,6 +40,11 @@ class CatalogViewController: UIViewController {
     presenter?.loadMoviesData()
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    self.tableView.reloadData()
+  }
+  
   // MARK: - IBACTIONS
   @IBAction func segmentedActions(_ sender: Any) {
     let section: Int = segmentedControl.selectedSegmentIndex
