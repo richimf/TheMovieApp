@@ -37,7 +37,7 @@ class CatalogViewController: UIViewController {
     super.viewDidLoad()
     Animator.show(view: loaderView)
     setup()
-    self.presenter?.loadMoviesData()
+    presenter?.loadMoviesData()
   }
   
   // MARK: - IBACTIONS
@@ -45,17 +45,20 @@ class CatalogViewController: UIViewController {
     let section: Int = segmentedControl.selectedSegmentIndex
     scrollTo(section: section)
   }
-  
+
   @IBAction func search(_ sender: Any) {
     searchController.searchBar.becomeFirstResponder()
   }
   
   @IBAction func presentFilterGenresView(_ sender: Any) {
+    filterButton.bounce()
     presenter?.showFilterView(from: self)
   }
   
   // MARK: - SETUP AND PRIVATE METHODS
   private func setup() {
+    // Setup filter button
+    filterButton.asFlotatingButton()
     // Navigation
     setupNavigationBar()
     // Segmented control basic setup
@@ -127,7 +130,7 @@ extension CatalogViewController: CatalogViewProtocol {
     self.tableView.reloadData()
     updateSegmentedControl()
   }
-  
+
   func showErrorMessage(_ message: String) {
     self.tableView.isHidden = true
     self.navigationController?.navigationBar.isHidden = true
@@ -152,15 +155,10 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     self.segmentedControl.selectedSegmentIndex = indexPath.section
     guard let movie = getItemAt(indexPath) else { return UITableViewCell() }
-    let imageHelper: CellHelper = CellHelper()
+    let helper: CellHelper = CellHelper()
     let key = getURL(of: movie)
     let image = presenter?.getImageFromLocalStorage(key: key as String)
-    return imageHelper.setupCell(for: tableView,
-                                 with: identifier,
-                                 row: indexPath.row,
-                                 data: movie,
-                                 image: image,
-                                 delegate: self)
+    return helper.setupCell(for: tableView, with: identifier, row: indexPath.row, data: movie, image: image, delegate: self)
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -171,7 +169,7 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
     guard let header = view as? UITableViewHeaderFooterView,
-      let font = fontSection else { return }
+          let font = fontSection else { return }
     header.textLabel?.font = font
     header.textLabel?.textColor = Colors().Main
     header.contentView.backgroundColor = UIColor.white

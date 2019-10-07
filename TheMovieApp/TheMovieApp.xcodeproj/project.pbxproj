@@ -313,11 +313,9 @@
 			isa = PBXGroup;
 			children = (
 				89E772972343A152007FAB25 /* Protocols */,
-				89E772962343A14C007FAB25 /* DataManager */,
 				89E772952343A148007FAB25 /* View */,
 				89E772942343A143007FAB25 /* Interactor */,
 				89E772932343A13F007FAB25 /* Presenter */,
-				89E772922343A13A007FAB25 /* Entities */,
 				89E772912343A136007FAB25 /* Router */,
 			);
 			path = MovieDetail;
@@ -405,13 +403,6 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		89E772922343A13A007FAB25 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
 		89E772932343A13F007FAB25 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,13 +425,6 @@
 				89E7729B2343A2D6007FAB25 /* MovieDetailViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		89E772962343A14C007FAB25 /* DataManager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DataManager;
 			sourceTree = "<group>";
 		};
 		89E772972343A152007FAB25 /* Protocols */ = {
