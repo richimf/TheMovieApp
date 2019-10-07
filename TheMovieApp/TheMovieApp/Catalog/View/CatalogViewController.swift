@@ -108,6 +108,7 @@ class CatalogViewController: UIViewController {
   
   private func showSearchResults(_ show: Bool) {
     presenter?.showSearchResults = show
+    segmentedControl.isEnabled = !show
     self.tableView.reloadData()
   }
   
