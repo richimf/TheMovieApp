@@ -73,8 +73,8 @@ Dentro del proyecto encontramos la siguiente estructura:
 
 Se enfocó la arquitectura en dos modulos principalmente:
 
-- **Catalog**
-- **MovieDetail**
+- **Catalog**: Lista de películas, vista principal.
+- **MovieDetail**: Vista de detalle.
 
 ### Catalog:
 
@@ -113,8 +113,8 @@ Dentro de esté módulo tenemos lo siguiente:
 
 Tenemos dos vistas que **no** se incluyen en VIPER por su simplicidad, pero son invocadas desde el ROUTER del módulo **Catalog**, estas son:
 
-- **CategoryFilterViewController**
-- **VideoPlayerViewController**
+- **CategoryFilterViewController**: Vista de filtros por género.
+- **VideoPlayerViewController**: Vista de reproductor de video.
 
 ## Preguntas
    
