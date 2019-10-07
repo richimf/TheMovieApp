@@ -14,6 +14,7 @@ class CatalogViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
   @IBOutlet private weak var segmentedControl: UISegmentedControl!
   @IBOutlet private weak var buttonSearch: UIBarButtonItem!
+  @IBOutlet weak var filterButton: UIButton!
   
   // IDENTIFIERS
   private lazy var identifier: String = MovieTableViewCell.reuseIdentifier()
@@ -47,6 +48,10 @@ class CatalogViewController: UIViewController {
   
   @IBAction func search(_ sender: Any) {
     searchController.searchBar.becomeFirstResponder()
+  }
+  
+  @IBAction func presentFilterGenresView(_ sender: Any) {
+    presenter?.showFilterView(from: self)
   }
   
   // MARK: - SETUP AND PRIVATE METHODS
@@ -198,6 +203,5 @@ extension CatalogViewController: UISearchResultsUpdating, UISearchBarDelegate {
 // MARK: - CELL Delegate Protocol
 extension CatalogViewController: MovieTableViewCellDelegate {
   func showMovieTrailer() {
-    print(#function)
   }
 }

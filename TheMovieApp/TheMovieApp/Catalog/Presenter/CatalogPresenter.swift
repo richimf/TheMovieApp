@@ -65,7 +65,7 @@ class CatalogPresenter: CatalogPresenterProtocol {
     router?.presentMovieDetailView(for: movie, from: view)
   }
   
-  func showFilterView(for categories: [Genre], from view: UIViewController) {
+  func showFilterView(from view: UIViewController) {
     guard let genres = interactor?.genresCategories else { return }
     let ids = interactor?.genresFilteredIds ?? []
     router?.presentCategoryFilterView(from: view, categories: genres, filteredIds: ids, delegate: self)
@@ -95,7 +95,7 @@ class CatalogPresenter: CatalogPresenterProtocol {
     control.selectedSegmentIndex = 0
     if control.numberOfSegments > 1 {
       control.isHidden = false
-      control.isEnabled = true
+      control.isEnabled = !showSearchResults
     }
   }
   

@@ -30,7 +30,7 @@ protocol CatalogPresenterProtocol: class {
   func loadMoviesData()
   func setupSegmentedControl(control: inout UISegmentedControl)
   func showDetailView(for movie: Movie, from view: UIViewController)
-  func showFilterView(for categories: [Genre], from view: UIViewController)
+  func showFilterView(from view: UIViewController)
   // FILTERING
   func filterSearch(input: String, completion: () -> Void)
   func filterGenres(input: [Int], completion: () -> Void)
