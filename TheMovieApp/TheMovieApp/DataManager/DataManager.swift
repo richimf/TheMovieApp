@@ -13,6 +13,7 @@ import CoreData
 public class DataManager {
   
   typealias RetreiveMovies = (_ movies: [Movie]) -> Void
+  typealias RetreiveGenres = (_ genres: [Genre]?) -> Void
   typealias RetreiveImageData = (_ imageData: Data?) -> Void
   
   init() {}
@@ -36,7 +37,13 @@ public class DataManager {
     movieEntity.voteCount = Int32(movie.voteCount ?? 0)
     movieEntity.posterPath = movie.posterPath
     movieEntity.category = category.rawValue
-    
+    if let generes: [Int] = movie.genereIds {
+      generes.forEach {
+        let genreEntity = CDGenre(context: managedContext)
+        genreEntity.id = Int64($0)
+        movieEntity.addToGenres(genreEntity)
+      }
+    }
     // Assing to corresponding storage
     if category == .popular {
       resultEntity.addToPopular(movieEntity)
@@ -60,10 +67,12 @@ public class DataManager {
     // Get context
     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
     let managedContext = appDelegate.persistentContainer.viewContext
+    let allGenreEntity = CDAllGenres(context: managedContext)
     let genreEntity = CDGenre(context: managedContext)
     // Mapping
     genreEntity.id = Int64(genre.id)
-    //genreEntity.name = genre.name
+    genreEntity.name = genre.name
+    allGenreEntity.addToGenres(genreEntity)
     // Save
     do {
       try managedContext.save()
@@ -132,6 +141,34 @@ public class DataManager {
         }
       }
       //Return Output
+      completion(output)
+    } catch {
+      print(error)
+    }
+  }
+  
+  func retreiveGenres(completion: @escaping RetreiveGenres) {
+    // Context
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+    let managedContext = appDelegate.persistentContainer.viewContext
+    
+    // Setup
+    var output: [Genre] = []
+    let entity = CDAllGenres(context: managedContext)
+    let entityName = entity.getEntityName()
+    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+    
+    // Retreive genres
+    do {
+      let results = try managedContext.fetch(fetchRequest)
+      results.forEach { result in
+        let allResults = result as? CDAllGenres
+        let all: [CDGenre] = allResults?.genres?.allObjects as? [CDGenre] ?? []
+        all.forEach { genre in
+          let newGenre = Genre(id: Int(genre.id), name: genre.name)
+          output.append(newGenre)
+        }
+      }
       completion(output)
     } catch {
       print(error)

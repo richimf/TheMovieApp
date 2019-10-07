@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDAllGenres" representedClassName="CDAllGenres" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <relationship name="genres" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDGenre"/>
+    </entity>
     <entity name="CDGallery" representedClassName="CDGallery" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDImages"/>
     </entity>
     <entity name="CDGenre" representedClassName="CDGenre" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="all" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDAllGenres"/>
         <relationship name="movie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDMovie" inverseName="genres" inverseEntity="CDMovie"/>
     </entity>
     <entity name="CDImages" representedClassName="CDImages" syncable="YES" codeGenerationType="class">
@@ -36,10 +42,11 @@
         <relationship name="upcoming" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDMovie"/>
     </entity>
     <elements>
-        <element name="CDGallery" positionX="-803.55859375" positionY="82.91796875" width="128" height="73"/>
-        <element name="CDGenre" positionX="-428.7890625" positionY="9.828125" width="128" height="73"/>
-        <element name="CDImages" positionX="-614.22265625" positionY="201.95703125" width="128" height="88"/>
-        <element name="CDMovie" positionX="-611.58203125" positionY="-244.5625" width="128" height="253"/>
-        <element name="CDResult" positionX="-812.765625" positionY="-241.3984375" width="128" height="103"/>
+        <element name="CDAllGenres" positionX="-311.90625" positionY="-156.05078125" width="128" height="73"/>
+        <element name="CDGallery" positionX="-835.171875" positionY="58.37890625" width="128" height="73"/>
+        <element name="CDGenre" positionX="-426.3671875" positionY="-37.1015625" width="128" height="103"/>
+        <element name="CDImages" positionX="-619.91015625" positionY="152.5625" width="128" height="88"/>
+        <element name="CDMovie" positionX="-614.2265625" positionY="-231.5078125" width="128" height="253"/>
+        <element name="CDResult" positionX="-834.06640625" positionY="-241.796875" width="128" height="103"/>
     </elements>
 </model>

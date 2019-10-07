@@ -172,8 +172,10 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
 extension CatalogInteractor: APIResponseProtocol {
   
   func fetchedGenres(data: Genres) {
+    let local = DataManager()
     data.categories.forEach { genre in
       self.genresCategories.append(genre)
+      local.saveEntryOf(genre: genre)
     }
   }
   

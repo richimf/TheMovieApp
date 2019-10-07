@@ -19,6 +19,7 @@ class MovieDetailInteractor: MovieDetailInteractorInputProtocol {
   
   var coverImage: UIImage?
   
+  // MARK: - METHODS
   func loadImage(of movie: Movie) {
     let key = NSString(string: "\(String(describing: movie.id))backdropImage")
     // GET FROM LOCAL
@@ -49,6 +50,7 @@ class MovieDetailInteractor: MovieDetailInteractorInputProtocol {
     return image
   }
   
+  // MARK: - PRIVATE METHODS
   private func getOfflineImageWith(key: String) {
     let dataManager = DataManager()
     dataManager.retrieveImageDataFrom(key: key) { data in
