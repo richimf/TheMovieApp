@@ -121,6 +121,10 @@ class CatalogViewController: UIViewController {
     self.navigationController?.navigationBar.tintColor = Colors().Main
     self.navigationController?.navigationBar.topItem?.title = self.titleNavigation
   }
+
+  private func scaleFilterButton(hide: Bool) {
+     Animator.scaleWhenScrolling(view: filterButton, isScrolling: hide)
+  }
 }
 
 extension CatalogViewController: CatalogViewProtocol {
@@ -174,6 +178,16 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
     header.textLabel?.textColor = Colors().Main
     header.contentView.backgroundColor = UIColor.white
   }
+
+  // SCALE FILTER BUTTON
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    scaleFilterButton(hide: false)
+  }
+  
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    scaleFilterButton(hide: true)
+  }
+
 }
 // MARK: - SEARCHBAR Delegate
 extension CatalogViewController: UISearchResultsUpdating, UISearchBarDelegate {
