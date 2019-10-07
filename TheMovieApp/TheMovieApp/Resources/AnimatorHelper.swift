@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - LOADER VIEW HELPER for LOTTIE
-public class Loader {
+public class Animator {
   static func show(view: UIView) {
     let window = UIApplication.shared.connectedScenes
       .filter({$0.activationState == .foregroundActive})
@@ -24,7 +24,7 @@ public class Loader {
   static func showFade(view: UIView) {
     view.alpha = 0.0
     DispatchQueue.main.asyncAfter(deadline: .now()) {
-      UIView.animate(withDuration: 0.4, animations: {
+      UIView.animate(withDuration: 1.0, animations: {
         view.alpha = 1.0
       })
     }
@@ -37,5 +37,16 @@ public class Loader {
         view.alpha = 0.0
       })
     }
+  }
+  
+  static func scaleWhenScrolling(view: UIView, isScrolling: Bool) {
+    UIView.animate(withDuration: 0.25, animations: { () -> Void in
+      let scale: CGFloat = 0.85
+      if isScrolling {
+        view.transform = CGAffineTransform(scaleX: scale, y: scale)
+      } else {
+        view.transform = CGAffineTransform.identity
+      }
+    })
   }
 }

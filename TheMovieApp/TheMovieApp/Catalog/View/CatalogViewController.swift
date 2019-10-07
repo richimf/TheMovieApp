@@ -14,6 +14,7 @@ class CatalogViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
   @IBOutlet private weak var segmentedControl: UISegmentedControl!
   @IBOutlet private weak var buttonSearch: UIBarButtonItem!
+  @IBOutlet weak var filterButton: UIButton!
   
   // IDENTIFIERS
   private lazy var identifier: String = MovieTableViewCell.reuseIdentifier()
@@ -34,9 +35,9 @@ class CatalogViewController: UIViewController {
   // OVERRIDES
   override func viewDidLoad() {
     super.viewDidLoad()
-    Loader.show(view: loaderView)
+    Animator.show(view: loaderView)
     setup()
-    self.presenter?.loadMoviesData()
+    presenter?.loadMoviesData()
   }
   
   // MARK: - IBACTIONS
@@ -44,13 +45,20 @@ class CatalogViewController: UIViewController {
     let section: Int = segmentedControl.selectedSegmentIndex
     scrollTo(section: section)
   }
-  
+
   @IBAction func search(_ sender: Any) {
     searchController.searchBar.becomeFirstResponder()
   }
   
+  @IBAction func presentFilterGenresView(_ sender: Any) {
+    filterButton.bounce()
+    presenter?.showFilterView(from: self)
+  }
+  
   // MARK: - SETUP AND PRIVATE METHODS
   private func setup() {
+    // Setup filter button
+    filterButton.asFlotatingButton()
     // Navigation
     setupNavigationBar()
     // Segmented control basic setup
@@ -103,6 +111,7 @@ class CatalogViewController: UIViewController {
   
   private func showSearchResults(_ show: Bool) {
     presenter?.showSearchResults = show
+    segmentedControl.isEnabled = !show
     self.tableView.reloadData()
   }
   
@@ -112,16 +121,20 @@ class CatalogViewController: UIViewController {
     self.navigationController?.navigationBar.tintColor = Colors().Main
     self.navigationController?.navigationBar.topItem?.title = self.titleNavigation
   }
+
+  private func scaleFilterButton(hide: Bool) {
+     Animator.scaleWhenScrolling(view: filterButton, isScrolling: hide)
+  }
 }
 
 extension CatalogViewController: CatalogViewProtocol {
   
   func loadMovies() {
-    Loader.dismiss(view: loaderView)
+    Animator.dismiss(view: loaderView)
     self.tableView.reloadData()
     updateSegmentedControl()
   }
-  
+
   func showErrorMessage(_ message: String) {
     self.tableView.isHidden = true
     self.navigationController?.navigationBar.isHidden = true
@@ -136,7 +149,7 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return presenter?.nameForSection(section)
+    return presenter?.getNameForSection(section)
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -146,15 +159,10 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     self.segmentedControl.selectedSegmentIndex = indexPath.section
     guard let movie = getItemAt(indexPath) else { return UITableViewCell() }
-    let imageHelper: CellHelper = CellHelper()
+    let helper: CellHelper = CellHelper()
     let key = getURL(of: movie)
     let image = presenter?.getImageFromLocalStorage(key: key as String)
-    return imageHelper.setupCell(for: tableView,
-                                 with: identifier,
-                                 row: indexPath.row,
-                                 data: movie,
-                                 image: image,
-                                 delegate: self)
+    return helper.setupCell(for: tableView, with: identifier, row: indexPath.row, data: movie, image: image, delegate: self)
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -165,11 +173,21 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
     guard let header = view as? UITableViewHeaderFooterView,
-      let font = fontSection else { return }
+          let font = fontSection else { return }
     header.textLabel?.font = font
     header.textLabel?.textColor = Colors().Main
     header.contentView.backgroundColor = UIColor.white
   }
+
+  // SCALE FILTER BUTTON
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    scaleFilterButton(hide: false)
+  }
+  
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    scaleFilterButton(hide: true)
+  }
+
 }
 // MARK: - SEARCHBAR Delegate
 extension CatalogViewController: UISearchResultsUpdating, UISearchBarDelegate {
@@ -198,6 +216,5 @@ extension CatalogViewController: UISearchResultsUpdating, UISearchBarDelegate {
 // MARK: - CELL Delegate Protocol
 extension CatalogViewController: MovieTableViewCellDelegate {
   func showMovieTrailer() {
-    print(#function)
   }
 }

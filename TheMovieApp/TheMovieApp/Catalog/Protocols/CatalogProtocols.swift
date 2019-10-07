@@ -26,11 +26,15 @@ protocol CatalogPresenterProtocol: class {
   func getSections() -> [String]
   func getNumberOfSections() -> Int
   func getNumberOfItemsAt(_ index: Int) -> Int
-  func nameForSection(_ section: Int) -> String
+  func getNameForSection(_ section: Int) -> String
   func loadMoviesData()
   func setupSegmentedControl(control: inout UISegmentedControl)
   func showDetailView(for movie: Movie, from view: UIViewController)
+  func showFilterView(from view: UIViewController)
+  // FILTERING
   func filterSearch(input: String, completion: () -> Void)
+  func filterGenres(input: [Int], completion: () -> Void)
+  // IMAGE
   func getImageCache() -> NSCache<NSString, UIImage>?
   func getImageFromLocalStorage(key: String) -> UIImage?
 }
@@ -38,12 +42,16 @@ protocol CatalogPresenterProtocol: class {
 protocol CatalogInteractorInputProtocol: class {
   var presenter: CatalogInteractorOutputProtocol? { get set}
   var cacheDataManager: CacheDataManager { get set }
+  var genresCategories: [Genre] { get set }
+  var genresFilteredIds: [Int] { get set }
+
   // PRESENTER -> INTERACTOR
   func fetchMoviesData()
   func getNumberOfItemsAt(_ index: Int, isFiltering: Bool) -> Int
   func getSections() -> [String]
   func getItemAt(_ indexPath: IndexPath, isFiltering: Bool) -> Movie?
   func filterSearch(text: String)
+  func filterByGenre(_ ids: [Int])
   func getImageFromLocalStorage(key: String) -> UIImage?
 }
 
@@ -56,6 +64,7 @@ protocol CatalogInteractorOutputProtocol: class {
 protocol CatalogRouterProtocol: class {
   // PRESENTER -> ROUTER
   func presentMovieDetailView(for item: Movie, from view: UIViewController)
+  func presentCategoryFilterView(from view: UIViewController, categories: [Genre], filteredIds: [Int], delegate: CategoryFilterDelegate?)
 }
 
 // MARK: - UITABLEVIEWCELL Protocols

@@ -73,11 +73,17 @@ extension Genres: ImmutableMappable {
 
 public struct Genre {
   let id: Int
-  let name: String?
+  var name: String?
+  var selected: Bool = false
 }
 extension Genre: ImmutableMappable {
   public init(map: Map) throws {
     id = try map.value("id")
     name = try map.value("name")
+  }
+}
+extension Genre: Equatable {
+  public static func == (lhs: Genre, rhs: Genre) -> Bool {
+    return lhs.id == rhs.id
   }
 }

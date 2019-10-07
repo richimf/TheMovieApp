@@ -56,34 +56,6 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
     self.imageCover.image = self.coverImageView.image
   }
   
-  //  func loadImage(of movie: Movie, from cache: NSCache<NSString, UIImage>?) {
-  //    guard let path = movie.posterPath else { return }
-  //    let key = NSString(string: "\(movie.id)")
-  //    let fullPath: String = "\(APIUrls.img.rawValue)\(path)"
-  //
-  //    if let cacheStorage = cache, let cachedImage = cacheStorage.object(forKey: key) {
-  //      DispatchQueue.main.async {
-  //        self.imageCover.image = cachedImage
-  //        self.imageCover.isHidden = false
-  //      }
-  //    } else {
-  //      DispatchQueue.global(qos: .background).async {
-  //        guard
-  //          let url: URL = URL(string: fullPath),
-  //          let data = try? Data(contentsOf: url),
-  //          let image: UIImage = UIImage(data: data)
-  //          else { return }
-  //        DispatchQueue.main.async {
-  //          cache?.setObject(image, forKey: key)
-  //          if let imgch = cache, let cachedImage = imgch.object(forKey: key) {
-  //            self.imageCover.image = cachedImage
-  //            self.imageCover.isHidden = false
-  //          }
-  //        }
-  //      }
-  //    }
-  //  }
-  
   @IBAction func watchTrailer(_ sender: Any) {
     self.buttonWatch.bounce()
     delegate?.showMovieTrailer()

@@ -42,4 +42,31 @@ extension UIButton {
     pulse.damping = 1.0
     layer.add(pulse, forKey: "bounce")
   }
+
+  func asFlotatingButton() {
+    let icon = UIImage(named: "filter")!
+    self.backgroundColor = Colors().Main
+    self.tintColor = UIColor.white
+    self.setImage(icon, for: .normal)
+    self.setImage(icon, for: .selected)
+    self.imageView?.contentMode = .scaleAspectFit
+    self.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    // Shadow and Radius for Circle Button
+    self.layer.shadowColor = UIColor.black.cgColor
+    self.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+    self.layer.masksToBounds = false
+    self.layer.shadowRadius = 3.0
+    self.layer.shadowOpacity = 0.3
+    self.layer.cornerRadius = self.frame.width / 2
+  }
+}
+
+// MARK: - COLORS EXTENSION
+extension UIColor {
+  static var random: UIColor {
+    return UIColor(red: .random(in: 0...1),
+                   green: .random(in: 0...1),
+                   blue: .random(in: 0...1),
+                   alpha: 1.0)
+  }
 }
