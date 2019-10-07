@@ -98,6 +98,15 @@ public class DataManager {
     // Set Data
     let galleryEntity = CDGallery(context: managedContext)
     let imgEntity = CDImages(context: managedContext)
+    
+    // Verify if Entry is already saved
+    let predicate = NSPredicate.init(format: "key == %@", key)
+    guard let isSaved = isEntrySaved(entity: imgEntity.getEntityName(), predicate: predicate) else { return }
+    if isSaved {
+      return
+    }
+
+    // Setup Image to saved
     imgEntity.key = key
     imgEntity.image = image
     galleryEntity.addToImages(imgEntity)
