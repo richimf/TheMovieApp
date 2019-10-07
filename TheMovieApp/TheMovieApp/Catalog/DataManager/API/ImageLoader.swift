@@ -11,8 +11,8 @@ import UIKit
 class ImageLoader: UIImageView {
   
   // Image Cache Singleton
-  private let imageCache = LocalDataManager.shared.imageCache
-  private let dataManager = DataManager()
+  private lazy var imageCache = LocalDataManager.shared.imageCache
+  private lazy var dataManager = DataManager()
   private var urlImageString: String?
   
   // DOWNLOAD IMAGE METHOD
@@ -22,14 +22,6 @@ class ImageLoader: UIImageView {
     self.urlImageString = path
     self.image = nil
     
-    // Get image From Local Storage
-    if !Connectivity.isConnectedToInternet {
-      dataManager.retrieveImageDataFrom(key: key as String) { data in
-        guard let data = data else { return }
-        self.image = UIImage(data: data)
-        return
-      }
-    }
     // Get Image Cached
     if let imageCached: UIImage = imageCache.object(forKey: key) {
       self.image = imageCached
@@ -73,14 +65,7 @@ class ImageLoader: UIImageView {
     guard let scaledImage = context?.makeImage() else { return nil }
     return UIImage(cgImage: scaledImage)
   }
-  
-  // URL CREATOR
-  private func getURL(of movie: Movie) -> String {
-    guard let path = movie.posterPath else { return "" }
-    let fullPath: String = "\(APIUrls.img.rawValue)\(path)"
-    return fullPath
-  }
-  
+
   private func saveImageLocallyWith(key: String, and data: Data?) {
     dataManager.saveImageDataFor(key: key, and: data)
   }

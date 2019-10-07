@@ -63,6 +63,19 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
     }
   }
   
+  func getImageFromLocalStorage(key: String) -> UIImage? {
+    // Get image From Local Storage
+    var image: UIImage?
+    if !Connectivity.isConnectedToInternet {
+      let dataManager = DataManager()
+      dataManager.retrieveImageDataFrom(key: key) { data in
+        guard let data = data else { return }
+        image =  UIImage(data: data)
+      }
+    }
+    return image
+  }
+  
   // MARK: - FILTERING DATA
   func filterSearch(text: String) {
     if text.isEmpty {

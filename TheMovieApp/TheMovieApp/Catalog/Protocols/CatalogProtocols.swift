@@ -32,6 +32,7 @@ protocol CatalogPresenterProtocol: class {
   func showDetailView(for movie: Movie, from view: UIViewController)
   func filterSearch(input: String, completion: () -> Void)
   func getImageCache() -> NSCache<NSString, UIImage>?
+  func getImageFromLocalStorage(key: String) -> UIImage?
 }
 
 protocol CatalogInteractorInputProtocol: class {
@@ -43,6 +44,7 @@ protocol CatalogInteractorInputProtocol: class {
   func getSections() -> [String]
   func getItemAt(_ indexPath: IndexPath, isFiltering: Bool) -> Movie?
   func filterSearch(text: String)
+  func getImageFromLocalStorage(key: String) -> UIImage?
 }
 
 protocol CatalogInteractorOutputProtocol: class {

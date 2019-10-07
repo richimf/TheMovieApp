@@ -27,6 +27,10 @@ class CatalogPresenter: CatalogPresenterProtocol {
     return interactor?.localDataManager.imageCache
   }
   
+  func getImageFromLocalStorage(key: String) -> UIImage? {
+    return interactor?.getImageFromLocalStorage(key: key)
+  }
+  
   func getItemAt(indexPath: IndexPath) -> Movie? {
     return interactor?.getItemAt(indexPath, isFiltering: showSearchResults)
   }

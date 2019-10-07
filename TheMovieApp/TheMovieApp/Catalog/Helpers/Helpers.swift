@@ -18,6 +18,13 @@ public class MovieDetails {
   }
 }
 
+// URL CREATOR
+func getURL(of movie: Movie) -> String {
+  guard let path = movie.posterPath else { return "" }
+  let fullPath: String = "\(APIUrls.img.rawValue)\(path)"
+  return fullPath
+}
+
 func getCategoryKeyFrom(name: String) -> APIMovieParams {
   switch name {
   case "popular":
@@ -30,3 +37,4 @@ func getCategoryKeyFrom(name: String) -> APIMovieParams {
     return APIMovieParams.none
   }
 }
+
