@@ -195,6 +195,17 @@
 			path = APIManager;
 			sourceTree = "<group>";
 		};
+		89563862234BE77E00FBA749 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				89E772792343961E007FAB25 /* Catalog */,
+				89E7727A23439627007FAB25 /* MovieDetail */,
+				89B81F79234AFDA000C23A37 /* CategoryFilter */,
+				8942DB97234BD7FE00511EBF /* VideoPlayerPreview */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 		89796DAB2343E1AA0031835C /* UIControls */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,10 +277,7 @@
 				897B3513234A3FB800E0A2E6 /* DataManager */,
 				894772C72344EB8C0038EAC3 /* APIManager */,
 				894772BB2344663F0038EAC3 /* Resources */,
-				89E772792343961E007FAB25 /* Catalog */,
-				89E7727A23439627007FAB25 /* MovieDetail */,
-				89B81F79234AFDA000C23A37 /* CategoryFilter */,
-				8942DB97234BD7FE00511EBF /* VideoPlayerPreview */,
+				89563862234BE77E00FBA749 /* Modules */,
 				8998F19A23426A9E00FD8364 /* Main.storyboard */,
 				8998F1A023426AA000FD8364 /* Assets.xcassets */,
 				8998F1A223426AA000FD8364 /* LaunchScreen.storyboard */,
