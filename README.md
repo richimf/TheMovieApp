@@ -41,13 +41,14 @@ Así mismo incluye las carácteristicas solicitadas.
 
 - **Además**:
 
-	- Almacenamiento en Cache de imagenes descargadas de Internet
-	- Almacenamiento Local via CoreData
+	- Almacenamiento en **CACHE** de imagenes descargadas de Internet
+	- Almacenamiento Local via **CoreData**
 	- Arquitectura general: **VIPER**
 	- Protocol Oriented Programming
 	- Functional Programming
 	- Manejo asíncrono y thread safe con Core Data
 	- Animaciones como Extensions y como Helper.
+	- Custom View Transitions
 	- ARC checked (referencias **WEAK** entre **Presenter-Interactor**.
 	- Patrones de diseño como: Multi Delegate Pattern, Singleton, Observer y State Pattern.
 
