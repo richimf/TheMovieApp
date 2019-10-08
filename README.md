@@ -7,7 +7,7 @@
 ![ScreenShot](https://github.com/richimf/TheMovieApp/blob/develop/screenshots/p3.png)
 ![ScreenShot](https://github.com/richimf/TheMovieApp/blob/develop/screenshots/p4.png)
 
-## How to use
+## Como usar
 
 Ira a la carpeta `/TheMovieApp`, y ejecutar via terminal:
 
@@ -20,6 +20,8 @@ O bien, todo junto:
 > pod install & open TheMovieApp.xcworkspace
 
 Finalmente ejecutar la app **Build and Run**.
+
+- Compilado en Xcode 11 en iOS 13
 
 # Proyecto
 
