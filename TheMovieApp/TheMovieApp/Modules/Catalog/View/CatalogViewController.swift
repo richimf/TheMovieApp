@@ -31,6 +31,7 @@ class CatalogViewController: UIViewController {
   
   // MARK: - VIPER
   var presenter: CatalogPresenterProtocol?
+  let imageDownloader: ImageDownloader = ImageDownloader()
   
   // OVERRIDES
   override func viewDidLoad() {
@@ -126,6 +127,12 @@ class CatalogViewController: UIViewController {
     self.navigationController?.navigationBar.tintColor = Colors().Main
     self.navigationController?.navigationBar.topItem?.title = self.titleNavigation
   }
+  
+  private func reloadRowAt(_ indexPath: IndexPath) {
+    self.tableView.beginUpdates()
+    self.tableView.reloadRows( at: [indexPath], with: .fade)
+    self.tableView.endUpdates()
+  }
 
   private func scaleFilterButton(hide: Bool) {
      Animator.scaleWhenScrolling(view: filterButton, isScrolling: hide)
@@ -166,13 +173,21 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
     guard let movie = getItemAt(indexPath),
           let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MovieTableViewCell
       else { return UITableViewCell()}
+    // GET IMAGE FROM LOCAL
     let key = getURL(of: movie)
-    let image = presenter?.getImageFromLocalStorage(key: key as String)
-    cell.setup(with: movie, image: image)
+    if let imageFromStorage = presenter?.getImageFromLocalStorage(key: key as String) {
+      cell.setup(with: movie, image: imageFromStorage)
+    } else {
+      // DOWNLOAD IMAGE
+      let imageDownloaded = imageDownloader.loadCompressedImage(of: movie) {
+        self.reloadRowAt(indexPath)
+      }
+      cell.setup(with: movie, image: imageDownloaded)
+    }
     cell.delegate = self
     return cell
   }
-  
+    
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let movie = getItemAt(indexPath) else { return }
     presenter?.showDetailView(for: movie, from: self)
