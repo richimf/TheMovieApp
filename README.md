@@ -2,6 +2,10 @@
 
 ### por Ricardo Montesinos
 
+![ScreenShot](https://github.com/richimf/TheMovieApp/blob/develop/screenshots/p1.png)
+![ScreenShot](https://github.com/richimf/TheMovieApp/blob/develop/screenshots/p2.png)
+![ScreenShot](https://github.com/richimf/TheMovieApp/blob/develop/screenshots/p3.png)
+![ScreenShot](https://github.com/richimf/TheMovieApp/blob/develop/screenshots/p4.png)
 
 ## How to use
 
@@ -62,7 +66,7 @@ Dentro del proyecto encontramos la siguiente estructura:
 	- **APIClient**:  Se encarga de los HTTP Request hacia el API.
 	- **APIConstants**: Valores necesarios para los Requests.
 
-- **Resources**: Esta carpeta incluye tipografia, UIControls, Helpers de Animacion, el Loader inicial de Lottie y además de Extensiones a componentes de UIKit.
+- **Resources**: Esta carpeta incluye tipografia, **UIControls**, **Helpers de Animacion**, el Loader inicial de **Lottie** y además de **Extensiones** a componentes de UIKit.
 
 - **Modules**: Son las vistas de la App.
 	-  **Catalog**: Vista principal, la lista de películas, incluye búsqueda y un segmented control para navegación rápida entre las tres categorias principales Popular, Top Rated y Upcoming.
@@ -135,4 +139,3 @@ Tenemos dos vistas que **NO** se incluyen en VIPER por su simplicidad, se prefir
 ![ScreenShot](https://github.com/richimf/TheMovieApp/blob/develop/screenshots/2.gif)
 ![ScreenShot](https://github.com/richimf/TheMovieApp/blob/develop/screenshots/3.gif)
 ![ScreenShot](https://github.com/richimf/TheMovieApp/blob/develop/screenshots/4.gif)
-![ScreenShot](https://github.com/richimf/TheMovieApp/blob/develop/screenshots/5.gif)
