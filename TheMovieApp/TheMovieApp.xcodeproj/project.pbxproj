@@ -10,7 +10,6 @@
 		1C4CC1BA33C1326D29ABBDA2 /* Pods_TheMovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1DC33441CDDA94349BDB5C /* Pods_TheMovieApp.framework */; };
 		8914B610234BC883000EC92A /* MovieDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8914B60F234BC883000EC92A /* MovieDetailEntity.swift */; };
 		8930E2B7234AA41400B19C22 /* AnimatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E2B6234AA41400B19C22 /* AnimatorHelper.swift */; };
-		8930E2B9234AA43600B19C22 /* CellHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E2B8234AA43500B19C22 /* CellHelper.swift */; };
 		8930E2BB234AA47D00B19C22 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E2BA234AA47D00B19C22 /* Extensions.swift */; };
 		8930E2BD234AA50A00B19C22 /* DataManagerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930E2BC234AA50A00B19C22 /* DataManagerProtocols.swift */; };
 		8941878F234C2E2D002DDA43 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8941878E234C2E2D002DDA43 /* ImageDownloader.swift */; };
@@ -38,7 +37,6 @@
 		89DA298E2347C23400C8BF50 /* CacheDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DA298D2347C23400C8BF50 /* CacheDataManager.swift */; };
 		89DA29902347CEDA00C8BF50 /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 89DA298F2347CEDA00C8BF50 /* loader.json */; };
 		89DA29942347CF5400C8BF50 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DA29922347CF5400C8BF50 /* LoaderView.swift */; };
-		89DA2999234837D600C8BF50 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DA2998234837D600C8BF50 /* ImageLoader.swift */; };
 		89E77286234398A4007FAB25 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77285234398A4007FAB25 /* CatalogViewController.swift */; };
 		89E772882343991D007FAB25 /* CatalogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E772872343991D007FAB25 /* CatalogProtocols.swift */; };
 		89E7728A234399F1007FAB25 /* CatalogEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E77289234399F1007FAB25 /* CatalogEntity.swift */; };
@@ -70,7 +68,6 @@
 		72002CE99965FA4EE46B0A03 /* Pods-TheMovieAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieAppTests/Pods-TheMovieAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8914B60F234BC883000EC92A /* MovieDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailEntity.swift; sourceTree = "<group>"; };
 		8930E2B6234AA41400B19C22 /* AnimatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorHelper.swift; sourceTree = "<group>"; };
-		8930E2B8234AA43500B19C22 /* CellHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHelper.swift; sourceTree = "<group>"; };
 		8930E2BA234AA47D00B19C22 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8930E2BC234AA50A00B19C22 /* DataManagerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocols.swift; sourceTree = "<group>"; };
 		8941878E234C2E2D002DDA43 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
@@ -102,7 +99,6 @@
 		89DA298D2347C23400C8BF50 /* CacheDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDataManager.swift; sourceTree = "<group>"; };
 		89DA298F2347CEDA00C8BF50 /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 		89DA29922347CF5400C8BF50 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
-		89DA2998234837D600C8BF50 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		89E77285234398A4007FAB25 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		89E772872343991D007FAB25 /* CatalogProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogProtocols.swift; sourceTree = "<group>"; };
 		89E77289234399F1007FAB25 /* CatalogEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogEntity.swift; sourceTree = "<group>"; };
@@ -182,7 +178,6 @@
 				89796DAB2343E1AA0031835C /* UIControls */,
 				8930E2B6234AA41400B19C22 /* AnimatorHelper.swift */,
 				895148A423466FF100597E3E /* Constants.swift */,
-				8930E2B8234AA43500B19C22 /* CellHelper.swift */,
 				8930E2BA234AA47D00B19C22 /* Extensions.swift */,
 			);
 			path = Resources;
@@ -414,7 +409,6 @@
 		89E77283234396E7007FAB25 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				89DA2998234837D600C8BF50 /* ImageLoader.swift */,
 				8941878E234C2E2D002DDA43 /* ImageDownloader.swift */,
 			);
 			path = API;
@@ -696,7 +690,6 @@
 				8951489F23462D6400597E3E /* APIClient.swift in Sources */,
 				89877115234B006B0094E56C /* CategoryTableViewCell.swift in Sources */,
 				8930E2B7234AA41400B19C22 /* AnimatorHelper.swift in Sources */,
-				8930E2B9234AA43600B19C22 /* CellHelper.swift in Sources */,
 				89E7728A234399F1007FAB25 /* CatalogEntity.swift in Sources */,
 				89E772A02343A385007FAB25 /* MovieDetailPresenter.swift in Sources */,
 				8998F19523426A9E00FD8364 /* AppDelegate.swift in Sources */,
@@ -707,7 +700,6 @@
 				89796DAA2343AD310031835C /* RoundButton.swift in Sources */,
 				89E77286234398A4007FAB25 /* CatalogViewController.swift in Sources */,
 				89E7729A2343A221007FAB25 /* MovieDetailProtocols.swift in Sources */,
-				89DA2999234837D600C8BF50 /* ImageLoader.swift in Sources */,
 				89E772882343991D007FAB25 /* CatalogProtocols.swift in Sources */,
 				8930E2BD234AA50A00B19C22 /* DataManagerProtocols.swift in Sources */,
 				89E7729E2343A37C007FAB25 /* MovieDetailInteractor.swift in Sources */,

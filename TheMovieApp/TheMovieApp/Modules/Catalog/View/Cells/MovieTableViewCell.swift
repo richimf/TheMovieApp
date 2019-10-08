@@ -20,14 +20,6 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
   private let genericTitle: String = "Movie"
   private var movie: Movie?
   
-  private var coverImageView: ImageLoader = {
-    let imageView = ImageLoader()
-    imageView.image = UIImage()
-    imageView.contentMode = .scaleAspectFill
-    imageView.clipsToBounds = true
-    return imageView
-  }()
-  
   override func awakeFromNib() {
     super.awakeFromNib()
     self.labelTitle.text = genericTitle
@@ -39,7 +31,6 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
   
   func setup(with movie: Movie, image: UIImage? = nil) {
     self.movie = movie
-    self.imageCover.image = nil
     self.imageCover.setRoundedCorners(radius: 10)
     if let title = movie.title {
       self.labelTitle.text = title
@@ -48,14 +39,10 @@ class MovieTableViewCell: UITableViewCell, UITableViewCellReusableView {
       self.labelTitle.text = name
     }
     self.labelDescription.text = MovieDetails.formatInfo(of: movie)
-    // If image is given just set it otherwise download it
-    if let image = image {
-      self.coverImageView.image = image
-    } else {
-      self.coverImageView.loadCompressedImage(of: movie, size: self.imageCover.frame.size)
-    }
     self.imageCover.isHidden = false
-    self.imageCover.image = self.coverImageView.image
+    if let image = image {
+      self.imageCover.image = image
+    }
   }
   
   @IBAction func watchTrailer(_ sender: Any) {

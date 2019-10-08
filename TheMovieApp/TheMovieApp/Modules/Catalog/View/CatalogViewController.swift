@@ -178,10 +178,8 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
     if let imageFromStorage = presenter?.getImageFromLocalStorage(key: key as String) {
       cell.setup(with: movie, image: imageFromStorage)
     } else {
-      // DOWNLOAD IMAGE
-      let imageDownloaded = imageDownloader.loadCompressedImage(of: movie) {
-        self.reloadRowAt(indexPath)
-      }
+    // DOWNLOAD IMAGE
+      let imageDownloaded = imageDownloader.loadCompressedImage(of: movie) { self.reloadRowAt(indexPath) }
       cell.setup(with: movie, image: imageDownloaded)
     }
     cell.delegate = self
