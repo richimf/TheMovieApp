@@ -61,8 +61,8 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
       self.appendSection(category)
       completion()
     }
-    dataManager.retreiveGenres { _ in 
-      completion()
+    dataManager.retreiveGenres { genres in
+      self.genresCategories = genres ?? []
     }
   }
   
