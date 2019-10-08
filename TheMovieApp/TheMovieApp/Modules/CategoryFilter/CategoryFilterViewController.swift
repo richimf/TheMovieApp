@@ -2,7 +2,7 @@
 //  CategoryFilterViewController.swift
 //  TheMovieApp
 //
-//  Created by Richie on 10/7/19.
+//  Created by Ricardo Montesinos on 10/1/19.
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
@@ -34,6 +34,11 @@ class CategoryFilterViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    filterButton.tintColor = Colors().Main
+    filterButton.refreshColor(color: UIColor.white)
+    filterButton.refreshColor(color: UIColor.white, for: .selected)
+    filterButton.setTitleColor(Colors().Main, for: .normal)
+
     //Select items previously selected
     defaultSelectedItems()
     // Do any additional setup after loading the view.
@@ -56,7 +61,10 @@ class CategoryFilterViewController: UIViewController {
   }
   
   private func setupTableView() {
+    //clear background
     self.view.backgroundColor = UIColor.clear
+    
+    // Tableview setup
     self.tableView.backgroundColor = UIColor.clear
     self.tableView.delegate = self
     self.tableView.dataSource = self
@@ -66,11 +74,8 @@ class CategoryFilterViewController: UIViewController {
     self.tableView.register(CategoryTableViewCell.nib(), forCellReuseIdentifier: identifier)
 
     // Blur Effect
-    let blurEffect = UIBlurEffect(style: .prominent)
-    let blurEffectView = UIVisualEffectView(effect: blurEffect)
-    blurEffectView.frame = self.view.frame
-    self.tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurEffect)
-    self.view.insertSubview(blurEffectView, at: 0)
+    //let blurEffectView = BlurEffectHelper.getBlurEffect(frame: self.view.frame, style: .dark)
+    //self.view.insertSubview(blurEffectView, at: 0)
   }
 }
 extension CategoryFilterViewController: UITableViewDelegate, UITableViewDataSource {

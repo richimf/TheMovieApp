@@ -20,8 +20,4 @@ class MovieDetailRouter: MovieDetailRouterProtocol {
     view.presenter?.interactor?.presenter = presenter
     view.presenter?.router = MovieDetailRouter()
   }
-
-  func presentMovieTrailer(from view: MovieDetailViewProtocol) {
-    //
-  }
 }

@@ -1,3 +1,5 @@
+#
+# RICARDO MONTESINOS FERNANDEZ
 # Uncomment the next line to define a global platform for your project
 platform :ios, '13.0'
 use_frameworks!
@@ -9,7 +11,7 @@ def dependency_pods
 
     # ALAMOFIRE
     pod 'Alamofire', '~> 4.5'
-    pod 'AlamofireImage'
+    # pod 'AlamofireImage'
     pod 'ObjectMapper'
     pod 'AlamofireObjectMapper', '~> 5.2'
     
@@ -26,7 +28,6 @@ def dependency_pods
     pod 'youtube-ios-player-helper', '~> 0.1.4'
     
     # Animations'
-    # pod 'Hero'
     pod 'lottie-ios'
     end
 

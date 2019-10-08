@@ -27,7 +27,7 @@ El proyecto se pensó para desarrollarse con la **mayor independencia** a librer
 	- Alamofire
 	- ObjectMapper
 	- Lottie
-	- Youtube Player (3rd party)
+	- Youtube Player
 	- Core Data para local storage y NSCache para imágenes 
 
 
@@ -41,14 +41,16 @@ Así mismo incluye las carácteristicas solicitadas.
 
 - **Además**:
 
-	- Almacenamiento en Cache de imagenes descargadas de Internet
-	- Almacenamiento Local via CoreData
+	- Almacenamiento en **CACHE** de imagenes descargadas de Internet
+	- Almacenamiento Local via **CoreData**
 	- Arquitectura general: **VIPER**
 	- Protocol Oriented Programming
 	- Functional Programming
 	- Manejo asíncrono y thread safe con Core Data
-	- Animaciones
-	- ARC checked
+	- Animaciones como Extensions y como Helper.
+	- Custom View Transitions
+	- ARC checked (referencias **WEAK** entre **Presenter-Interactor**.
+	- Patrones de diseño como: Multi Delegate Pattern, Singleton, Observer y State Pattern.
 
 ### Estructura
 
@@ -111,7 +113,7 @@ Dentro de esté módulo tenemos lo siguiente:
 
 ## Vistas adicionales
 
-Tenemos dos vistas que **no** se incluyen en VIPER por su simplicidad, pero son invocadas desde el ROUTER del módulo **Catalog**, estas son:
+Tenemos dos vistas que **NO** se incluyen en VIPER por su simplicidad, se prefirió optar por el criterio de simplicidad, sin embargo obedece VIPER y son invocadas desde el ROUTER del módulo **Catalog**, estas son:
 
 - **CategoryFilterViewController**: Vista de filtros por género.
 - **VideoPlayerViewController**: Vista de reproductor de video.

@@ -9,7 +9,7 @@
 import UIKit
 
 class CatalogPresenter: CatalogPresenterProtocol {
-  
+
   // MARK: - VIPER
   weak var view: CatalogViewProtocol?
   var interactor: CatalogInteractorInputProtocol?
@@ -65,10 +65,11 @@ class CatalogPresenter: CatalogPresenterProtocol {
     router?.presentMovieDetailView(for: movie, from: view)
   }
   
-  func showFilterView(from view: UIViewController) {
+  func showFilterView(from view: UIViewController, transitioningDelegate: UIViewControllerTransitioningDelegate) {
     guard let genres = interactor?.genresCategories else { return }
-    let ids = interactor?.genresFilteredIds ?? []
-    router?.presentCategoryFilterView(from: view, categories: genres, filteredIds: ids, delegate: self)
+       let ids = interactor?.genresFilteredIds ?? []
+    router?.presentCategoryFilterView(from: view, categories: genres, filteredIds: ids, delegate: self,
+                                      transitionDelegate: transitioningDelegate)
   }
   
   func showVideoPreview(for movie: Movie, from view: UIViewController) {

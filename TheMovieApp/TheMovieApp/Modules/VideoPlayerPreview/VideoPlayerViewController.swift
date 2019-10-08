@@ -2,7 +2,7 @@
 //  VideoPlayerViewController.swift
 //  TheMovieApp
 //
-//  Created by Richie on 10/7/19.
+//  Created by Ricardo Montesinos on 10/1/19.
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
@@ -20,11 +20,8 @@ class VideoPlayerViewController: UIViewController {
     super.viewDidLoad()
     self.view.backgroundColor = UIColor.clear
     self.viewPlayer.delegate = self
-    // Blur Effect
-    let blurEffect = UIBlurEffect(style: .dark)
-    let blurEffectView = UIVisualEffectView(effect: blurEffect)
-    blurEffectView.frame = self.view.frame
-    self.view.insertSubview(blurEffectView, at: 0)
+    let newBackgroundView = BlurEffectHelper.getBlurEffect(frame: self.view.frame, style: .dark)
+    self.view.insertSubview(newBackgroundView, at: 0)
   }
   
   override func viewDidAppear(_ animated: Bool) {

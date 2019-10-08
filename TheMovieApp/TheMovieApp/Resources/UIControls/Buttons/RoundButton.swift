@@ -46,9 +46,9 @@ import UIKit
     layer.cornerRadius = value
   }
   
-  func refreshColor(color: UIColor) {
+  func refreshColor(color: UIColor, for state:  UIControl.State = .normal) {
     let image = createImage(color: color)
-    setBackgroundImage(image, for: UIControl.State.normal)
+    setBackgroundImage(image, for: state)
     clipsToBounds = true
   }
 

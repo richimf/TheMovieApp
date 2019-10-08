@@ -2,7 +2,7 @@
 //  CategoryTableViewCell.swift
 //  TheMovieApp
 //
-//  Created by Richie on 10/7/19.
+//  Created by Ricardo Montesinos on 10/1/19.
 //  Copyright © 2019 Rappi. All rights reserved.
 //
 
@@ -27,7 +27,7 @@ class CategoryTableViewCell: UITableViewCell, UITableViewCellReusableView {
   func setup(item: Genre, color: UIColor, select: Bool = false) {
     self.item = item
     setup(selected: select)
-    self.label.textColor = color
+    self.label.textColor = UIColor.white
   }
 
   override func setSelected(_ selected: Bool, animated: Bool) {

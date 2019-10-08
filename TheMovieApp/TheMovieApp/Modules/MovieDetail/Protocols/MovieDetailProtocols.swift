@@ -43,5 +43,4 @@ protocol MovieDetailInteractorOutputProtocol: class {
 
 protocol MovieDetailRouterProtocol: class {
   // PRESENTER -> ROUTER
-  func presentMovieTrailer(from view: MovieDetailViewProtocol)
 }

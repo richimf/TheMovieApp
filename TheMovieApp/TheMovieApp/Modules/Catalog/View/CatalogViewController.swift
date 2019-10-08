@@ -19,13 +19,16 @@ class CatalogViewController: UIViewController {
   // IDENTIFIERS
   private lazy var identifier: String = MovieTableViewCell.reuseIdentifier()
   
+  // TRANSITION
+  let viewTransitionHelper = ViewTransitionHelper()
+  
   // CONSTANTS
   private let cellHeight: CGFloat = 175.0
   private let titleNavigation: String = "Movies"
   private let fontSection: UIFont? = UIFont(name: "Futura", size: 20)
   private lazy var loaderView: LoaderView = LoaderView()
   private var currentSectionNumber = 0
-
+  
   // SEARCH
   private let searchPlaceholder: String = "Busca tu película favorita..."
   private var searchController = UISearchController(searchResultsController: nil)
@@ -60,7 +63,7 @@ class CatalogViewController: UIViewController {
   
   @IBAction func presentFilterGenresView(_ sender: Any) {
     filterButton.bounce()
-    presenter?.showFilterView(from: self)
+    presenter?.showFilterView(from: self, transitioningDelegate: self)
   }
   
   // MARK: - SETUP AND PRIVATE METHODS
@@ -243,5 +246,23 @@ extension CatalogViewController: UISearchResultsUpdating, UISearchBarDelegate {
 extension CatalogViewController: MovieTableViewCellDelegate {
   func showMovieTrailer(of movie: Movie) {
     presenter?.showVideoPreview(for: movie, from: self)
+  }
+}
+
+// MARK: - CUSTOM TRANSITION DELEGATE
+extension CatalogViewController: UIViewControllerTransitioningDelegate {
+
+  func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    self.viewTransitionHelper.transitionMode = .present
+    self.viewTransitionHelper.startingPoint = self.filterButton.center
+    self.viewTransitionHelper.circleColor = self.filterButton.backgroundColor ?? UIColor.white
+    return self.viewTransitionHelper
+  }
+  
+  func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    self.viewTransitionHelper.transitionMode = .dismiss
+    self.viewTransitionHelper.startingPoint = self.filterButton.center
+    self.viewTransitionHelper.circleColor = self.filterButton.backgroundColor ?? UIColor.white
+    return self.viewTransitionHelper
   }
 }
