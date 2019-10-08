@@ -43,25 +43,23 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
       apiClient.fetchMovieListOf(url: .tv, release: .popular,  lang: .MX)
       apiClient.fetchMovieListOf(url: .tv, release: .topRated, lang: .MX)
       apiClient.fetchMovieListOf(url: .tv, release: .upcoming, lang: .MX)
-      
     } else {
       // Load from local storage
-      let dataManager = DataManager()
-      dataManager.retrieveMoviesData(from: Category.popular.rawValue) {
-        self.popular = $0
-        self.appendSection(.popular)
-        self.presenter?.updateData()
-      }
-      dataManager.retrieveMoviesData(from: Category.topRated.rawValue) {
-        self.topRated = $0
-        self.appendSection(.topRated)
-        self.presenter?.updateData()
-      }
-      dataManager.retrieveMoviesData(from: Category.upcoming.rawValue) {
-        self.upcoming = $0
-        self.appendSection(.upcoming)
-        self.presenter?.updateData()
-      }
+      let update: () -> Void = { self.presenter?.updateData() }
+      loadFromLocalStorage(category: .popular, completion: update)
+      loadFromLocalStorage(category: .topRated, completion: update)
+      loadFromLocalStorage(category: .upcoming, completion: update)
+    }
+  }
+  
+  func loadFromLocalStorage(category: Category, completion: @escaping () -> Void) {
+    let dataManager = DataManager()
+    dataManager.retrieveMoviesData(from: category.rawValue) {
+      if category == .popular  { self.popular = $0 }
+      if category == .topRated { self.topRated = $0 }
+      if category == .upcoming { self.upcoming = $0 }
+      self.appendSection(category)
+      completion()
     }
   }
   
