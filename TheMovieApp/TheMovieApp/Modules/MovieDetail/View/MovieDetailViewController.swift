@@ -84,7 +84,8 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
   }
   
   func showErrorMessage(_ message: String) {
-    // TODO
+    let alert = AlertViewHelper().showSimpleAlert(title: "Error", message: message)
+    self.present(alert, animated: true, completion: nil)
   }
 }
 

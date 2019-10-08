@@ -124,7 +124,7 @@ extension CatalogPresenter: CatalogInteractorOutputProtocol {
   }
   
   func receivedError(_ error: Error){
-    view?.showErrorMessage("")
+    view?.showErrorMessage("Algo salió mal")
   }
 }
 
