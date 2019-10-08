@@ -163,11 +163,14 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     self.segmentedControl.selectedSegmentIndex = indexPath.section
-    guard let movie = getItemAt(indexPath) else { return UITableViewCell() }
-    let helper: CellHelper = CellHelper()
+    guard let movie = getItemAt(indexPath),
+          let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MovieTableViewCell
+      else { return UITableViewCell()}
     let key = getURL(of: movie)
     let image = presenter?.getImageFromLocalStorage(key: key as String)
-    return helper.setupCell(for: tableView, with: identifier, row: indexPath.row, data: movie, image: image, delegate: self)
+    cell.setup(with: movie, image: image)
+    cell.delegate = self
+    return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

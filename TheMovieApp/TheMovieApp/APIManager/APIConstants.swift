@@ -42,7 +42,7 @@ public let YouTubeParams: [String: Any] = [
 // MARK: API
 public enum APIUrls: String {
   case movie = "https://api.themoviedb.org/3/movie/"
-  case img = "http://image.tmdb.org/t/p/w500/"
+  case img = "http://image.tmdb.org/t/p/w500"
   case tv = "https://api.themoviedb.org/3/tv/"
   case genreMovie = "https://api.themoviedb.org/3/genre/movie/list"
   case genreTV = "https://api.themoviedb.org/3/genre/tv/list"

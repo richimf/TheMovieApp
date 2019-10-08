@@ -41,12 +41,10 @@ class MovieDetailInteractor: MovieDetailInteractorInputProtocol {
   func getImageFromLocalStorage(key: String) -> UIImage? {
     // Get image From Local Storage
     var image: UIImage?
-    if !Connectivity.isConnectedToInternet {
       dataManager.retrieveImageDataFrom(key: key) { data in
         guard let data = data else { return }
         image = UIImage(data: data)
       }
-    }
     return image
   }
   
