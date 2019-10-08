@@ -84,7 +84,7 @@ Se enfocó la arquitectura en dos modulos principalmente:
 
 	- **CacheDataManager** que se encarga del **Cache** de Imagenes descargadas y almacenamiento Local.
 	
-	- **ImageLoader**: Clase encargada de descargar y comprimir imágenes.
+	- **ImageDownloader**: Clase encargada de descargar y comprimir imágenes.
 
 - **Interactor**: Esta clase **CatalogInteractor** es el intermediario para los Request, descarga de Películas e Imagenes y peticiones al almacenamiento Local. Se encarga de Notificar al Presenter.
 
