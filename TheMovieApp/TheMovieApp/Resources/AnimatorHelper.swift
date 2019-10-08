@@ -41,7 +41,7 @@ public class Animator {
   
   static func scaleWhenScrolling(view: UIView, isScrolling: Bool) {
     UIView.animate(withDuration: 0.25, animations: { () -> Void in
-      let scale: CGFloat = 0.85
+      let scale: CGFloat = 0.80
       if isScrolling {
         view.transform = CGAffineTransform(scaleX: scale, y: scale)
       } else {

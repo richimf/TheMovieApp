@@ -50,6 +50,7 @@ class CatalogViewController: UIViewController {
   // MARK: - IBACTIONS
   @IBAction func segmentedActions(_ sender: Any) {
     let section: Int = segmentedControl.selectedSegmentIndex
+    segmentedControl.selectedSegmentIndex = section
     scrollTo(section: section)
   }
 
