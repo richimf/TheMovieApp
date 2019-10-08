@@ -27,7 +27,7 @@ class CategoryTableViewCell: UITableViewCell, UITableViewCellReusableView {
   func setup(item: Genre, color: UIColor, select: Bool = false) {
     self.item = item
     setup(selected: select)
-    self.label.textColor = color
+    self.label.textColor = UIColor.white
   }
 
   override func setSelected(_ selected: Bool, animated: Bool) {

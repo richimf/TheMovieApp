@@ -31,7 +31,7 @@ protocol CatalogPresenterProtocol: class {
   func setupSegmentedControl(control: inout UISegmentedControl)
   // Show Views
   func showDetailView(for movie: Movie, from view: UIViewController)
-  func showFilterView(from view: UIViewController)
+  func showFilterView(from view: UIViewController, transitioningDelegate: UIViewControllerTransitioningDelegate)
   func showVideoPreview(for movie: Movie, from view: UIViewController)
   // FILTERING
   func filterSearch(input: String, completion: () -> Void)
@@ -66,7 +66,7 @@ protocol CatalogInteractorOutputProtocol: class {
 protocol CatalogRouterProtocol: class {
   // PRESENTER -> ROUTER
   func presentMovieDetailView(for item: Movie, from view: UIViewController)
-  func presentCategoryFilterView(from view: UIViewController, categories: [Genre], filteredIds: [Int], delegate: CategoryFilterDelegate?)
+  func presentCategoryFilterView(from view: UIViewController, categories: [Genre], filteredIds: [Int], delegate: CategoryFilterDelegate?, transitionDelegate: UIViewControllerTransitioningDelegate?)
   func presentVideoPreview(from view: UIViewController, with key: String)
 }
 

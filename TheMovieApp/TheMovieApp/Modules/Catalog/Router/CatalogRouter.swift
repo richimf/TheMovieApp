@@ -38,10 +38,20 @@ class CatalogRouter: CatalogRouterProtocol {
     view.present(filterView, animated: true, completion: nil)
   }
   
+  func presentCategoryFilterView(from view: UIViewController, categories: [Genre], filteredIds: [Int],
+                                 delegate: CategoryFilterDelegate?, transitionDelegate: UIViewControllerTransitioningDelegate?) {
+    guard let filterView = view.storyboard?.instantiateViewController(withIdentifier: "CategoryFilterViewController") as? CategoryFilterViewController else { return }
+    filterView.transitioningDelegate = transitionDelegate
+    filterView.modalPresentationStyle = .custom
+    filterView.items = categories
+    filterView.delegate = delegate
+    filterView.selectedGenresIds = filteredIds
+    view.present(filterView, animated: true, completion: nil)
+  }
+
   func presentVideoPreview(from view: UIViewController, with key: String) {
     guard let videoPreview = view.storyboard?.instantiateViewController(withIdentifier: "VideoPlayerViewController") as? VideoPlayerViewController else { return }
     videoPreview.videoKey = key
     view.present(videoPreview, animated: true, completion: nil)
   }
-
 }

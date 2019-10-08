@@ -34,6 +34,11 @@ class CategoryFilterViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    filterButton.tintColor = Colors().Main
+    filterButton.refreshColor(color: UIColor.white)
+    filterButton.refreshColor(color: UIColor.white, for: .selected)
+    filterButton.setTitleColor(Colors().Main, for: .normal)
+
     //Select items previously selected
     defaultSelectedItems()
     // Do any additional setup after loading the view.
@@ -69,8 +74,8 @@ class CategoryFilterViewController: UIViewController {
     self.tableView.register(CategoryTableViewCell.nib(), forCellReuseIdentifier: identifier)
 
     // Blur Effect
-    let blurEffectView = BlurEffectHelper.getBlurEffect(frame: self.view.frame, style: .prominent)
-    self.view.insertSubview(blurEffectView, at: 0)
+    //let blurEffectView = BlurEffectHelper.getBlurEffect(frame: self.view.frame, style: .dark)
+    //self.view.insertSubview(blurEffectView, at: 0)
   }
 }
 extension CategoryFilterViewController: UITableViewDelegate, UITableViewDataSource {
