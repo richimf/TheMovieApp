@@ -75,7 +75,7 @@ protocol MovieTableViewCellDelegate: class {
   func showMovieTrailer(of movie: Movie)
 }
 
-// MARK: - PROTOCOL Definition
+// MARK: - CELL PROTOCOL Definition
 protocol UITableViewCellReusableView {
   static func nib() -> UINib
   static func reuseIdentifier() -> String

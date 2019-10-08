@@ -93,8 +93,4 @@ extension MovieDetailViewController : YTPlayerViewDelegate {
   func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
     self.viewPlayerVideo.playVideo()
   }
-
-  func playerView(_ playerView: YTPlayerView, didPlayTime playTime: Float) {
-   // print("time \(playTime)")
-  }
 }

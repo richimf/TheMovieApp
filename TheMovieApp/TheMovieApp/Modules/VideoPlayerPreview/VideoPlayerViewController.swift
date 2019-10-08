@@ -20,11 +20,8 @@ class VideoPlayerViewController: UIViewController {
     super.viewDidLoad()
     self.view.backgroundColor = UIColor.clear
     self.viewPlayer.delegate = self
-    // Blur Effect
-    let blurEffect = UIBlurEffect(style: .dark)
-    let blurEffectView = UIVisualEffectView(effect: blurEffect)
-    blurEffectView.frame = self.view.frame
-    self.view.insertSubview(blurEffectView, at: 0)
+    let newBackgroundView = BlurEffectHelper.getBlurEffect(frame: self.view.frame, style: .dark)
+    self.view.insertSubview(newBackgroundView, at: 0)
   }
   
   override func viewDidAppear(_ animated: Bool) {

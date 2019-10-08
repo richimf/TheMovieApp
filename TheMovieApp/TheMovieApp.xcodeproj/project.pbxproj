@@ -15,6 +15,7 @@
 		8941878F234C2E2D002DDA43 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8941878E234C2E2D002DDA43 /* ImageDownloader.swift */; };
 		8942DB96234BD7F900511EBF /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942DB95234BD7F900511EBF /* VideoPlayerViewController.swift */; };
 		894772C42344EB6B0038EAC3 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894772C32344EB6B0038EAC3 /* APIConstants.swift */; };
+		894C7B83234C42CB003647D4 /* BlurEffectHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C7B82234C42CB003647D4 /* BlurEffectHelper.swift */; };
 		8951489F23462D6400597E3E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8951489E23462D6400597E3E /* APIClient.swift */; };
 		895148A523466FF100597E3E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895148A423466FF100597E3E /* Constants.swift */; };
 		89796DAA2343AD310031835C /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89796DA92343AD310031835C /* RoundButton.swift */; };
@@ -73,6 +74,7 @@
 		8941878E234C2E2D002DDA43 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		8942DB95234BD7F900511EBF /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		894772C32344EB6B0038EAC3 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		894C7B82234C42CB003647D4 /* BlurEffectHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurEffectHelper.swift; sourceTree = "<group>"; };
 		8951489E23462D6400597E3E /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		895148A423466FF100597E3E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		89796DA92343AD310031835C /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				89796DB22343E5C30031835C /* Fonts */,
 				89796DAB2343E1AA0031835C /* UIControls */,
 				8930E2B6234AA41400B19C22 /* AnimatorHelper.swift */,
+				894C7B82234C42CB003647D4 /* BlurEffectHelper.swift */,
 				895148A423466FF100597E3E /* Constants.swift */,
 				8930E2BA234AA47D00B19C22 /* Extensions.swift */,
 			);
@@ -702,6 +705,7 @@
 				89E7729A2343A221007FAB25 /* MovieDetailProtocols.swift in Sources */,
 				89E772882343991D007FAB25 /* CatalogProtocols.swift in Sources */,
 				8930E2BD234AA50A00B19C22 /* DataManagerProtocols.swift in Sources */,
+				894C7B83234C42CB003647D4 /* BlurEffectHelper.swift in Sources */,
 				89E7729E2343A37C007FAB25 /* MovieDetailInteractor.swift in Sources */,
 				89E7729023439FA3007FAB25 /* CatalogRouter.swift in Sources */,
 				89877112234AFF7C0094E56C /* CategoryFilterViewController.swift in Sources */,
