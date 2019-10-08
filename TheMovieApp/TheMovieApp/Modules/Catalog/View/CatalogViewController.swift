@@ -24,6 +24,7 @@ class CatalogViewController: UIViewController {
   private let titleNavigation: String = "Movies"
   private let fontSection: UIFont? = UIFont(name: "Futura", size: 20)
   private lazy var loaderView: LoaderView = LoaderView()
+  private var currentSectionNumber = 0
 
   // SEARCH
   private let searchPlaceholder: String = "Busca tu película favorita..."
@@ -169,7 +170,7 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    self.segmentedControl.selectedSegmentIndex = indexPath.section
+    currentSectionNumber = indexPath.section
     guard let movie = getItemAt(indexPath),
           let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MovieTableViewCell
       else { return UITableViewCell()}
@@ -203,8 +204,11 @@ extension CatalogViewController: UITableViewDelegate, UITableViewDataSource {
   // SCALE FILTER BUTTON
   func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
     scaleFilterButton(hide: false)
+    if self.segmentedControl.selectedSegmentIndex != currentSectionNumber {
+      self.segmentedControl.selectedSegmentIndex = currentSectionNumber
+    }
   }
-  
+
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
     scaleFilterButton(hide: true)
   }
