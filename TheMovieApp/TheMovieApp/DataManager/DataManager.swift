@@ -18,11 +18,15 @@ public class DataManager {
   
   init() {}
   
+  private func getContext() -> NSManagedObjectContext? {
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
+    return appDelegate.persistentContainer.viewContext
+  }
+  
   // MARK: - SAVE DATA
   func saveEntryOf(movie: Movie, category: Category) {
     // Get context
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-    let managedContext = appDelegate.persistentContainer.viewContext
+    guard let managedContext = getContext() else { return }
     
     // Mapping
     let resultEntity = CDResult(context: managedContext)
@@ -67,15 +71,14 @@ public class DataManager {
     // Save
     do {
       try managedContext.save()
-    } catch let error as NSError {
-      print("Could not save. \(error), \(error.userInfo)")
+    } catch let _ as NSError {
+      //print("Could not save. \(error), \(error.userInfo)")
     }
   }
   
   func saveEntryOf(genre: Genre) {
     // Get context
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-    let managedContext = appDelegate.persistentContainer.viewContext
+    guard let managedContext = getContext() else { return }
     let allGenreEntity = CDAllGenres(context: managedContext)
     let genreEntity = CDGenre(context: managedContext)
     
@@ -93,17 +96,15 @@ public class DataManager {
     do {
       try managedContext.save()
     } catch let error as NSError {
-      print("Could not save. \(error), \(error.userInfo)")
+      //print("Could not save. \(error), \(error.userInfo)")
     }
   }
   
   // MARK: - SAVE IMAGE DATA
   func saveImageDataFor(key: String, and imageData: Data?) {
     // Get context
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-    let managedContext = appDelegate.persistentContainer.viewContext
-    
-    guard let image = imageData else { return }
+    guard let managedContext = getContext(),
+          let image = imageData else { return }
     // Set Data
     let galleryEntity = CDGallery(context: managedContext)
     let imgEntity = CDImages(context: managedContext)
@@ -124,15 +125,14 @@ public class DataManager {
     do {
       try managedContext.save()
     } catch let error as NSError {
-      print("Could not save. \(error), \(error.userInfo)")
+      //print("Could not save. \(error), \(error.userInfo)")
     }
   }
   
   // MARK: - RETREIVE DATA
   func retrieveMoviesData(from category: String, completion: @escaping RetreiveMovies) {
     // Context
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-    let managedContext = appDelegate.persistentContainer.viewContext
+    guard let managedContext = getContext() else { return }
     
     // Output
     var output: [Movie] = []
@@ -167,14 +167,13 @@ public class DataManager {
       //Return Output
       completion(output)
     } catch {
-      print(error)
+      //print(error)
     }
   }
   
   func retreiveGenres(completion: @escaping RetreiveGenres) {
     // Context
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-    let managedContext = appDelegate.persistentContainer.viewContext
+    guard let managedContext = getContext() else { return }
     
     // Setup
     var output: [Genre] = []
@@ -195,15 +194,14 @@ public class DataManager {
       }
       completion(output)
     } catch {
-      print(error)
+      //print(error)
     }
   }
   
   // MARK: - RETREIVE IMAGE DATA
   func retrieveImageDataFrom(key: String, completion: @escaping RetreiveImageData) {
     // Context
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-    let managedContext = appDelegate.persistentContainer.viewContext
+    guard let managedContext = getContext() else { return }
     
     // Setup
     var output: Data?
@@ -227,15 +225,15 @@ public class DataManager {
       }
       completion(output)
     } catch {
-      print(error)
+      //print(error)
     }
   }
   
   // MARK: - SEARCH DATA
   func isEntrySaved(entity name: String, predicate: NSPredicate) -> Bool? {
     // Context
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
-    let managedContext = appDelegate.persistentContainer.viewContext
+    guard let managedContext = getContext() else { return nil }
+    
     // Perform search
     let entityForTableName = NSEntityDescription.entity(forEntityName: name, in: managedContext)
     let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
@@ -245,7 +243,7 @@ public class DataManager {
       let results = try managedContext.fetch(fetchRequest)
       return !results.isEmpty
     } catch {
-      print(error.localizedDescription)
+      //print(error.localizedDescription)
     }
     return nil
   }
