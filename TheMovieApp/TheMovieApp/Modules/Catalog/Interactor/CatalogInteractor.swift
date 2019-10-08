@@ -61,6 +61,9 @@ class CatalogInteractor: CatalogInteractorInputProtocol {
       self.appendSection(category)
       completion()
     }
+    dataManager.retreiveGenres { _ in 
+      completion()
+    }
   }
   
   func getImageFromLocalStorage(key: String) -> UIImage? {

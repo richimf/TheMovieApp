@@ -71,7 +71,7 @@ public class DataManager {
     // Save
     do {
       try managedContext.save()
-    } catch let _ as NSError {
+    } catch _ as NSError {
       //print("Could not save. \(error), \(error.userInfo)")
     }
   }
@@ -95,7 +95,7 @@ public class DataManager {
     // Save
     do {
       try managedContext.save()
-    } catch let error as NSError {
+    } catch _ as NSError {
       //print("Could not save. \(error), \(error.userInfo)")
     }
   }
@@ -124,7 +124,7 @@ public class DataManager {
     // Save
     do {
       try managedContext.save()
-    } catch let error as NSError {
+    } catch let _ as NSError {
       //print("Could not save. \(error), \(error.userInfo)")
     }
   }
