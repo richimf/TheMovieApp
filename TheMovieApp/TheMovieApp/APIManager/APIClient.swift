@@ -19,6 +19,12 @@ protocol APIResponseProtocol {
   func onFailure(_ error: Error)
 }
 
+protocol APIClientProtocol: class {
+  func fetchMovieListOf(url: APIUrls, release: APIMovieParams, lang: MovieLanguage)
+  func fetchGenreListOf(url: APIUrls, release: APIMovieParams, lang: MovieLanguage)
+  func fetchYouTubeKey(of movie: Movie, completion: @escaping (_ key: String?) -> Void)
+}
+
 // MARK: - CONNECTIVITY
 // Helps to know if device is connected to internet
 class Connectivity {
@@ -28,7 +34,7 @@ class Connectivity {
 }
 
 // MARK: - CLIENT
-class APIClient {
+class APIClient: APIClientProtocol {
   
   var delegate: APIResponseProtocol?
   
