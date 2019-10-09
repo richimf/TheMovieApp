@@ -56,9 +56,10 @@ Así mismo incluye las carácteristicas solicitadas.
 	- Animaciones como Extensions y como Helper.
 	- Custom View Transitions
 	- ARC checked (referencias **WEAK** entre **Presenter-Interactor**.
+	- **UnitTest** para los **Request** de Movies y Genres.
 	- Patrones de diseño como: Multi Delegate Pattern, Singleton, Observer y State Pattern.
 
-### Estructura
+## Estructura
 
 Dentro del proyecto encontramos la siguiente estructura:
 
@@ -75,6 +76,13 @@ Dentro del proyecto encontramos la siguiente estructura:
 	-  **MovieDetail**: Vista de detalle de la película o serie, permite reproducir video y da información básica.
 	-  **CategoryFilter**: Vista de Géneros para filtrar.
 	-  **VideoPlayerPreview**: Una vista de previsualización de video que es posible utilizar desde la vista principal.
+
+## Unit Test
+
+- **TheMovieAppTests** es el módulo de UnitTest, que contiene dos archivos:
+	
+	- **APIClientMock**: Simula ser APIClient. Esta clase conforma al mismo protocolo, gracias a ello podemos usar la respuseta en nuestro archivo de test.
+	- **InteractorTests**: Simula al Interactor encargado de hacer los requests de Películas y Géneros.
 
 
 ## Arquitéctura VIPER
