@@ -22,7 +22,6 @@ protocol APIResponseProtocol {
 protocol APIClientProtocol: class {
   func fetchMovieListOf(url: APIUrls, release: APIMovieParams, lang: MovieLanguage)
   func fetchGenreListOf(url: APIUrls, release: APIMovieParams, lang: MovieLanguage)
-  func fetchYouTubeKey(of movie: Movie, completion: @escaping (_ key: String?) -> Void)
 }
 
 // MARK: - CONNECTIVITY
